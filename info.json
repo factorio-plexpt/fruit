@@ -1,6 +1,6 @@
 {
     "name": "fruit",
-    "version": "1.4.4",
+    "version": "1.4.9",
     "title": "Fruit and Vegetable",
     "author": "plexpt",
     "contact": "q",
@@ -8,7 +8,8 @@
     "description": "🍎🍊🍇 Introducing the Fruit for Factorio, adding delightful fruits to your game. We welcome all mod developers to freely modify, extend, or integrate this mod. Imagine new fruit processing machines, agricultural expansions, trade systems, decorative items, energy sources, technology branches, creatures, and events. Let your creativity flourish and enhance the Factorio experience for everyone! 🍎🍊🍇",
     "factorio_version": "2.0",
     "dependencies": [
-        "? space-age"
+        "? space-age",
+        "? baketorio"
     ],
     "languages": [
         "en",

@@ -147,6 +147,12 @@ data:extend({
     }
 })
 
+
+
+if data.raw.capsule["cheese"] then
+    data.raw.capsule["cheese"] = nil
+end
+
 data:extend({
     {
         type = "item",
@@ -167,6 +173,8 @@ data:extend({
 
     }
 })
+
+
 
 data:extend({
     {

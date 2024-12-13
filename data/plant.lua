@@ -38,8 +38,8 @@ local function make_tree(name, count)
 
     data:extend {
         {
-            type = mods["space-age"] and "plant" or "tree",
-            name = name, -- food
+            type = "plant", --mods["space-age"] and "plant" or "tree",
+            name = name,
             icon = "__fruit__/graphics/tree/" .. name .. ".png",
             icon_size = 512,
             flags = { "placeable-neutral", "placeable-off-grid", "breaths-air" },
@@ -50,8 +50,9 @@ local function make_tree(name, count)
                 mining_trigger = mining_trigger
             },
             mined_sound = tree01.mined_sound,
-            growth_ticks = mods["space-age"] and 5 * minute or nil,
-            harvest_emissions = { spores = 15 },
+            --growth_ticks = mods["space-age"] and 5 * minute or nil,
+            growth_ticks = 5 * minute,
+            harvest_emissions = mods["space-age"] and { spores = 15 } or nil,
             emissions_per_second = { pollution = -0.001 },
             max_health = 50,
             collision_box = { { -0.8, -0.8 }, { 0.8, 0.8 } },
@@ -81,7 +82,7 @@ local function make_tree(name, count)
                 probability_expression = "clamp(random_penalty_at(4, 1), 0, 1)",
                 control = "trees",
                 order = "a[tree]-b[forest]-a",
-                probability_expression = "tree_0".. ((fruit_index - 1) % 9 + 1),
+                probability_expression = "tree_0" .. ((fruit_index - 1) % 9 + 1),
             },
         },
 
@@ -90,7 +91,7 @@ local function make_tree(name, count)
     data.raw.item[name].plant_result = name
     data.raw.item[name].place_result = name
 
-    fruit_index = fruit_index +1
+    fruit_index = fruit_index + 1
 end
 
 local fruits = {
@@ -126,7 +127,6 @@ local fruits = {
     strawberry = 3,
     watermelon = 2,
 }
-
 
 for name, count in pairs(fruits) do
     make_tree(name, count)
