@@ -1,4 +1,4 @@
-data:extend({
+data:extend {
     {
         type = "recipe",
         name = "sugar",
@@ -6,10 +6,7 @@ data:extend({
         energy_required = 5,
         ingredients = { { type = "item", name = "sugarcane", amount = 2 } },
         results = { { type = "item", name = "sugar", amount = 1 } },
-    }
-})
-
-data:extend({
+    },
     {
         type = "recipe",
         name = "pie-crust",
@@ -22,24 +19,17 @@ data:extend({
         },
         results = { { type = "item", amount = 1, name = "pie-crust" } },
 
-    }
-})
-
-data:extend {
+    },
     {
         type = "recipe",
         name = "flour",
         enabled = true,
         energy_required = 2,
         ingredients = {
-            { type = "item", name = "wheat", amount = 2 }, --这里暂时用木头代替，之后可以修改为其他材料
+            { type = "item", name = "wheat", amount = 2 },
         },
         results = { { type = "item", amount = 1, name = "flour" } },
-    }
-}
-
-------
-data:extend {
+    },
     {
         type = "recipe",
         name = "pizza",
@@ -47,7 +37,7 @@ data:extend {
         energy_required = 25,
         ingredients = {
             { type = "item", name = "flour", amount = 25 },
-            --{ type = "item", name = "yeast", amount = 3 },
+            { type = "item", name = "yeast", amount = 3 },
             { type = "item", name = "tomato", amount = 15 }, --jam
             { type = "item", name = "cheese", amount = 10 },
             { type = "item", name = "beef", amount = 1 },
@@ -243,15 +233,14 @@ data:extend {
         energy_required = 20,
         ingredients = {
             --{ type = "item", name = "ground beef", amount = 150 },
-            { type = "item", name = "beef", amount = 2 },
             { type = "item", name = "bread", amount = 3 },
+            { type = "item", name = "beef", amount = 2 },
+            { type = "item", name = "cheese", amount = 2 },
             { type = "item", name = "lettuce", amount = 2 },
+            { type = "item", name = "tomato", amount = 3 },
         },
         results = { { type = "item", amount = 1, name = "hamburger" } },
     },
-}
-
-data:extend {
     {
         type = "recipe",
         name = "yeast",
@@ -315,11 +304,286 @@ data:extend {
         enabled = true,
         energy_required = 30,
         ingredients = {
-            --{ type = "item", name = "cocoa_beans", amount = 100 },
-            { type = "item", name = "sugar", amount = 50 },
-            { type = "item", name = "milk", amount = 50 },
+            { type = "item", name = "cocoa_beans", amount = 10 },
+            { type = "item", name = "sugar", amount = 5 },
+            { type = "item", name = "milk", amount = 5 },
         },
         results = { { type = "item", amount = 1, name = "chocolate" } },
         category = "oil-processing",
+    },
+    {
+        type = "recipe",
+        name = "swiss_roll",
+        enabled = true,
+        energy_required = 25,
+        ingredients = {
+            { type = "item", name = "egg", amount = 4 },
+            { type = "item", name = "sugar", amount = 8 },
+            { type = "item", name = "flour", amount = 8 },
+            { type = "item", name = "milk", amount = 4 },
+            { type = "item", name = "cream", amount = 3 },
+        },
+        results = { { type = "item", amount = 1, name = "swiss_roll" } },
+    },
+    {
+        type = "recipe",
+        name = "baked-potato",
+        enabled = true,
+        energy_required = 30,
+        ingredients = {
+            { type = "item", name = "potato", amount = 1 },
+        },
+        results = { { type = "item", amount = 1, name = "baked-potato" } },
+    },
+    {
+        type = "recipe",
+        name = "chocolate-cake",
+        enabled = true,
+        energy_required = 40,
+        ingredients = {
+            { type = "item", name = "flour", amount = 10 },
+            { type = "item", name = "sugar", amount = 5 },
+            { type = "item", name = "chocolate", amount = 5 },
+            { type = "item", name = "butter", amount = 3 },
+            { type = "item", name = "egg", amount = 3 },
+        },
+        results = { { type = "item", amount = 1, name = "chocolate-cake" } },
+    },
+    {
+        type = "recipe",
+        name = "french-fries",
+        enabled = true,
+        energy_required = 15,
+        ingredients = {
+            { type = "item", name = "potato", amount = 2 },
+            { type = "item", name = "olive_oil", amount = 50 },
+        },
+        results = { { type = "item", amount = 1, name = "french-fries" } },
+    },
+    {
+        type = "recipe",
+        name = "tomato-soup",
+        enabled = true,
+        energy_required = 25,
+        ingredients = {
+            { type = "item", name = "tomato", amount = 4 },
+            { type = "item", name = "onion", amount = 1 },
+            { type = "item", name = "salt", amount = 5 },
+        },
+        results = { { type = "item", amount = 1, name = "tomato-soup" } },
+    },
+    {
+        type = "recipe",
+        name = "caramel-apple",
+        enabled = true,
+        energy_required = 20,
+        ingredients = {
+            { type = "item", name = "apple", amount = 1 },
+            { type = "item", name = "syrup", amount = 5 },
+        },
+        results = { { type = "item", amount = 1, name = "caramel-apple" } },
+    },
+    {
+        type = "recipe",
+        name = "toffee",
+        enabled = true,
+        energy_required = 15,
+        ingredients = {
+            { type = "item", name = "flour", amount = 2 },
+            { type = "item", name = "sugar", amount = 8 },
+            { type = "item", name = "butter", amount = 4 },
+        },
+        results = { { type = "item", amount = 1, name = "toffee" } },
+    },
+    {
+        type = "recipe",
+        name = "garlic-bread",
+        enabled = true,
+        energy_required = 10,
+        ingredients = {
+            { type = "item", name = "bread", amount = 2 },
+            { type = "item", name = "garlic", amount = 6 },
+            { type = "item", name = "butter", amount = 2 },
+        },
+        results = { { type = "item", amount = 1, name = "garlic-bread" } },
+    },
+    {
+        type = "recipe",
+        name = "mayonnaise",
+        enabled = true,
+        energy_required = 5,
+        ingredients = {
+            { type = "item", name = "egg", amount = 1 },
+            { type = "item", name = "olive_oil", amount = 100 },
+            { type = "item", name = "vinegar", amount = 10 },
+        },
+        results = { { type = "item", amount = 1, name = "mayonnaise" } },
+    },
+    {
+        type = "recipe",
+        name = "noodles",
+        enabled = true,
+        energy_required = 10,
+        ingredients = {
+            { type = "item", name = "flour", amount = 200 },
+            { type = "item", name = "salt", amount = 2 },
+        },
+        results = { { type = "item", amount = 1, name = "noodles" } },
+    },
+    {
+        type = "recipe",
+        name = "fresh-pasta",
+        enabled = true,
+        energy_required = 15,
+        ingredients = {
+            { type = "item", name = "flour", amount = 200 },
+            { type = "item", name = "egg", amount = 2 },
+        },
+        results = { { type = "item", amount = 1, name = "fresh-pasta" } },
+    },
+    {
+        type = "recipe",
+        name = "grilled-asparagus",
+        enabled = true,
+        energy_required = 8,
+        ingredients = {
+            { type = "item", name = "asparagus", amount = 10 },
+        },
+        results = { { type = "item", amount = 1, name = "grilled-asparagus" } },
+    },
+    {
+        type = "recipe",
+        name = "grilled-onion",
+        enabled = true,
+        energy_required = 10,
+        ingredients = {
+            { type = "item", name = "onion", amount = 1 },
+        },
+        results = { { type = "item", amount = 1, name = "grilled-onion" } },
+    },
+    {
+        type = "recipe",
+        name = "fried-rice",
+        enabled = true,
+        energy_required = 20,
+        ingredients = {
+            { type = "item", name = "rice", amount = 10 },
+            { type = "item", name = "egg", amount = 2 },
+            { type = "item", name = "onion", amount = 1 },
+        },
+        results = { { type = "item", amount = 1, name = "fried-rice" } },
+    },
+    {
+        type = "recipe",
+        name = "mashed-potatoes",
+        enabled = true,
+        energy_required = 20,
+        ingredients = {
+            { type = "item", name = "potato", amount = 3 },
+            { type = "item", name = "milk", amount = 50 },
+            { type = "item", name = "butter", amount = 20 },
+        },
+        results = { { type = "item", amount = 1, name = "mashed-potatoes" } },
+    },
+    {
+        type = "recipe",
+        name = "rice-noodles",
+        enabled = true,
+        energy_required = 5,
+        ingredients = {
+            { type = "item", name = "rice", amount = 100 },
+        },
+        results = { { type = "item", amount = 1, name = "rice-noodles" } },
+    },
+    {
+        type = "recipe",
+        name = "zha-jiang-mian",
+        enabled = true,
+        energy_required = 20,
+        ingredients = {
+            { type = "item", name = "noodles", amount = 20 },
+            { type = "item", name = "soy_sauce", amount = 5 },
+            { type = "item", name = "onion", amount = 1 },
+            { type = "item", name = "chili", amount = 10 },
+        },
+        results = { { type = "item", amount = 1, name = "zha-jiang-mian" } },
+    },
+    {
+        type = "recipe",
+        name = "marshmallow",
+        enabled = true,
+        energy_required = 15,
+        ingredients = {
+            { type = "item", name = "sugar", amount = 5 },
+        },
+        results = { { type = "item", amount = 1, name = "marshmallow" } },
+    },
+    {
+        type = "recipe",
+        name = "tofu",
+        enabled = true,
+        energy_required = 30,
+        ingredients = {
+            { type = "item", name = "soybeans", amount = 200 },
+        },
+        results = { { type = "item", amount = 1, name = "tofu" } },
+    },
+    {
+        type = "recipe",
+        name = "taco",
+        enabled = true,
+        energy_required = 25,
+        ingredients = {
+            { type = "item", name = "corn", amount = 100 },
+            { type = "item", name = "tomato", amount = 1 },
+            { type = "item", name = "onion", amount = 1 },
+            { type = "item", name = "bell_pepper", amount = 1 },
+        },
+        results = { { type = "item", amount = 1, name = "taco" } },
+    },
+    {
+        type = "recipe",
+        name = "spring-roll",
+        enabled = true,
+        energy_required = 20,
+        ingredients = {
+            { type = "item", name = "flour", amount = 10 },
+            { type = "item", name = "cabbage", amount = 50 },
+            { type = "item", name = "carrot", amount = 50 },
+        },
+        results = { { type = "item", amount = 1, name = "spring-roll" } },
+    },
+    {
+        type = "recipe",
+        name = "hot-dog",
+        enabled = true,
+        energy_required = 5,
+        ingredients = {
+            { type = "item", name = "bread", amount = 1 },
+            { type = "item", name = "bacon", amount = 1 },
+        },
+        results = { { type = "item", amount = 1, name = "hot-dog" } },
+    },
+    {
+        type = "recipe",
+        name = "yogurt",
+        enabled = true,
+        energy_required = 120,
+        ingredients = {
+            { type = "item", name = "milk", amount = 2 },
+        },
+        results = { { type = "item", amount = 1, name = "yogurt" } },
+    },
+    {
+        type = "recipe",
+        name = "waffle",
+        enabled = true,
+        energy_required = 10,
+        ingredients = {
+            { type = "item", name = "flour", amount = 20 },
+            { type = "item", name = "milk", amount = 20 },
+            { type = "item", name = "egg", amount = 1 },
+        },
+        results = { { type = "item", amount = 1, name = "waffle" } },
     },
 }

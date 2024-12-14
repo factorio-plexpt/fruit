@@ -5,7 +5,7 @@ second = 60
 minute = 60 * second
 hour = 60 * minute
 local fruit_index = 1
-local function make_tree(name, count)
+local function make_tree(name, count, size)
     local variations = {}
 
     -- 插入元素，包含数字
@@ -76,7 +76,7 @@ local function make_tree(name, count)
                 secondary = { r = 0.561, g = 0.613, b = 0.308, a = 1.000 }, -- #8f4f4eff
             },
             -- tile_buildability_rules = { {area = {{-0.55, -0.55}, {0.55, 0.55}}, required_tiles = {"natural-yumako-soil", "artificial-yumako-soil"}, remove_on_collision = true} },
-            map_color = { 255, 255, 255 },
+            map_color = { r = 0.15686, g = 0.58824, b = 0.34510 },
             variations = variations,
             autoplace = {
                 probability_expression = "clamp(random_penalty_at(4, 1), 0, 1)",
@@ -88,6 +88,7 @@ local function make_tree(name, count)
 
     }
 
+    log("add plant_result for ".. name)
     data.raw.item[name].plant_result = name
     data.raw.item[name].place_result = name
 
@@ -116,7 +117,7 @@ local fruits = {
     mango = 2,
     mangosteen = 3,
     olive = 3,
-    orange = 1, -- orange-trunk and orange
+    orange = 1,
     papaya = 1,
     peach = 2,
     pear = 2,
@@ -126,6 +127,25 @@ local fruits = {
     raspberry = 2,
     strawberry = 3,
     watermelon = 2,
+
+    bell_pepper = 1,
+    broccoli = 1,
+    cabbage = 1,
+    carrot = 1,
+    chili = 1,
+    cocoa_beans = 1,
+    coffee_beans = 1,
+    eggplant = 1,
+    garlic = 1,
+    lettuce = 1,
+    onion = 1,
+    pea = 1,
+    potato = 1,
+    pumpkin = 1,
+    sugarcane = 1,
+    sweet_potato = 1,
+    tomato = 1,
+    zucchini = 1,
 }
 
 for name, count in pairs(fruits) do

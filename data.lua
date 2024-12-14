@@ -1,11 +1,11 @@
 require("data.fruit")
 require("data.vegetable")
 require("data.animal_products")
-require("data.plant")
-require("data.entity")
 require("data.item")
+require("data.plant")
 require("data.recipe")
 require("data.technology")
+require("data.entity")
 require("data.juice")
 
 --group
@@ -47,6 +47,12 @@ data:extend {
     {
         type = "item-subgroup",
         name = "fruit_tree",
+        group = "fruit",
+        order = "z"
+    },
+    {
+        type = "item-subgroup",
+        name = "fruit_plant",
         group = "fruit",
         order = "z"
     },
