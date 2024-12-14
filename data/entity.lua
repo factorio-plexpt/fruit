@@ -275,7 +275,7 @@ local base = {
                     line_length = 1,
                     repeat_count = 1,
                     animation_speed = 0.3,
-                    shift = { 0, -1.5 },
+                    shift = { 0, -0.8 },
                     scale = 0.4,
                 },
             },

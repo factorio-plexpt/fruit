@@ -29,6 +29,7 @@ data:extend {
             { type = "item", name = "wheat", amount = 2 },
         },
         results = { { type = "item", amount = 1, name = "flour" } },
+        category = "grinder",
     },
     {
         type = "recipe",
@@ -72,6 +73,9 @@ data:extend {
             { type = "item", name = "sugar", amount = 5 },
         },
         results = { { type = "item", amount = 1, name = "icecream" } },
+        category = "icecream",
+        order = "aaai",
+
     },
     {
         type = "recipe",
@@ -87,6 +91,7 @@ data:extend {
             { type = "item", name = "egg", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "sushi" } },
+        category = "pot",
     },
     {
         type = "recipe",
@@ -135,6 +140,7 @@ data:extend {
             { type = "item", name = "milk", amount = 5 },
         },
         results = { { type = "item", amount = 1, name = "cream" } },
+        category = "agitator",
     },
     {
         type = "recipe",
@@ -183,6 +189,7 @@ data:extend {
             { type = "item", name = "cream", amount = 5 },
         },
         results = { { type = "item", amount = 1, name = "butter" } },
+        category = "agitator",
     },
     {
         type = "recipe",
@@ -193,6 +200,7 @@ data:extend {
             { type = "item", name = "milk", amount = 20 },
         },
         results = { { type = "item", amount = 1, name = "cheese" } },
+        category = "fermentation",
     },
     {
         type = "recipe",
@@ -219,6 +227,8 @@ data:extend {
             --{ type = "item", name = "chocolate chips/other add-ins", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "cookie" } },
+        category = "oven",
+
     },
     {
         type = "recipe",
@@ -229,6 +239,7 @@ data:extend {
             { type = "item", name = "sugarcane", amount = 5 },
         },
         results = { { type = "item", amount = 1, name = "syrup" } },
+        category = "pot",
     },
     {
         type = "recipe",
@@ -244,6 +255,7 @@ data:extend {
             { type = "item", name = "tomato", amount = 3 },
         },
         results = { { type = "item", amount = 1, name = "hamburger" } },
+        category = "pot",
     },
     {
         type = "recipe",
@@ -278,9 +290,37 @@ data:extend {
         enabled = true,
         energy_required = 60,
         ingredients = {
-            { type = "item", name = "apple-juice", amount = 1 },
+            { type = "item", name = "apple-juice", amount = 2 },
+            { type = "item", name = "yeast", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "vinegar" } },
+        category = "fermentation",
+    },
+    {
+        type = "recipe",
+        name = "vinegar-wheat",
+        localised_name = { "item-name.vinegar" },
+        enabled = true,
+        energy_required = 60,
+        ingredients = {
+            { type = "item", name = "wheat", amount = 2 },
+            { type = "item", name = "yeast", amount = 1 },
+        },
+        results = { { type = "item", amount = 1, name = "vinegar" } },
+        category = "fermentation",
+    },
+    {
+        type = "recipe",
+        name = "vinegar-rice",
+        localised_name = { "item-name.vinegar" },
+        enabled = true,
+        energy_required = 60,
+        ingredients = {
+            { type = "item", name = "rice", amount = 2 },
+            { type = "item", name = "yeast", amount = 1 },
+        },
+        results = { { type = "item", amount = 1, name = "vinegar" } },
+        category = "fermentation",
     },
     {
         type = "recipe",
@@ -292,6 +332,7 @@ data:extend {
             { type = "item", name = "wheat", amount = 50 },
             { type = "item", name = "salt", amount = 30 },
             { type = "fluid", name = "water", amount = 500 },
+            { type = "item", name = "yeast", amount = 1 },
         },
         results = { { type = "item", amount = 10, name = "soy_sauce" } },
         category = "fermentation",
@@ -315,7 +356,7 @@ data:extend {
             { type = "fluid", name = "water", amount = 1000 },
         },
         results = { { type = "item", amount = 1, name = "salt" } },
-        category = "fermentation",
+        category = "chemistry",
     },
     {
         type = "recipe",
@@ -323,12 +364,10 @@ data:extend {
         enabled = true,
         energy_required = 30,
         ingredients = {
-            { type = "item", name = "cocoa_beans", amount = 10 },
-            { type = "item", name = "sugar", amount = 5 },
-            { type = "item", name = "milk", amount = 5 },
+            { type = "item", name = "cocoa_beans", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "chocolate" } },
-        category = "chemistry",
+        category = "grinder",
     },
     {
         type = "recipe",
@@ -354,7 +393,7 @@ data:extend {
             { type = "item", name = "potato", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "baked-potato" } },
-        category = "oven",
+        category = "bbq",
     },
     {
         type = "recipe",
@@ -374,7 +413,6 @@ data:extend {
     {
         type = "recipe",
         name = "french-fries",
-
         enabled = true,
         energy_required = 15,
         ingredients = {
@@ -412,6 +450,7 @@ data:extend {
             { type = "item", name = "syrup", amount = 5 },
         },
         results = { { type = "item", amount = 1, name = "caramel-apple" } },
+        category = "agitator",
     },
     {
         type = "recipe",
@@ -424,6 +463,7 @@ data:extend {
             { type = "item", name = "butter", amount = 4 },
         },
         results = { { type = "item", amount = 1, name = "toffee" } },
+        category = "agitator",
     },
     {
         type = "recipe",
@@ -449,6 +489,8 @@ data:extend {
             { type = "item", name = "vinegar", amount = 10 },
         },
         results = { { type = "item", amount = 1, name = "mayonnaise" } },
+        category = "agitator",
+
     },
     {
         type = "recipe",
@@ -460,6 +502,8 @@ data:extend {
             { type = "item", name = "salt", amount = 2 },
         },
         results = { { type = "item", amount = 1, name = "noodles" } },
+        --category = "agitator", TODO
+
     },
     {
         type = "recipe",
@@ -471,6 +515,7 @@ data:extend {
             { type = "item", name = "egg", amount = 2 },
         },
         results = { { type = "item", amount = 1, name = "fresh-pasta" } },
+        --category = "agitator", TODO
     },
     {
         type = "recipe",
@@ -481,6 +526,7 @@ data:extend {
             { type = "item", name = "asparagus", amount = 10 },
         },
         results = { { type = "item", amount = 1, name = "grilled-asparagus" } },
+        category = "bbq",
     },
     {
         type = "recipe",
@@ -491,6 +537,7 @@ data:extend {
             { type = "item", name = "onion", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "grilled-onion" } },
+        category = "bbq",
     },
     {
         type = "recipe",
@@ -551,6 +598,7 @@ data:extend {
             { type = "item", name = "sugar", amount = 5 },
         },
         results = { { type = "item", amount = 1, name = "marshmallow" } },
+        category = "agitator",
     },
     {
         type = "recipe",
@@ -561,6 +609,7 @@ data:extend {
             { type = "item", name = "soybeans", amount = 200 },
         },
         results = { { type = "item", amount = 1, name = "tofu" } },
+        --    TODO
     },
     {
         type = "recipe",
