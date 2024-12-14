@@ -12,12 +12,12 @@ data:extend {
         name = "pie-crust",
         enabled = true,
         energy_required = 2,
-        category = "oil-processing",
         ingredients = {
             { type = "item", name = "flour", amount = 10 },
             { type = "fluid", name = "water", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "pie-crust" } },
+        category = "fermentation",
 
     },
     {
@@ -43,6 +43,7 @@ data:extend {
             { type = "item", name = "beef", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "pizza" } },
+        category = "oven",
     },
     {
         type = "recipe",
@@ -58,6 +59,7 @@ data:extend {
             { type = "item", name = "milk", amount = 10 },
         },
         results = { { type = "item", amount = 1, name = "cake" } },
+        category = "oven",
     },
     {
         type = "recipe",
@@ -122,7 +124,7 @@ data:extend {
             { type = "item", name = "salt", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "bread" } },
-        category = "oil-processing",
+        category = "fermentation",
     },
     {
         type = "recipe",
@@ -148,6 +150,7 @@ data:extend {
             { type = "item", name = "yeast", amount = 10 },
         },
         results = { { type = "item", amount = 1, name = "corn_bread" } },
+        category = "oven",
     },
     {
         type = "recipe",
@@ -166,9 +169,10 @@ data:extend {
         energy_required = 5,
         ingredients = {
             { type = "item", name = "corn", amount = 5 },
-            --{ type = "item", name = "oil", amount = 1 },
+            { type = "item", name = "olive_oil", amount = 2 },
         },
         results = { { type = "item", amount = 1, name = "popcorn" } },
+        category = "pot",
     },
     {
         type = "recipe",
@@ -196,11 +200,11 @@ data:extend {
         enabled = true,
         energy_required = 15,
         ingredients = {
-            { type = "item", name = "pork", amount = 2 },
-            --{ type = "item", name = "salt", amount = 1 },
-            --{ type = "item", name = "other spices", amount = to taste },
+            { type = "item", name = "pork", amount = 1 },
+            { type = "item", name = "salt", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "bacon" } },
+        category = "pot",
     },
     {
         type = "recipe",
@@ -248,10 +252,25 @@ data:extend {
         energy_required = 240,
         ingredients = {
             { type = "item", name = "sugar", amount = 5 },
+            { type = "item", name = "flour", amount = 25 },
             { type = "fluid", name = "water", amount = 25 },
         },
-        results = { { type = "item", amount = 1, name = "yeast" } },
-        category = "oil-processing",
+        results = { { type = "item", amount = 1, name = "yeast", probability = 0.15 } },
+        category = "fermentation",
+    },
+    {
+        type = "recipe",
+        name = "yeast-cultivation",
+        enabled = true,
+        energy_required = 240,
+        ingredients = {
+            { type = "item", name = "yeast", amount = 1 },
+            { type = "item", name = "flour", amount = 10 },
+            { type = "fluid", name = "water", amount = 10 },
+        },
+        results = { { type = "item", amount = 10, name = "yeast", probability = 0.8 } },
+        results = { { type = "item", amount = 2, name = "yeast", probability = 0.1 } },
+        category = "fermentation",
     },
     {
         type = "recipe",
@@ -275,7 +294,7 @@ data:extend {
             { type = "fluid", name = "water", amount = 500 },
         },
         results = { { type = "item", amount = 10, name = "soy_sauce" } },
-        category = "oil-processing",
+        category = "fermentation",
     },
     {
         type = "recipe",
@@ -296,7 +315,7 @@ data:extend {
             { type = "fluid", name = "water", amount = 1000 },
         },
         results = { { type = "item", amount = 1, name = "salt" } },
-        category = "oil-processing",
+        category = "fermentation",
     },
     {
         type = "recipe",
@@ -309,7 +328,7 @@ data:extend {
             { type = "item", name = "milk", amount = 5 },
         },
         results = { { type = "item", amount = 1, name = "chocolate" } },
-        category = "oil-processing",
+        category = "chemistry",
     },
     {
         type = "recipe",
@@ -324,6 +343,7 @@ data:extend {
             { type = "item", name = "cream", amount = 3 },
         },
         results = { { type = "item", amount = 1, name = "swiss_roll" } },
+        category = "oven",
     },
     {
         type = "recipe",
@@ -334,6 +354,7 @@ data:extend {
             { type = "item", name = "potato", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "baked-potato" } },
+        category = "oven",
     },
     {
         type = "recipe",
@@ -348,17 +369,24 @@ data:extend {
             { type = "item", name = "egg", amount = 3 },
         },
         results = { { type = "item", amount = 1, name = "chocolate-cake" } },
+        category = "oven",
     },
     {
         type = "recipe",
         name = "french-fries",
+
         enabled = true,
         energy_required = 15,
         ingredients = {
-            { type = "item", name = "potato", amount = 2 },
+            { type = "item", name = "potato", amount = 1 },
             { type = "item", name = "olive_oil", amount = 50 },
         },
-        results = { { type = "item", amount = 1, name = "french-fries" } },
+        results = {
+            { type = "item", name = "olive_oil", amount = 48 },
+            { type = "item", amount = 1, name = "french-fries" }
+        },
+        main_product = "french-fries",
+        category = "pot",
     },
     {
         type = "recipe",
@@ -368,9 +396,11 @@ data:extend {
         ingredients = {
             { type = "item", name = "tomato", amount = 4 },
             { type = "item", name = "onion", amount = 1 },
-            { type = "item", name = "salt", amount = 5 },
+            { type = "item", name = "salt", amount = 3 },
+            { type = "fluid", name = "water", amount = 10 },
         },
         results = { { type = "item", amount = 1, name = "tomato-soup" } },
+        category = "pot",
     },
     {
         type = "recipe",
@@ -406,6 +436,7 @@ data:extend {
             { type = "item", name = "butter", amount = 2 },
         },
         results = { { type = "item", amount = 1, name = "garlic-bread" } },
+        category = "oven",
     },
     {
         type = "recipe",
@@ -472,6 +503,7 @@ data:extend {
             { type = "item", name = "onion", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "fried-rice" } },
+        category = "pot",
     },
     {
         type = "recipe",
@@ -484,6 +516,7 @@ data:extend {
             { type = "item", name = "butter", amount = 20 },
         },
         results = { { type = "item", amount = 1, name = "mashed-potatoes" } },
+        category = "pot",
     },
     {
         type = "recipe",
@@ -507,6 +540,7 @@ data:extend {
             { type = "item", name = "chili", amount = 10 },
         },
         results = { { type = "item", amount = 1, name = "zha-jiang-mian" } },
+        category = "pot",
     },
     {
         type = "recipe",
@@ -540,6 +574,7 @@ data:extend {
             { type = "item", name = "bell_pepper", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "taco" } },
+        category = "oven",
     },
     {
         type = "recipe",
@@ -552,6 +587,7 @@ data:extend {
             { type = "item", name = "carrot", amount = 50 },
         },
         results = { { type = "item", amount = 1, name = "spring-roll" } },
+        category = "pot",
     },
     {
         type = "recipe",
@@ -563,6 +599,7 @@ data:extend {
             { type = "item", name = "bacon", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "hot-dog" } },
+        category = "oven",
     },
     {
         type = "recipe",
@@ -571,8 +608,10 @@ data:extend {
         energy_required = 120,
         ingredients = {
             { type = "item", name = "milk", amount = 2 },
+            { type = "item", name = "yeast", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "yogurt" } },
+        category = "fermentation",
     },
     {
         type = "recipe",
@@ -585,5 +624,6 @@ data:extend {
             { type = "item", name = "egg", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "waffle" } },
+        category = "oven",
     },
 }

@@ -73,7 +73,8 @@ for name, v in pairs(fruit) do
                 type = "recipe",
                 name = name,
                 enabled = enable_recipe,
-                energy_required = 600,
+                category = "fruit_plant",
+                energy_required = 3600,
                 ingredients = { { type = "item", name = name, amount = 1 } },
                 results = { { type = "item", name = name, amount = 2 } },
             }
