@@ -52,6 +52,7 @@ local RecipeCategory = {
     "oven",
     "agitator",
     "grinder",
+    "press",
 }
 
 for index, name in ipairs(RecipeCategory) do

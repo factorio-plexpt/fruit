@@ -1,3 +1,10 @@
+
+has_dlc = feature_flags["spoiling"] and true or false
+
+log("==========================flag==================================")
+print(serpent.block(feature_flags))
+
+require("data.const")
 require("data.group")
 require("data.fruit")
 require("data.vegetable")

@@ -81,6 +81,7 @@ for name, color in pairs(fruit) do
             {
                 type = "recipe",
                 name = name .. "-juice", -- 配方的名称，与果汁物品名称一致
+                crafting_machine_tint = { primary = color },
                 enabled = true,
                 energy_required = 10, -- 榨汁所需能量
                 ingredients = { { type = "item", name = name, amount = 3 } },
@@ -121,7 +122,8 @@ for name, color in pairs(fruit) do
                 name = name .. "-jam", -- 果酱配方名称
                 enabled = true,
                 energy_required = 30, -- 榨汁所需能量
-                category = "oil-processing",
+                category = "jam",
+                crafting_machine_tint = { primary = color },
                 ingredients = {
                     { type = "item", name = name, amount = 4 },
                     { type = "item", name = "sugar", amount = 2 },
@@ -164,6 +166,7 @@ for name, color in pairs(fruit) do
                 enabled = true,
                 energy_required = 30, -- 榨汁所需能量
                 category = "pie",
+                crafting_machine_tint = { primary = color },
                 ingredients = {
                     { type = "item", name = name, amount = 3 },
                     { type = "item", name = "pie-crust", amount = 1 },
@@ -205,6 +208,7 @@ for name, color in pairs(fruit) do
                 enabled = true,
                 energy_required = 2, -- 榨汁所需能量
                 category = "icecream",
+                crafting_machine_tint = { primary = color },
                 ingredients = {
                     { type = "item", name = name .. "-juice", amount = 1 },
                     { type = "item", name = name .. "-jam", amount = 1 },

@@ -39,6 +39,18 @@ data:extend({
         stack_size = 200
     }
 })
+--面粉
+data:extend({
+    {
+        type = "item",
+        name = "dough",
+        icon = "__fruit__/graphics/icon/dough.png",
+        icon_size = 512,
+        subgroup = "fruit_product",
+        order = "aa-dough",
+        stack_size = 200
+    }
+})
 
 data:extend({
     {
@@ -68,6 +80,7 @@ data:extend({
     {
         type = "item",
         name = "icecream",
+        localised_name = { "item-name.icecream-vanilla" },
         icon = "__fruit__/graphics/icon/icecream.png",
         icon_size = 512,
         subgroup = "fruit_product",

@@ -38,7 +38,8 @@ local function make_tree(name, count, size)
 
     data:extend {
         {
-            type = "plant", --mods["space-age"] and "plant" or "tree",
+            type = "plant",
+            --type = has_dlc and "plant" or "tree",
             name = name,
             icon = "__fruit__/graphics/tree/" .. name .. ".png",
             icon_size = 512,
@@ -50,8 +51,7 @@ local function make_tree(name, count, size)
                 mining_trigger = mining_trigger
             },
             mined_sound = tree01.mined_sound,
-            --growth_ticks = mods["space-age"] and 5 * minute or nil,
-            growth_ticks = 5 * minute,
+            growth_ticks =  5 * minute,  -- has_dlc and 5 * minute or nil,
             harvest_emissions = mods["space-age"] and { spores = 15 } or nil,
             emissions_per_second = { pollution = -0.001 },
             max_health = 50,
@@ -61,6 +61,11 @@ local function make_tree(name, count, size)
             subgroup = "fruit_tree",
             order = name,
             impact_category = "tree",
+            agricultural_tower_tint = { primary = fruit_const.fruit[name], secondary = fruit_const.fruit[name] },
+            --agricultural_tower_tint = {
+            --    primary = { r = 0.552, g = 0.218, b = 0.218, a = 1.000 }, -- #8c3737ff
+            --    secondary = { r = 0.561, g = 0.613, b = 0.308, a = 1.000 }, -- #8f4f4eff
+            --},
             --factoriopedia_simulation = simulations.factoriopedia_yumako_tree,
             colors = {
                 { r = 255, g = 255, b = 255 },
@@ -71,10 +76,7 @@ local function make_tree(name, count, size)
                 { r = 255, g = 220, b = 220 },
                 { r = 220, g = 255, b = 220 },
             },
-            agricultural_tower_tint = {
-                primary = { r = 0.552, g = 0.218, b = 0.218, a = 1.000 }, -- #8c3737ff
-                secondary = { r = 0.561, g = 0.613, b = 0.308, a = 1.000 }, -- #8f4f4eff
-            },
+
             -- tile_buildability_rules = { {area = {{-0.55, -0.55}, {0.55, 0.55}}, required_tiles = {"natural-yumako-soil", "artificial-yumako-soil"}, remove_on_collision = true} },
             map_color = { r = 0.15686, g = 0.58824, b = 0.34510 },
             variations = variations,
@@ -88,7 +90,7 @@ local function make_tree(name, count, size)
 
     }
 
-    log("add plant_result for ".. name)
+    log("add plant_result for " .. name)
     data.raw.item[name].plant_result = name
     data.raw.item[name].place_result = name
 

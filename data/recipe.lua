@@ -13,11 +13,11 @@ data:extend {
         enabled = true,
         energy_required = 2,
         ingredients = {
-            { type = "item", name = "flour", amount = 10 },
-            { type = "fluid", name = "water", amount = 1 },
+            { type = "item", name = "dough", amount = 2 },
+            { type = "item", name = "salt", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "pie-crust" } },
-        category = "fermentation",
+        category = "press",
 
     },
     {
@@ -33,11 +33,24 @@ data:extend {
     },
     {
         type = "recipe",
+        name = "dough",
+        enabled = true,
+        energy_required = 12,
+        ingredients = {
+            { type = "item", name = "flour", amount = 5 },
+            { type = "fluid", name = "water", amount = 5 },
+            { type = "item", name = "yeast", amount = 1 },
+        },
+        results = { { type = "item", amount = 1, name = "dough" } },
+        category = "fermentation",
+    },
+    {
+        type = "recipe",
         name = "pizza",
         enabled = true,
         energy_required = 25,
         ingredients = {
-            { type = "item", name = "flour", amount = 25 },
+            { type = "item", name = "dough", amount = 6 },
             { type = "item", name = "yeast", amount = 3 },
             { type = "item", name = "tomato", amount = 15 }, --jam
             { type = "item", name = "cheese", amount = 10 },
@@ -52,7 +65,7 @@ data:extend {
         enabled = true,
         energy_required = 30,
         ingredients = {
-            { type = "item", name = "flour", amount = 20 },
+            { type = "item", name = "dough", amount = 20 },
             { type = "item", name = "sugar", amount = 15 },
             { type = "item", name = "egg", amount = 5 },
             { type = "item", name = "cream", amount = 20 },
@@ -123,13 +136,11 @@ data:extend {
         enabled = true,
         energy_required = 45,
         ingredients = {
-            { type = "item", name = "flour", amount = 5 },
-            { type = "fluid", name = "water", amount = 200 },
-            { type = "item", name = "yeast", amount = 5 },
+            { type = "item", name = "dough", amount = 2 },
             { type = "item", name = "salt", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "bread" } },
-        category = "fermentation",
+        category = "oven",
     },
     {
         type = "recipe",
@@ -149,7 +160,7 @@ data:extend {
         energy_required = 35,
         ingredients = {
             { type = "item", name = "corn", amount = 15 },
-            { type = "item", name = "flour", amount = 2 },
+            { type = "item", name = "dough", amount = 2 },
             { type = "item", name = "milk", amount = 8 },
             { type = "item", name = "egg", amount = 1 },
             { type = "item", name = "sugar", amount = 2 },
@@ -167,6 +178,8 @@ data:extend {
             { type = "item", name = "sugarcane", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "brown_sugar" } },
+        category = "pot",
+
     },
     {
         type = "recipe",
@@ -236,7 +249,7 @@ data:extend {
         enabled = true,
         energy_required = 20,
         ingredients = {
-            { type = "item", name = "sugarcane", amount = 5 },
+            { type = "item", name = "sugar", amount = 5 },
         },
         results = { { type = "item", amount = 1, name = "syrup" } },
         category = "pot",
@@ -264,7 +277,7 @@ data:extend {
         energy_required = 240,
         ingredients = {
             { type = "item", name = "sugar", amount = 5 },
-            { type = "item", name = "flour", amount = 25 },
+            { type = "item", name = "dough", amount = 25 },
             { type = "fluid", name = "water", amount = 25 },
         },
         results = { { type = "item", amount = 1, name = "yeast", probability = 0.15 } },
@@ -346,6 +359,7 @@ data:extend {
             { type = "item", name = "olive", amount = 50 },
         },
         results = { { type = "item", amount = 10, name = "olive_oil" } },
+        category = "oil-processing",
     },
     {
         type = "recipe",
@@ -377,7 +391,7 @@ data:extend {
         ingredients = {
             { type = "item", name = "egg", amount = 4 },
             { type = "item", name = "sugar", amount = 8 },
-            { type = "item", name = "flour", amount = 8 },
+            { type = "item", name = "dough", amount = 8 },
             { type = "item", name = "milk", amount = 4 },
             { type = "item", name = "cream", amount = 3 },
         },
@@ -401,7 +415,7 @@ data:extend {
         enabled = true,
         energy_required = 40,
         ingredients = {
-            { type = "item", name = "flour", amount = 10 },
+            { type = "item", name = "dough", amount = 10 },
             { type = "item", name = "sugar", amount = 5 },
             { type = "item", name = "chocolate", amount = 5 },
             { type = "item", name = "butter", amount = 3 },
@@ -458,7 +472,7 @@ data:extend {
         enabled = true,
         energy_required = 15,
         ingredients = {
-            { type = "item", name = "flour", amount = 2 },
+            { type = "item", name = "dough", amount = 2 },
             { type = "item", name = "sugar", amount = 8 },
             { type = "item", name = "butter", amount = 4 },
         },
@@ -498,11 +512,11 @@ data:extend {
         enabled = true,
         energy_required = 10,
         ingredients = {
-            { type = "item", name = "flour", amount = 200 },
+            { type = "item", name = "dough", amount = 20 },
             { type = "item", name = "salt", amount = 2 },
         },
-        results = { { type = "item", amount = 1, name = "noodles" } },
-        --category = "agitator", TODO
+        results = { { type = "item", amount = 10, name = "noodles" } },
+        category = "press",
 
     },
     {
@@ -511,11 +525,11 @@ data:extend {
         enabled = true,
         energy_required = 15,
         ingredients = {
-            { type = "item", name = "flour", amount = 200 },
+            { type = "item", name = "dough", amount = 200 },
             { type = "item", name = "egg", amount = 2 },
         },
         results = { { type = "item", amount = 1, name = "fresh-pasta" } },
-        --category = "agitator", TODO
+        category = "press",
     },
     {
         type = "recipe",
@@ -631,7 +645,7 @@ data:extend {
         enabled = true,
         energy_required = 20,
         ingredients = {
-            { type = "item", name = "flour", amount = 10 },
+            { type = "item", name = "dough", amount = 10 },
             { type = "item", name = "cabbage", amount = 50 },
             { type = "item", name = "carrot", amount = 50 },
         },
@@ -668,7 +682,7 @@ data:extend {
         enabled = true,
         energy_required = 10,
         ingredients = {
-            { type = "item", name = "flour", amount = 20 },
+            { type = "item", name = "dough", amount = 20 },
             { type = "item", name = "milk", amount = 20 },
             { type = "item", name = "egg", amount = 1 },
         },

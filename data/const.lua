@@ -1,6 +1,5 @@
-local enable_recipe = settings.startup["fruit-recipe-enable"].value
-
-local fruit = {
+fruit_const = fruit_const or {}
+fruit_const.fruit = {
     apple = { r = 1, g = 0, b = 0, a = 0.6 }, -- Red
     banana = { r = 1, g = 1, b = 0, a = 0.6 }, -- Yellow
     orange = { r = 1, g = 0.5, b = 0, a = 0.6 }, -- Orange
@@ -50,61 +49,3 @@ local fruit = {
     sugarcane = { r = 0.8, g = 0.7, b = 0.4, a = 0.6 }, -- Light Brown
 }
 
-for name, color in pairs(fruit) do
-
-    if data.raw.item[name] then
-        data.raw.item[name] = nil
-    end
-
-    data:extend({
-        {
-            type = "item",
-            name = name,
-            icon = "__fruit__/graphics/fruit/" .. name .. ".png",
-            icon_size = 512,
-            subgroup = "fruit",
-            order = "a[" .. name .. "]",
-            spoil_ticks = feature_flags["spoiling"] and 10 * minute or nil,
-
-            stack_size = 100,
-        },
-    })
-    if not data.raw.recipe[name] then
-        data:extend {
-            {
-                type = "recipe",
-                name = name,
-                enabled = enable_recipe,
-                category = "fruit_plant",
-                crafting_machine_tint = { primary = color },
-                energy_required = 3600,
-                ingredients = { { type = "item", name = name, amount = 1 } },
-                results = { { type = "item", name = name, amount = 2 } },
-            }
-        }
-    end
-
-end
-
-
---data:extend({
---    {
---        type = "item",
---        name = "apple",
---        icon = "__fruit__/graphics/fruit/apple.png",
---        icon_size = 512,
---        subgroup = "fruit",
---        order = "a[apple]",
---        stack_size = 100,
---    },
---    {
---        type = "recipe",
---        name = "apple",
---        enabled = enable_recipe,
---        energy_required = 600,
---        ingredients = { { type = "item", name = "apple", amount = 1 } },
---        results = { { type = "item", name = "apple", amount = 2 } },
---
---    }
---})
---
