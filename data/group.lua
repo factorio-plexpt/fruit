@@ -43,6 +43,7 @@ end
 local RecipeCategory = {
     "fermentation",
     "fruit_plant",
+    "plant",
     "juice",
     "jam",
     "bbq",

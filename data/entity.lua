@@ -439,7 +439,6 @@ local base = {
     circuit_connector = circuit_connector_definitions["assembling-machine"],
     circuit_wire_max_distance = 20,
     energy_usage = "100kW",
-    ingredient_count = 6,
     module_slots = 4,
     allowed_effects = { "consumption", "speed", "productivity", "pollution", "quality" },
     heating_energy = feature_flags["freezing"] and "100kW" or nil,
@@ -751,6 +750,45 @@ washer.graphics_set = {
     },
 }
 
+--husker
+local husker = table.deepcopy(base)
+husker.name = "husker"
+husker.icon = "__fruit__/graphics/entity/husker/icon.png"
+husker.icon_size = 64
+husker.minable.result = "husker"
+husker.crafting_categories = { "husker", }
+husker.collision_box = shrinkBox(box6)
+husker.selection_box = box6
+husker.fluid_boxes = create_boxes_normal(6, 2, 3)
+
+husker.graphics_set = {
+    animation = {
+        layers = {
+            {
+                filename = "__fruit__/graphics/entity/husker/shadow.png",
+                priority = "high",
+                size = { 800, 600 },
+                shift = { 0, 0 },
+                scale = 0.5,
+                line_length = 1,
+                frame_count = 1,
+                repeat_count = 1,
+                draw_as_shadow = true,
+                animation_speed = 0.25,
+            },
+            {
+                filename = "__fruit__/graphics/entity/husker/animation.png",
+                size = { 400, 400 },
+                shift = { 0, 0 },
+                scale = 0.5,
+                line_length = 1,
+                frame_count = 1,
+                animation_speed = 0.25,
+            },
+        },
+    },
+}
+
 ---
 local pot = {
     type = "assembling-machine",
@@ -884,6 +922,7 @@ local pot = {
     source_inventory_size = 0,
     se_allow_in_space = true
 }
+pot.fluid_boxes = create_boxes_normal(3, 2, 2)
 
 local machines = {
     juice,
@@ -896,6 +935,7 @@ local machines = {
     press,
     bbq,
     washer,
+    husker,
     pot,
 }
 

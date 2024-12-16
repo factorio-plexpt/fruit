@@ -137,6 +137,7 @@ local fruits = {
     chili = 1,
     ["cocoa-pod"] = 1,
     ["coffee-seed"] = 1,
+    ["rice-grain"] = 1,
     eggplant = 1,
     garlic = 1,
     lettuce = 1,

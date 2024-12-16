@@ -1,694 +1,82 @@
 local enable_recipe = settings.startup["fruit-recipe-enable"].value
 
-data:extend({
-    {
-        type = "item",
-        name = "carrot",
-        icon = "__fruit__/graphics/vegetable/carrot.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[carrot]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "carrot",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "carrot", amount = 1 } },
-        results = { { type = "item", name = "carrot", amount = 2 } },
+local items = {
+    carrot = { r = 0.93, g = 0.69, b = 0.13, a = 1 }, -- Deep Orange A700
+    cucumber = { r = 0.6, g = 0.8, b = 0.19, a = 1 }, -- Light Green A700
+    spinach = { r = 0.3, g = 0.7, b = 0.16, a = 1 }, -- Green 800
+    tomato = { r = 0.91, g = 0.12, b = 0.39, a = 1 }, -- Red 500
+    broccoli = { r = 0.38, g = 0.74, b = 0.24, a = 1 }, -- Light Green 600
+    lettuce = { r = 0.76, g = 0.86, b = 0.42, a = 1 }, -- Lime 400
+    bell_pepper = { r = 1, g = 0.87, b = 0, a = 1 }, -- Amber A400 (Yellow bell pepper)
+    zucchini = { r = 0.57, g = 0.77, b = 0.41, a = 1 }, -- Light Green 800
+    onion = { r = 0.96, g = 0.85, b = 0.63, a = 1 }, -- Amber 100
+    garlic = { r = 0.97, g = 0.92, b = 0.84, a = 1 }, -- Grey 200
+    pumpkin = { r = 1, g = 0.58, b = 0, a = 1 }, -- Orange 900
+    cabbage = { r = 0.45, g = 0.67, b = 0.3, a = 1 }, -- Green 700
+    eggplant = { r = 0.55, g = 0.25, b = 0.6, a = 1 }, -- Deep Purple 500
+    potato = { r = 0.76, g = 0.69, b = 0.5, a = 1 }, -- Brown 300
+    sweet_potato = { r = 0.95, g = 0.64, b = 0.38, a = 1 }, -- Deep Orange 500
+    beetroot = { r = 0.7, g = 0.18, b = 0.3, a = 1 }, -- Deep Purple A400
+    asparagus = { r = 0.47, g = 0.79, b = 0.44, a = 1 }, -- Light Green 500
+    pea = { r = 0.6, g = 0.7, b = 0.3, a = 1 }, -- Green 600
+    celery = { r = 0.65, g = 0.77, b = 0.4, a = 1 }, -- Light Green 700
+    artichoke = { r = 0.4, g = 0.6, b = 0.3, a = 1 }, -- Green 800
+    brussels_sprout = { r = 0.4, g = 0.65, b = 0.35, a = 1 }, -- Green 700
+    parsnip = { r = 0.93, g = 0.84, b = 0.66, a = 1 }, -- Amber 50
+    leek = { r = 0.6, g = 0.75, b = 0.45, a = 1 }, -- Light Green 600
+    turnip = { r = 0.88, g = 0.86, b = 0.76, a = 1 }, -- Grey 100
+    cauliflower = { r = 0.95, g = 0.95, b = 0.95, a = 1 }, -- Grey 50
+    okra = { r = 0.3, g = 0.5, b = 0.2, a = 1 }, -- Green 900
+    daikon = { r = 0.97, g = 0.98, b = 0.95, a = 1 }, -- Grey 50
+    jicama = { r = 0.8, g = 0.75, b = 0.6, a = 1 }, -- Brown 200
+    chayote = { r = 0.7, g = 0.8, b = 0.5, a = 1 }, -- Light Green 500
+    kale = { r = 0.2, g = 0.5, b = 0.2, a = 1 }, -- Green 900
+    corn = { r = 1, g = 0.92, b = 0.31, a = 1 }, -- Amber 200
+    wheat = { r = 0.9, g = 0.8, b = 0.5, a = 1 }, -- Amber 300
+    soybeans = { r = 0.7, g = 0.6, b = 0.4, a = 1 }, -- Brown 400
+}
+
+
+
+for name, color in pairs(items) do
+
+    if data.raw.item[name] then
+        data.raw.item[name] = nil
+    end
+
+    if data.raw.capsule[name] then
+        data.raw.capsule[name] = nil
+    end
+
+    data:extend({
+        {
+            type = "item",
+            name = name,
+            icon = "__fruit__/graphics/vegetable/" .. name .. ".png",
+            icon_size = 512,
+            subgroup = "vegetable",
+            order = "a[" .. name .. "]",
+            spoil_ticks = feature_flags["spoiling"] and 10 * minute or nil,
+            stack_size = 100,
+        },
+    })
+    if not data.raw.recipe[name] then
+        data:extend {
+            {
+                type = "recipe",
+                name = name,
+                enabled = enable_recipe,
+                category = "fruit_plant",
+                crafting_machine_tint = { primary = color },
+                energy_required = 3600,
+                ingredients = {
+                    { type = "item", name = name, amount = 1 },
+                    { type = "fluid", name = "water", amount = 200 },
+                },
+                results = { { type = "item", name = name, amount = 2 } },
+            }
+        }
+    end
+
+end
 
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "cucumber",
-        icon = "__fruit__/graphics/vegetable/cucumber.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[cucumber]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "cucumber",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "cucumber", amount = 1 } },
-        results = { { type = "item", name = "cucumber", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "spinach",
-        icon = "__fruit__/graphics/vegetable/spinach.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[spinach]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "spinach",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "spinach", amount = 1 } },
-        results = { { type = "item", name = "spinach", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "tomato",
-        icon = "__fruit__/graphics/vegetable/tomato.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[tomato]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "tomato",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "tomato", amount = 1 } },
-        results = { { type = "item", name = "tomato", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "broccoli",
-        icon = "__fruit__/graphics/vegetable/broccoli.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[broccoli]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "broccoli",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "broccoli", amount = 1 } },
-        results = { { type = "item", name = "broccoli", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "lettuce",
-        icon = "__fruit__/graphics/vegetable/lettuce.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[lettuce]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "lettuce",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "lettuce", amount = 1 } },
-        results = { { type = "item", name = "lettuce", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "bell_pepper",
-        icon = "__fruit__/graphics/vegetable/bell_pepper.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[bell_pepper]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "bell_pepper",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "bell_pepper", amount = 1 } },
-        results = { { type = "item", name = "bell_pepper", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "zucchini",
-        icon = "__fruit__/graphics/vegetable/zucchini.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[zucchini]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "zucchini",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "zucchini", amount = 1 } },
-        results = { { type = "item", name = "zucchini", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "onion",
-        icon = "__fruit__/graphics/vegetable/onion.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[onion]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "onion",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "onion", amount = 1 } },
-        results = { { type = "item", name = "onion", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "garlic",
-        icon = "__fruit__/graphics/vegetable/garlic.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[garlic]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "garlic",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "garlic", amount = 1 } },
-        results = { { type = "item", name = "garlic", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "pumpkin",
-        icon = "__fruit__/graphics/vegetable/pumpkin.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[pumpkin]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "pumpkin",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "pumpkin", amount = 1 } },
-        results = { { type = "item", name = "pumpkin", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "cabbage",
-        icon = "__fruit__/graphics/vegetable/cabbage.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[cabbage]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "cabbage",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "cabbage", amount = 1 } },
-        results = { { type = "item", name = "cabbage", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "eggplant",
-        icon = "__fruit__/graphics/vegetable/eggplant.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[eggplant]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "eggplant",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "eggplant", amount = 1 } },
-        results = { { type = "item", name = "eggplant", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "potato",
-        icon = "__fruit__/graphics/vegetable/potato.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[potato]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "potato",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "potato", amount = 1 } },
-        results = { { type = "item", name = "potato", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "sweet_potato",
-        icon = "__fruit__/graphics/vegetable/sweet_potato.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[sweet_potato]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "sweet_potato",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "sweet_potato", amount = 1 } },
-        results = { { type = "item", name = "sweet_potato", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "beetroot",
-        icon = "__fruit__/graphics/vegetable/beetroot.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[beetroot]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "beetroot",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "beetroot", amount = 1 } },
-        results = { { type = "item", name = "beetroot", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "asparagus",
-        icon = "__fruit__/graphics/vegetable/asparagus.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[asparagus]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "asparagus",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "asparagus", amount = 1 } },
-        results = { { type = "item", name = "asparagus", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "pea",
-        icon = "__fruit__/graphics/vegetable/pea.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[pea]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "pea",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "pea", amount = 1 } },
-        results = { { type = "item", name = "pea", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "celery",
-        icon = "__fruit__/graphics/vegetable/celery.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[celery]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "celery",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "celery", amount = 1 } },
-        results = { { type = "item", name = "celery", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "artichoke",
-        icon = "__fruit__/graphics/vegetable/artichoke.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[artichoke]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "artichoke",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "artichoke", amount = 1 } },
-        results = { { type = "item", name = "artichoke", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "brussels_sprout",
-        icon = "__fruit__/graphics/vegetable/brussels_sprout.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[brussels_sprout]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "brussels_sprout",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "brussels_sprout", amount = 1 } },
-        results = { { type = "item", name = "brussels_sprout", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "parsnip",
-        icon = "__fruit__/graphics/vegetable/parsnip.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[parsnip]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "parsnip",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "parsnip", amount = 1 } },
-        results = { { type = "item", name = "parsnip", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "leek",
-        icon = "__fruit__/graphics/vegetable/leek.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[leek]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "leek",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "leek", amount = 1 } },
-        results = { { type = "item", name = "leek", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "turnip",
-        icon = "__fruit__/graphics/vegetable/turnip.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[turnip]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "turnip",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "turnip", amount = 1 } },
-        results = { { type = "item", name = "turnip", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "cauliflower",
-        icon = "__fruit__/graphics/vegetable/cauliflower.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[cauliflower]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "cauliflower",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "cauliflower", amount = 1 } },
-        results = { { type = "item", name = "cauliflower", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "okra",
-        icon = "__fruit__/graphics/vegetable/okra.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[okra]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "okra",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "okra", amount = 1 } },
-        results = { { type = "item", name = "okra", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "daikon",
-        icon = "__fruit__/graphics/vegetable/daikon.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[daikon]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "daikon",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "daikon", amount = 1 } },
-        results = { { type = "item", name = "daikon", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "jicama",
-        icon = "__fruit__/graphics/vegetable/jicama.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[jicama]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "jicama",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "jicama", amount = 1 } },
-        results = { { type = "item", name = "jicama", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "chayote",
-        icon = "__fruit__/graphics/vegetable/chayote.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[chayote]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "chayote",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "chayote", amount = 1 } },
-        results = { { type = "item", name = "chayote", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "kale",
-        icon = "__fruit__/graphics/vegetable/kale.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[kale]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "kale",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "kale", amount = 1 } },
-        results = { { type = "item", name = "kale", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "corn",
-        icon = "__fruit__/graphics/vegetable/corn.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[corn]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "corn",
-        enabled = true,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "corn", amount = 1 } },
-        results = { { type = "item", name = "corn", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "wheat",
-        icon = "__fruit__/graphics/vegetable/wheat.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[wheat]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "wheat",
-        enabled = true,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "wheat", amount = 1 } },
-        results = { { type = "item", name = "wheat", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
-        name = "soybeans",
-        icon = "__fruit__/graphics/vegetable/soybeans.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[soybeans]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "soybeans",
-        enabled = true,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "soybeans", amount = 1 } },
-        results = { { type = "item", name = "soybeans", amount = 2 } },
-
-    }
-})

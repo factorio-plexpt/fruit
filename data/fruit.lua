@@ -56,6 +56,10 @@ for name, color in pairs(fruit) do
         data.raw.item[name] = nil
     end
 
+    if data.raw.capsule[name] then
+        data.raw.capsule[name] = nil
+    end
+
     data:extend({
         {
             type = "item",
@@ -78,7 +82,10 @@ for name, color in pairs(fruit) do
                 category = "fruit_plant",
                 crafting_machine_tint = { primary = color },
                 energy_required = 3600,
-                ingredients = { { type = "item", name = name, amount = 1 } },
+                ingredients = {
+                    { type = "item", name = name, amount = 1 },
+                    { type = "fluid", name = "water", amount = 200 },
+                },
                 results = { { type = "item", name = name, amount = 2 } },
             }
         }
