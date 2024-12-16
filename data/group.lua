@@ -44,6 +44,7 @@ local RecipeCategory = {
     "fermentation",
     "fruit_plant",
     "plant",
+    "farming",
     "juice",
     "jam",
     "bbq",
