@@ -22,6 +22,41 @@ local function shrinkBox(box)
     return { newLeftBottom, newRightTop }
 end
 
+-- 容器大小，每个方向管道，间距1
+local function create_boxes_normal(size, num_pipes, pipe_spacing)
+    local total_width = (num_pipes - 1) * pipe_spacing -- 所有管道占据的总宽度
+    local position = size / 2 - 0.1 -- 计算管道中心到容器边缘的距离（0.2是管道自身直径的估计值）
+
+    local boxes = {}
+    for direction_index, direction in ipairs({ defines.direction.north, defines.direction.west, defines.direction.south, defines.direction.east }) do
+        local connections = {}
+        for i = 1, num_pipes do
+            local offset = (i - (num_pipes + 1) / 2) * pipe_spacing -- 计算每个管道的偏移量
+            local pipe_position = { 0, 0 }
+            if direction == defines.direction.north then
+                pipe_position = { offset, -position }
+            elseif direction == defines.direction.west then
+                pipe_position = { -position, offset }
+            elseif direction == defines.direction.south then
+                pipe_position = { offset, position }
+            elseif direction == defines.direction.east then
+                pipe_position = { position, offset }
+            end
+            table.insert(connections, { direction = direction, flow_direction = (direction_index > 2) and "output" or "input", position = pipe_position })
+        end
+
+        table.insert(boxes, {
+            production_type = (direction_index > 2) and "output" or "input",
+            volume = 1000,
+            pipe_picture = pipe_pic,
+            pipe_covers = pipecoverpic,
+            pipe_connections = connections,
+            secondary_draw_orders = { north = -1 }
+        })
+    end
+    return boxes
+end
+
 local function create_boxes(size)
     local position = size / 2 - 0.1
     return {
@@ -59,6 +94,62 @@ local function create_boxes(size)
             pipe_picture = pipe_pic,
             pipe_covers = pipecoverpic,
             pipe_connections = { { direction = defines.direction.east, flow_direction = "output", position = { position, 0 } } },
+            secondary_draw_orders = { north = -1 }
+        }
+    }
+end
+
+local function create_boxes2(size)
+    local position = size / 2 - 0.1 -- 调整位置以适应两个管道和间距
+    local offset = 1 -- 管道之间的间距
+
+    return {
+        -- 北 (两个管道)
+        {
+            production_type = "input",
+            volume = 1000,
+            pipe_picture = pipe_pic,
+            pipe_covers = pipecoverpic,
+            pipe_connections = {
+                { direction = defines.direction.north, flow_direction = "input", position = { -offset, -position } },
+                { direction = defines.direction.north, flow_direction = "input", position = { offset, -position } },
+            },
+            secondary_draw_orders = { north = -1 }
+        },
+        -- 西 (两个管道)
+        {
+            production_type = "input",
+            volume = 1000,
+            pipe_picture = pipe_pic,
+            pipe_covers = pipecoverpic,
+            pipe_connections = {
+                { direction = defines.direction.west, flow_direction = "input", position = { -position, -offset } },
+                { direction = defines.direction.west, flow_direction = "input", position = { -position, offset } },
+            },
+            secondary_draw_orders = { north = -1 }
+        },
+        -- 南 (两个管道)
+        {
+            production_type = "output",
+            volume = 1000,
+            pipe_picture = pipe_pic,
+            pipe_covers = pipecoverpic,
+            pipe_connections = {
+                { direction = defines.direction.south, flow_direction = "output", position = { -offset, position } },
+                { direction = defines.direction.south, flow_direction = "output", position = { offset, position } },
+            },
+            secondary_draw_orders = { north = -1 }
+        },
+        -- 东 (两个管道)
+        {
+            production_type = "output",
+            volume = 1000,
+            pipe_picture = pipe_pic,
+            pipe_covers = pipecoverpic,
+            pipe_connections = {
+                { direction = defines.direction.east, flow_direction = "output", position = { position, -offset } },
+                { direction = defines.direction.east, flow_direction = "output", position = { position, offset } },
+            },
             secondary_draw_orders = { north = -1 }
         }
     }
@@ -325,7 +416,7 @@ local base = {
                     ["height"] = 104,
                     ["line_length"] = 6,
                     ["lines_per_file"] = 6,
-                    ["shift"] = {x = 3.2 / 64, y = -72 / 64  -0.8 },
+                    ["shift"] = { x = 3.2 / 64, y = -72 / 64 - 0.8 },
                     ["sprite_count"] = 36,
                     frame_count = 36,
                     animation_speed = 3,
@@ -368,7 +459,7 @@ local base = {
 local juice = table.deepcopy(base)
 juice.collision_box = shrinkBox(box3)
 juice.selection_box = box3
-juice.fluid_boxes = create_boxes(3)
+juice.fluid_boxes = create_boxes2(3)
 juice.icon_size = 512
 
 --Jam Machine
@@ -380,7 +471,7 @@ jam.minable.result = "jam-machine"
 jam.crafting_categories = { "jam", }
 jam.collision_box = shrinkBox(box4)
 jam.selection_box = box4
-jam.fluid_boxes = create_boxes(4)
+jam.fluid_boxes = create_boxes_normal(4, 2, 2)
 jam.graphics_set = {
     animation = {
         layers = {
@@ -409,7 +500,8 @@ fermentation.minable.result = "fermentation-chamber"
 fermentation.crafting_categories = { "fermentation", }
 fermentation.collision_box = shrinkBox(box4)
 fermentation.selection_box = box4
-fermentation.fluid_boxes = create_boxes(4)
+fermentation.fluid_boxes = create_boxes_normal(4, 2, 2)
+
 fermentation.graphics_set = {
     animation = {
         layers = {
@@ -435,6 +527,7 @@ oven.icon = "__fruit__/graphics/entity/oven.png"
 oven.icon_size = 512
 oven.minable.result = "oven"
 oven.crafting_categories = { "oven", }
+oven.fluid_boxes = create_boxes_normal(5, 3, 2)
 oven.graphics_set = {
     animation = {
         layers = {
@@ -463,7 +556,7 @@ icecream.minable.result = "icecream-machine"
 icecream.crafting_categories = { "icecream", }
 icecream.collision_box = shrinkBox(box3)
 icecream.selection_box = box3
-icecream.fluid_boxes = create_boxes(3)
+icecream.fluid_boxes = create_boxes2(3)
 icecream.graphics_set = {
     animation = {
         layers = {
@@ -510,7 +603,7 @@ bbq.minable.result = "bbq"
 bbq.crafting_categories = { "bbq", }
 bbq.collision_box = shrinkBox(box5)
 bbq.selection_box = box5
-bbq.fluid_boxes = create_boxes(5)
+bbq.fluid_boxes = create_boxes_normal(5, 3, 2)
 bbq.graphics_set = {
     animation = {
         layers = {
@@ -539,7 +632,7 @@ agitator.minable.result = "agitator"
 agitator.crafting_categories = { "agitator", }
 agitator.collision_box = shrinkBox(box3)
 agitator.selection_box = box3
-agitator.fluid_boxes = create_boxes(3)
+agitator.fluid_boxes = create_boxes2(3)
 agitator.graphics_set = {
     animation = {
         layers = {
@@ -568,7 +661,7 @@ grinder.minable.result = "grinder"
 grinder.crafting_categories = { "grinder", }
 grinder.collision_box = shrinkBox(box4)
 grinder.selection_box = box4
-grinder.fluid_boxes = create_boxes(4)
+grinder.fluid_boxes = create_boxes_normal(4, 2, 2)
 
 grinder.graphics_set = {
     animation = {
@@ -597,7 +690,7 @@ press.minable.result = "dough-press"
 press.crafting_categories = { "press", }
 press.collision_box = shrinkBox(box4)
 press.selection_box = box4
-press.fluid_boxes = create_boxes(4)
+press.fluid_boxes = create_boxes_normal(4, 2, 2)
 
 press.graphics_set = {
     animation = {
@@ -617,7 +710,48 @@ press.graphics_set = {
         },
     },
 }
+--washer
+local washer = table.deepcopy(base)
+washer.name = "washer"
+washer.icon = "__fruit__/graphics/entity/washer/washer-icon.png"
+washer.icon_size = 64
+washer.minable.result = "washer"
+washer.crafting_categories = { "washer", }
+washer.collision_box = shrinkBox(box3)
+washer.selection_box = box3
+washer.fluid_boxes = create_boxes2(3)
 
+washer.graphics_set = {
+    animation = {
+        layers = {
+            {
+                filename = "__fruit__/graphics/entity/washer/scrubber-hr-shadow.png",
+                priority = "high",
+                size = { 400, 350 },
+                shift = { 0, 0 },
+                scale = 0.5,
+                line_length = 1,
+                repeat_count = 60,
+                draw_as_shadow = true,
+                animation_speed = 0.3,
+                shift = { 0, -0.8 },
+
+            },
+            {
+                filename = "__fruit__/graphics/entity/washer/scrubber-hr-animation.png",
+                size = { 210, 290 },
+                shift = { 0, 0 },
+                scale = 0.5,
+                line_length = 8,
+                frame_count = 60,
+                animation_speed = 0.3,
+                shift = { 0, -0.8 },
+            },
+        },
+    },
+}
+
+---
 local pot = {
     type = "assembling-machine",
     name = "pot",
@@ -761,6 +895,7 @@ local machines = {
     grinder,
     press,
     bbq,
+    washer,
     pot,
 }
 
