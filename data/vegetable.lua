@@ -675,27 +675,6 @@ data:extend({
 data:extend({
     {
         type = "item",
-        name = "rice",
-        icon = "__fruit__/graphics/vegetable/rice.png",
-        icon_size = 512,
-        subgroup = "vegetable",
-        order = "a[rice]",
-        stack_size = 100,
-    },
-    {
-        type = "recipe",
-        name = "rice",
-        enabled = true,
-        energy_required = 600,
-        ingredients = { { type = "item", name = "rice", amount = 1 } },
-        results = { { type = "item", name = "rice", amount = 2 } },
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
         name = "soybeans",
         icon = "__fruit__/graphics/vegetable/soybeans.png",
         icon_size = 512,

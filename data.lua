@@ -15,4 +15,11 @@ require("data.recipe")
 require("data.technology")
 require("data.entity")
 require("data.juice")
+require("data.processing.cocoa")
+require("data.processing.rice")
+require("data.processing.wheat")
+require("data.processing.yarn")
+require("data.processing.coffee")
+
+require("data.processing.drying")
 

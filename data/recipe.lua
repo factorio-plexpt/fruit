@@ -20,17 +20,17 @@ data:extend {
         category = "press",
 
     },
-    {
-        type = "recipe",
-        name = "flour",
-        enabled = true,
-        energy_required = 2,
-        ingredients = {
-            { type = "item", name = "wheat", amount = 2 },
-        },
-        results = { { type = "item", amount = 1, name = "flour" } },
-        category = "grinder",
-    },
+    --{
+    --    type = "recipe",
+    --    name = "flour",
+    --    enabled = true,
+    --    energy_required = 2,
+    --    ingredients = {
+    --        { type = "item", name = "wheat", amount = 2 },
+    --    },
+    --    results = { { type = "item", amount = 1, name = "flour" } },
+    --    category = "grinder",
+    --},
     {
         type = "recipe",
         name = "dough",
@@ -378,7 +378,7 @@ data:extend {
         enabled = true,
         energy_required = 30,
         ingredients = {
-            { type = "item", name = "cocoa_beans", amount = 1 },
+            { type = "item", name = "cocoa-bean", amount = 1 },
         },
         results = { { type = "item", amount = 1, name = "chocolate" } },
         category = "grinder",

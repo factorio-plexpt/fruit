@@ -4,7 +4,7 @@ data:extend({
     {
         type = "item",
         name = "milk",
-        icon = "__fruit__/graphics/animal_products/milk.png",
+        icon = "__fruit__/graphics/icon/milk.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[milk]",
@@ -25,7 +25,7 @@ data:extend({
     {
         type = "item",
         name = "egg",
-        icon = "__fruit__/graphics/animal_products/egg.png",
+        icon = "__fruit__/graphics/icon/egg.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[egg]",
@@ -46,7 +46,7 @@ data:extend({
     {
         type = "item",
         name = "pork",
-        icon = "__fruit__/graphics/animal_products/pork.png",
+        icon = "__fruit__/graphics/icon/pork.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[pork]",
@@ -66,29 +66,8 @@ data:extend({
 data:extend({
     {
         type = "item",
-        name = "wool",
-        icon = "__fruit__/graphics/animal_products/wool.png",
-        icon_size = 512,
-        subgroup = "animal_products",
-        order = "a[wool]",
-        stack_size = 100 ,
-    },
-    {
-        type = "recipe",
-        name = "wool",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { {type="item", name="wool", amount=1}},
-        results = {{type="item", name="wool", amount=2}},
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
         name = "honey",
-        icon = "__fruit__/graphics/animal_products/honey.png",
+        icon = "__fruit__/graphics/icon/honey.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[honey]",
@@ -109,7 +88,7 @@ data:extend({
     {
         type = "item",
         name = "feather",
-        icon = "__fruit__/graphics/animal_products/feather.png",
+        icon = "__fruit__/graphics/icon/feather.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[feather]",
@@ -130,7 +109,7 @@ data:extend({
     {
         type = "item",
         name = "leather",
-        icon = "__fruit__/graphics/animal_products/leather.png",
+        icon = "__fruit__/graphics/icon/leather.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[leather]",
@@ -157,7 +136,7 @@ data:extend({
     {
         type = "item",
         name = "cheese",
-        icon = "__fruit__/graphics/animal_products/cheese.png",
+        icon = "__fruit__/graphics/icon/cheese.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[cheese]",
@@ -179,29 +158,8 @@ data:extend({
 data:extend({
     {
         type = "item",
-        name = "yarn",
-        icon = "__fruit__/graphics/animal_products/yarn.png",
-        icon_size = 512,
-        subgroup = "animal_products",
-        order = "a[yarn]",
-        stack_size = 100 ,
-    },
-    {
-        type = "recipe",
-        name = "yarn",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { {type="item", name="yarn", amount=1}},
-        results = {{type="item", name="yarn", amount=2}},
-
-    }
-})
-
-data:extend({
-    {
-        type = "item",
         name = "beef",
-        icon = "__fruit__/graphics/animal_products/beef.png",
+        icon = "__fruit__/graphics/icon/beef.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[beef]",
@@ -222,7 +180,7 @@ data:extend({
     {
         type = "item",
         name = "chicken_meat",
-        icon = "__fruit__/graphics/animal_products/chicken_meat.png",
+        icon = "__fruit__/graphics/icon/chicken_meat.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[chicken_meat]",
@@ -239,32 +197,12 @@ data:extend({
     }
 })
 
---data:extend({
---    {
---        type = "item",
---        name = "goat_milk",
---        icon = "__fruit__/graphics/animal_products/goat_milk.png",
---        icon_size = 512,
---        subgroup = "animal_products",
---        order = "a[goat_milk]",
---        stack_size = 100 ,
---    },
---    {
---        type = "recipe",
---        name = "goat_milk",
---        enabled = enable_recipe,
---        energy_required = 600,
---        ingredients = { {type="item", name="goat_milk", amount=1}},
---        results = {{type="item", name="goat_milk", amount=2}},
---
---    }
---})
 
 data:extend({
     {
         type = "item",
         name = "duck_egg",
-        icon = "__fruit__/graphics/animal_products/duck_egg.png",
+        icon = "__fruit__/graphics/icon/duck_egg.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[duck_egg]",
@@ -285,7 +223,7 @@ data:extend({
     {
         type = "item",
         name = "rabbit_pelt",
-        icon = "__fruit__/graphics/animal_products/rabbit_pelt.png",
+        icon = "__fruit__/graphics/icon/rabbit_pelt.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[rabbit_pelt]",
@@ -306,7 +244,7 @@ data:extend({
     {
         type = "item",
         name = "turkey_meat",
-        icon = "__fruit__/graphics/animal_products/turkey_meat.png",
+        icon = "__fruit__/graphics/icon/turkey_meat.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[turkey_meat]",
@@ -323,32 +261,12 @@ data:extend({
     }
 })
 
---data:extend({
---    {
---        type = "item",
---        name = "bison_leather",
---        icon = "__fruit__/graphics/animal_products/bison_leather.png",
---        icon_size = 512,
---        subgroup = "animal_products",
---        order = "a[bison_leather]",
---        stack_size = 100 ,
---    },
---    {
---        type = "recipe",
---        name = "bison_leather",
---        enabled = enable_recipe,
---        energy_required = 600,
---        ingredients = { {type="item", name="bison_leather", amount=1}},
---        results = {{type="item", name="bison_leather", amount=2}},
---
---    }
---})
 
 data:extend({
     {
         type = "item",
         name = "goose_feather",
-        icon = "__fruit__/graphics/animal_products/goose_feather.png",
+        icon = "__fruit__/graphics/icon/goose_feather.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[goose_feather]",
@@ -369,7 +287,7 @@ data:extend({
     {
         type = "item",
         name = "ostrich_egg",
-        icon = "__fruit__/graphics/animal_products/ostrich_egg.png",
+        icon = "__fruit__/graphics/icon/ostrich_egg.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[ostrich_egg]",
@@ -386,32 +304,11 @@ data:extend({
     }
 })
 
---data:extend({
---    {
---        type = "item",
---        name = "alpaca_fleece",
---        icon = "__fruit__/graphics/animal_products/alpaca_fleece.png",
---        icon_size = 512,
---        subgroup = "animal_products",
---        order = "a[alpaca_fleece]",
---        stack_size = 100 ,
---    },
---    {
---        type = "recipe",
---        name = "alpaca_fleece",
---        enabled = enable_recipe,
---        energy_required = 600,
---        ingredients = { {type="item", name="alpaca_fleece", amount=1}},
---        results = {{type="item", name="alpaca_fleece", amount=2}},
---
---    }
---})
-
 data:extend({
     {
         type = "item",
         name = "quail_egg",
-        icon = "__fruit__/graphics/animal_products/quail_egg.png",
+        icon = "__fruit__/graphics/icon/quail_egg.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[quail_egg]",
@@ -428,32 +325,12 @@ data:extend({
     }
 })
 
-data:extend({
-    {
-        type = "item",
-        name = "sheep_milk",
-        icon = "__fruit__/graphics/animal_products/sheep_milk.png",
-        icon_size = 512,
-        subgroup = "animal_products",
-        order = "a[sheep_milk]",
-        stack_size = 100 ,
-    },
-    {
-        type = "recipe",
-        name = "sheep_milk",
-        enabled = enable_recipe,
-        energy_required = 600,
-        ingredients = { {type="item", name="sheep_milk", amount=1}},
-        results = {{type="item", name="sheep_milk", amount=2}},
-
-    }
-})
 
 data:extend({
     {
         type = "item",
         name = "lamb_meat",
-        icon = "__fruit__/graphics/animal_products/lamb_meat.png",
+        icon = "__fruit__/graphics/icon/lamb_meat.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[lamb_meat]",
@@ -470,53 +347,12 @@ data:extend({
     }
 })
 
---data:extend({
---    {
---        type = "item",
---        name = "goat_meat",
---        icon = "__fruit__/graphics/animal_products/goat_meat.png",
---        icon_size = 512,
---        subgroup = "animal_products",
---        order = "a[goat_meat]",
---        stack_size = 100 ,
---    },
---    {
---        type = "recipe",
---        name = "goat_meat",
---        enabled = enable_recipe,
---        energy_required = 600,
---        ingredients = { {type="item", name="goat_meat", amount=1}},
---        results = {{type="item", name="goat_meat", amount=2}},
---
---    }
---})
-
---data:extend({
---    {
---        type = "item",
---        name = "alpaca_meat",
---        icon = "__fruit__/graphics/animal_products/alpaca_meat.png",
---        icon_size = 512,
---        subgroup = "animal_products",
---        order = "a[alpaca_meat]",
---        stack_size = 100 ,
---    },
---    {
---        type = "recipe",
---        name = "alpaca_meat",
---        enabled = enable_recipe,
---        energy_required = 600,
---        ingredients = { {type="item", name="alpaca_meat", amount=1}},
---        results = {{type="item", name="alpaca_meat", amount=2}},
---
---    }
---})
 
 data:extend({
     {
         type = "item",
         name = "duck_meat",
-        icon = "__fruit__/graphics/animal_products/duck_meat.png",
+        icon = "__fruit__/graphics/icon/duck_meat.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[duck_meat]",
@@ -537,7 +373,7 @@ data:extend({
     {
         type = "item",
         name = "turkey_feather",
-        icon = "__fruit__/graphics/animal_products/turkey_feather.png",
+        icon = "__fruit__/graphics/icon/turkey_feather.png",
         icon_size = 512,
         subgroup = "animal_products",
         order = "a[turkey_feather]",
@@ -558,7 +394,7 @@ data:extend({
 --    {
 --        type = "item",
 --        name = "ostrich_meat",
---        icon = "__fruit__/graphics/animal_products/ostrich_meat.png",
+--        icon = "__fruit__/graphics/icon/ostrich_meat.png",
 --        icon_size = 512,
 --        subgroup = "animal_products",
 --        order = "a[ostrich_meat]",
@@ -579,7 +415,7 @@ data:extend({
 --    {
 --        type = "item",
 --        name = "bison_meat",
---        icon = "__fruit__/graphics/animal_products/bison_meat.png",
+--        icon = "__fruit__/graphics/icon/bison_meat.png",
 --        icon_size = 512,
 --        subgroup = "animal_products",
 --        order = "a[bison_meat]",
@@ -601,7 +437,7 @@ data:extend({
 --    {
 --        type = "item",
 --        name = "goose_meat",
---        icon = "__fruit__/graphics/animal_products/goose_meat.png",
+--        icon = "__fruit__/graphics/icon/goose_meat.png",
 --        icon_size = 512,
 --        subgroup = "animal_products",
 --        order = "a[goose_meat]",
@@ -622,7 +458,7 @@ data:extend({
 --    {
 --        type = "item",
 --        name = "llama_fleece",
---        icon = "__fruit__/graphics/animal_products/llama_fleece.png",
+--        icon = "__fruit__/graphics/icon/llama_fleece.png",
 --        icon_size = 512,
 --        subgroup = "animal_products",
 --        order = "a[llama_fleece]",
@@ -635,6 +471,135 @@ data:extend({
 --        energy_required = 600,
 --        ingredients = { {type="item", name="llama_fleece", amount=1}},
 --        results = {{type="item", name="llama_fleece", amount=2}},
+--
+--    }
+--})
+
+--data:extend({
+--    {
+--        type = "item",
+--        name = "goat_meat",
+--        icon = "__fruit__/graphics/icon/goat_meat.png",
+--        icon_size = 512,
+--        subgroup = "animal_products",
+--        order = "a[goat_meat]",
+--        stack_size = 100 ,
+--    },
+--    {
+--        type = "recipe",
+--        name = "goat_meat",
+--        enabled = enable_recipe,
+--        energy_required = 600,
+--        ingredients = { {type="item", name="goat_meat", amount=1}},
+--        results = {{type="item", name="goat_meat", amount=2}},
+--
+--    }
+--})
+
+--data:extend({
+--    {
+--        type = "item",
+--        name = "alpaca_meat",
+--        icon = "__fruit__/graphics/icon/alpaca_meat.png",
+--        icon_size = 512,
+--        subgroup = "animal_products",
+--        order = "a[alpaca_meat]",
+--        stack_size = 100 ,
+--    },
+--    {
+--        type = "recipe",
+--        name = "alpaca_meat",
+--        enabled = enable_recipe,
+--        energy_required = 600,
+--        ingredients = { {type="item", name="alpaca_meat", amount=1}},
+--        results = {{type="item", name="alpaca_meat", amount=2}},
+--
+--    }
+--})
+
+
+--data:extend({
+--    {
+--        type = "item",
+--        name = "goat_milk",
+--        icon = "__fruit__/graphics/icon/goat_milk.png",
+--        icon_size = 512,
+--        subgroup = "animal_products",
+--        order = "a[goat_milk]",
+--        stack_size = 100 ,
+--    },
+--    {
+--        type = "recipe",
+--        name = "goat_milk",
+--        enabled = enable_recipe,
+--        energy_required = 600,
+--        ingredients = { {type="item", name="goat_milk", amount=1}},
+--        results = {{type="item", name="goat_milk", amount=2}},
+--
+--    }
+--})
+
+
+--data:extend({
+--    {
+--        type = "item",
+--        name = "bison_leather",
+--        icon = "__fruit__/graphics/icon/bison_leather.png",
+--        icon_size = 512,
+--        subgroup = "animal_products",
+--        order = "a[bison_leather]",
+--        stack_size = 100 ,
+--    },
+--    {
+--        type = "recipe",
+--        name = "bison_leather",
+--        enabled = enable_recipe,
+--        energy_required = 600,
+--        ingredients = { {type="item", name="bison_leather", amount=1}},
+--        results = {{type="item", name="bison_leather", amount=2}},
+--
+--    }
+--})
+
+
+--data:extend({
+--    {
+--        type = "item",
+--        name = "alpaca_fleece",
+--        icon = "__fruit__/graphics/icon/alpaca_fleece.png",
+--        icon_size = 512,
+--        subgroup = "animal_products",
+--        order = "a[alpaca_fleece]",
+--        stack_size = 100 ,
+--    },
+--    {
+--        type = "recipe",
+--        name = "alpaca_fleece",
+--        enabled = enable_recipe,
+--        energy_required = 600,
+--        ingredients = { {type="item", name="alpaca_fleece", amount=1}},
+--        results = {{type="item", name="alpaca_fleece", amount=2}},
+--
+--    }
+--})
+
+--data:extend({
+--    {
+--        type = "item",
+--        name = "sheep_milk",
+--        icon = "__fruit__/graphics/icon/sheep_milk.png",
+--        icon_size = 512,
+--        subgroup = "animal_products",
+--        order = "a[sheep_milk]",
+--        stack_size = 100 ,
+--    },
+--    {
+--        type = "recipe",
+--        name = "sheep_milk",
+--        enabled = enable_recipe,
+--        energy_required = 600,
+--        ingredients = { {type="item", name="sheep_milk", amount=1}},
+--        results = {{type="item", name="sheep_milk", amount=2}},
 --
 --    }
 --})

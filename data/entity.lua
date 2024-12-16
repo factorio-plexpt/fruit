@@ -104,6 +104,9 @@ if mods["space-age"] then
     local tower = table.deepcopy(data.raw["agricultural-tower"]["agricultural-tower"])
 
     tower.name = "super-tower"
+
+    tower.minable.result = tower.name
+
     --	定义作物生长的随机偏移量，必须大于等于0且小于1。 默认0.25
     tower.random_growth_offset = 0
     --定义作物生长网格的瓦片大小，必须为正数。 默认3
@@ -273,8 +276,20 @@ local base = {
                     height = 512,
                     frame_count = 1,
                     line_length = 1,
-                    repeat_count = 1,
-                    animation_speed = 0.3,
+                    repeat_count = 36,
+                    animation_speed = 3,
+                    shift = { 0, -0.8 },
+                    scale = 0.4,
+                },
+                {
+                    filename = "__fruit__/graphics/entity/juicer-machine-pan.png",
+                    priority = "extra-high",
+                    width = 512,
+                    height = 512,
+                    frame_count = 1,
+                    line_length = 1,
+                    repeat_count = 36,
+                    animation_speed = 3,
                     shift = { 0, -0.8 },
                     scale = 0.4,
                 },
@@ -292,8 +307,9 @@ local base = {
                     height = 512,
                     frame_count = 1,
                     line_length = 1,
+                    repeat_count = 36,
                     priority = "high",
-                    animation_speed = 0.3,
+                    animation_speed = 3,
                     scale = 0.4,
                     shift = { 0, -0.8 },
                     --tint_as_overlay = true,
@@ -302,16 +318,19 @@ local base = {
             {
                 always_draw = true,
                 animation = {
-                    filename = "__fruit__/graphics/entity/juicer-machine-tint2.png",
+                    filename = "__fruit__/graphics/entity/juicer-machine-tint3.png",
                     priority = "extra-high",
-                    width = 512,
-                    height = 512,
-                    frame_count = 1,
-                    line_length = 1,
-                    priority = "high",
-                    animation_speed = 0.3,
+                    ["file_count"] = 1,
+                    ["width"] = 104,
+                    ["height"] = 104,
+                    ["line_length"] = 6,
+                    ["lines_per_file"] = 6,
+                    ["shift"] = {x = 3.2 / 64, y = -72 / 64  -0.8 },
+                    ["sprite_count"] = 36,
+                    frame_count = 36,
+                    animation_speed = 3,
                     scale = 0.4,
-                    shift = { 0, -0.8 },
+                    blend_mode = "multiplicative-with-alpha",
                 },
             },
         }
@@ -428,7 +447,7 @@ oven.graphics_set = {
                 line_length = 1,
                 repeat_count = 2,
                 animation_speed = 0.3,
-                shift = { 0,  0.3 },
+                shift = { 0, 0.3 },
                 scale = 0.5,
             },
         },
@@ -570,7 +589,7 @@ grinder.graphics_set = {
     },
 }
 --dough-press
-local  press = table.deepcopy(base)
+local press = table.deepcopy(base)
 press.name = "dough-press"
 press.icon = "__fruit__/graphics/entity/dough-press.png"
 press.icon_size = 512
