@@ -1,5 +1,15 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.5.8
+Date: 2024-12-16
+  Changes:
+    - add chocolate processing.
+    - add coffee processing.
+    - add rice processing.
+    - add wheat processing.
+    - add yarn processing.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.5.8
 Date: 2024-12-15
   Changes:
     - add Rus

@@ -374,17 +374,6 @@ data:extend {
     },
     {
         type = "recipe",
-        name = "chocolate",
-        enabled = true,
-        energy_required = 30,
-        ingredients = {
-            { type = "item", name = "cocoa-bean", amount = 1 },
-        },
-        results = { { type = "item", amount = 1, name = "chocolate" } },
-        category = "grinder",
-    },
-    {
-        type = "recipe",
         name = "swiss_roll",
         enabled = true,
         energy_required = 25,
