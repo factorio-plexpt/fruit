@@ -81,7 +81,6 @@ TECHNOLOGY {
     },
 }
 
-
 TECHNOLOGY {
     type = "technology",
     name = "fruit-cultivation",
@@ -237,11 +236,27 @@ TECHNOLOGY {
 
 TECHNOLOGY {
     type = "technology",
+    name = "drying",
+    icon = "__fruit__/graphics/entity/drying.png",
+    icon_size = 1024,
+    effects = {},
+    prerequisites = { "food-processing" },
+    unit = {
+        count = 12000,
+        ingredients = {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 }
+        },
+        time = 30
+    },
+}
+
+TECHNOLOGY {
+    type = "technology",
     name = "frying",
     icon = "__fruit__/graphics/icon/hamburger.png",
     icon_size = 512,
-    effects = {
-    },
+    effects = {},
     prerequisites = { "food-processing" },
     unit = {
         count = 1200,
@@ -355,7 +370,7 @@ TECHNOLOGY {
             recipe = "chocolate-bar-molding"
         },
     },
-    prerequisites = { "wheat-processing" },
+    prerequisites = { "fermentation" },
     unit = {
         count = 500,
         ingredients = {
@@ -395,7 +410,7 @@ TECHNOLOGY {
         { type = "unlock-recipe", recipe = "coffee-seed-roasting" },
         { type = "unlock-recipe", recipe = "coffee-powder-grinding" },
     },
-    prerequisites = { "food-processing" },
+    prerequisites = { "fermentation" },
     unit = {
         count = 300,
         ingredients = {
