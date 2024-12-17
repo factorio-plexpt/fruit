@@ -17,24 +17,6 @@ TECHNOLOGY {
 
 TECHNOLOGY {
     type = "technology",
-    name = "fruit-cultivation",
-    icon = "__fruit__/graphics/tree/apple.png",
-    icon_size = 512,
-    effects = {
-    },
-    prerequisites = { "food-processing", },
-    unit = {
-        count = 1000,
-        ingredients = {
-            { "automation-science-pack", 1 },
-            { "logistic-science-pack", 1 },
-        },
-        time = 30
-    },
-}
-
-TECHNOLOGY {
-    type = "technology",
     name = "fruit-juicing",
     icon = "__fruit__/graphics/juice.png",
     icon_size = 512,
@@ -99,13 +81,32 @@ TECHNOLOGY {
     },
 }
 
+
+TECHNOLOGY {
+    type = "technology",
+    name = "fruit-cultivation",
+    icon = "__fruit__/graphics/tree/apple.png",
+    icon_size = 512,
+    effects = {
+    },
+    prerequisites = { "advanced-farm" },
+    unit = {
+        count = 1000,
+        ingredients = {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+        },
+        time = 30
+    },
+}
+
 TECHNOLOGY {
     type = "technology",
     name = "animal-husbandry",
     icon = "__fruit__/graphics/icon/animal-husbandry.png",
     icon_size = 512,
     effects = {},
-    prerequisites = { "food-processing" },
+    prerequisites = { "advanced-farm" },
     unit = {
         count = 1500,
         time = 45,
@@ -119,11 +120,11 @@ TECHNOLOGY {
 TECHNOLOGY {
     type = "technology",
     name = "vegetable-cultivation",
-    icon = "__fruit__/graphics/tree/apple.png",
+    icon = "__fruit__/graphics/tree/lettuce.png",
     icon_size = 512,
     effects = {
     },
-    prerequisites = { "food-processing", },
+    prerequisites = { "advanced-farm" },
     unit = {
         count = 1000,
         ingredients = {
@@ -181,6 +182,77 @@ TECHNOLOGY {
         time = 30
     },
 }
+
+TECHNOLOGY {
+    type = "technology",
+    name = "fermentation",
+    icon = "__fruit__/graphics/icon/dough.png",
+    icon_size = 512,
+    effects = {
+    },
+    prerequisites = { "food-processing" },
+    unit = {
+        count = 1200,
+        ingredients = {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 }
+        },
+        time = 30
+    },
+}
+TECHNOLOGY {
+    type = "technology",
+    name = "baking",
+    icon = "__fruit__/graphics/icon/bread.png",
+    icon_size = 512,
+    effects = {
+    },
+    prerequisites = { "fermentation" },
+    unit = {
+        count = 1200,
+        ingredients = {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 }
+        },
+        time = 30
+    },
+}
+TECHNOLOGY {
+    type = "technology",
+    name = "barbecuing",
+    icon = "__fruit__/graphics/icon/grilled-asparagus.png",
+    icon_size = 512,
+    effects = {
+    },
+    prerequisites = { "food-processing" },
+    unit = {
+        count = 1200,
+        ingredients = {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 }
+        },
+        time = 30
+    },
+}
+
+TECHNOLOGY {
+    type = "technology",
+    name = "frying",
+    icon = "__fruit__/graphics/icon/hamburger.png",
+    icon_size = 512,
+    effects = {
+    },
+    prerequisites = { "food-processing" },
+    unit = {
+        count = 1200,
+        ingredients = {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 }
+        },
+        time = 30
+    },
+}
+
 TECHNOLOGY {
     type = "technology",
     name = "rice-processing",
@@ -214,7 +286,7 @@ TECHNOLOGY {
             recipe = "vinegar-wheat"
         },
     },
-    prerequisites = { "wheat-processing" },
+    prerequisites = { "fermentation" },
     unit = {
         count = 200,
         ingredients = {
@@ -237,7 +309,7 @@ TECHNOLOGY {
             recipe = "soy_sauce"
         },
     },
-    prerequisites = { "wheat-processing" },
+    prerequisites = { "fermentation" },
     unit = {
         count = 200,
         ingredients = {
@@ -297,7 +369,7 @@ TECHNOLOGY {
     type = "technology",
     name = "wool-processing",
     icon = "__fruit__/graphics/icon/wool.png",
-    icon_size = 128,
+    icon_size = 512,
     effects = {
         { type = "unlock-recipe", recipe = "wool-cleaning" },
         { type = "unlock-recipe", recipe = "wool-spinning" },

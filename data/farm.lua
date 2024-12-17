@@ -58,9 +58,10 @@ local advanced_farm_entity = {
 }
 
 -- 定义 advanced-farm 配方
-local advanced_farm_recipe = {
+RECIPE {
     type = "recipe",
     name = "advanced-farm",
+    enabled = false,
     ingredients = {
         { type = "item", name = "electronic-circuit", amount = 10 },
         { type = "item", name = "iron-gear-wheel", amount = 20 },
@@ -72,10 +73,11 @@ local advanced_farm_recipe = {
     },
     energy_required = 4,
     category = "crafting"
-}
+}:add_unlock("advanced-farm")
+
 
 -- 定义 advanced-farm 科技
-local advanced_farm_technology = {
+TECHNOLOGY {
     type = "technology",
     name = "advanced-farm",
     icon = "__fruit__/graphics/entity/advanced-farm.png",
@@ -102,20 +104,16 @@ local advanced_farm_technology = {
 -- 添加实体、配方和科技到游戏中
 data:extend({
     advanced_farm_entity,
-    advanced_farm_recipe,
-    advanced_farm_technology
 })
 
 -- 创建新物品
-data:extend({
-    {
-        type = "item",
-        name = "advanced-farm",
-        icon = "__fruit__/graphics/entity/advanced-farm.png",
-        icon_size = 1024,
-        subgroup = "fruit_machine",
-        order = "a[advanced-farm]",
-        stack_size = 10,
-        place_result = advanced_farm_entity.name
-    }
-})
+ITEM {
+    type = "item",
+    name = "advanced-farm",
+    icon = "__fruit__/graphics/entity/advanced-farm.png",
+    icon_size = 1024,
+    subgroup = "fruit_machine",
+    order = "a[advanced-farm]",
+    stack_size = 10,
+    place_result = advanced_farm_entity.name
+}

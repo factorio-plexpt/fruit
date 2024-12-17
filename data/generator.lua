@@ -68,6 +68,7 @@ RECIPE {
     results = {
         { type = "item", name = "fruit-fuel-generator", amount = 1 },
     },
+    enabled = false,
     energy_required = 2,
     category = "crafting"
 }
