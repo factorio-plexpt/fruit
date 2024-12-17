@@ -52,172 +52,169 @@ for name, color in pairs(fruit) do
     local fruit_item = data.raw.item[name]
     if fruit_item then
         -- 创建果汁物品
-        data:extend {
-            {
-                type = "item",
-                name = name .. "-juice", -- 果汁物品的名称，例如 "apple-juice"
-                localised_name = { "", { "item-name." .. name }, { "item-name.juice" }, },
-                icons = {
-                    {
-                        icon = "__fruit__/graphics/juice.png",
-                        icon_size = 512,
-                        scale = 0.08,
-                        tint = color,
-                    },
-                    {
-                        icon = fruit_item.icon,
-                        icon_size = fruit_item.icon_size,
-                        scale = 0.04,
-                    },
-
+        ITEM {
+            type = "item",
+            name = name .. "-juice", -- 果汁物品的名称，例如 "apple-juice"
+            localised_name = { "", { "item-name." .. name }, { "item-name.juice" }, },
+            icons = {
+                {
+                    icon = "__fruit__/graphics/juice.png",
+                    icon_size = 512,
+                    scale = 0.08,
+                    tint = color,
                 },
-                subgroup = "fruit_juice",
-                order = "a[fruit]-a[" .. name .. "]", -- 排序，方便在物品栏中查找
-                stack_size = 50, -- 堆叠数量
-                fuel_value = "50kJ",
-                fuel_category = "fruit",
-                default_request_amount = 100,
+                {
+                    icon = fruit_item.icon,
+                    icon_size = fruit_item.icon_size,
+                    scale = 0.04,
+                },
             },
-            {
-                type = "recipe",
-                name = name .. "-juice", -- 配方的名称，与果汁物品名称一致
-                crafting_machine_tint = { primary = color },
-                enabled = true,
-                energy_required = 10, -- 榨汁所需能量
-                ingredients = { { type = "item", name = name, amount = 3 } },
-                results = { { type = "item", name = name .. "-juice", amount = 1 } },
-                category = "juice",
-            }
+            subgroup = "fruit_juice",
+            order = "a[fruit]-a[" .. name .. "]", -- 排序，方便在物品栏中查找
+            stack_size = 50, -- 堆叠数量
+            fuel_value = "50kJ",
+            fuel_category = "fruit",
+            default_request_amount = 100,
         }
+
+        RECIPE {
+            type = "recipe",
+            name = name .. "-juice", -- 配方的名称，与果汁物品名称一致
+            crafting_machine_tint = { primary = color },
+            enabled = false,
+            energy_required = 10, -- 榨汁所需能量
+            ingredients = { { type = "item", name = name, amount = 3 } },
+            results = { { type = "item", name = name .. "-juice", amount = 1 } },
+            category = "juice",
+        }:add_unlock("fruit-juicing")
+
         -- 果酱部分
-        data:extend {
-            {
-                type = "item",
-                name = name .. "-jam", -- 果酱物品名称
-                localised_name = { "", { "item-name." .. name }, { "item-name.jam" }, },
-                icons = {
+        ITEM {
+            type = "item",
+            name = name .. "-jam", -- 果酱物品名称
+            localised_name = { "", { "item-name." .. name }, { "item-name.jam" }, },
+            icons = {
 
-                    {
-                        icon = "__fruit__/graphics/jam.png",
-                        tint = color,
-                        icon_size = 512,
-                        scale = 0.08,
-                        draw_background = true
-                    },
-                    {
-                        icon = fruit_item.icon,
-                        icon_size = fruit_item.icon_size,
-                        scale = 0.04,
-                    },
+                {
+                    icon = "__fruit__/graphics/jam.png",
+                    tint = color,
+                    icon_size = 512,
+                    scale = 0.08,
+                    draw_background = true
                 },
-                subgroup = "fruit_jam",
-                order = "a[jam]-a[" .. name .. "]", -- 排序，方便在物品栏中查找
-                stack_size = 50, -- 堆叠数量
-                fuel_value = "50kJ",
-                fuel_category = "fruit",
-                default_request_amount = 100,
+                {
+                    icon = fruit_item.icon,
+                    icon_size = fruit_item.icon_size,
+                    scale = 0.04,
+                },
             },
-            {
-                type = "recipe",
-                name = name .. "-jam", -- 果酱配方名称
-                enabled = true,
-                energy_required = 30, -- 榨汁所需能量
-                category = "jam",
-                crafting_machine_tint = { primary = color },
-                ingredients = {
-                    { type = "item", name = name, amount = 4 },
-                    { type = "item", name = "sugar", amount = 2 },
-                    { type = "fluid", name = "water", amount = 10 },
-                },
-                results = { { type = "item", name = name .. "-jam", amount = 1 } },
-                category = "jam",
-            }
+            subgroup = "fruit_jam",
+            order = "a[jam]-a[" .. name .. "]", -- 排序，方便在物品栏中查找
+            stack_size = 50, -- 堆叠数量
+            fuel_value = "50kJ",
+            fuel_category = "fruit",
+            default_request_amount = 100,
         }
+        RECIPE {
+            type = "recipe",
+            name = name .. "-jam", -- 果酱配方名称
+            enabled = false,
+            energy_required = 30, -- 榨汁所需能量
+            category = "jam",
+            crafting_machine_tint = { primary = color },
+            ingredients = {
+                { type = "item", name = name, amount = 4 },
+                { type = "item", name = "sugar", amount = 2 },
+                { type = "fluid", name = "water", amount = 10 },
+            },
+            results = { { type = "item", name = name .. "-jam", amount = 1 } },
+            category = "jam",
+        }:add_unlock("jam-making")
+
 
         -- 水果派部分
-        data:extend {
-            {
-                type = "item",
-                name = name .. "-pie", -- 果酱物品名称
-                localised_name = { "", { "item-name." .. name }, { "item-name.pie" }, },
-                icons = {
+        ITEM {
+            type = "item",
+            name = name .. "-pie", -- 果酱物品名称
+            localised_name = { "", { "item-name." .. name }, { "item-name.pie" }, },
+            icons = {
 
-                    {
-                        icon = "__fruit__/graphics/pie.png",
-                        icon_size = 512,
-                        scale = 0.08,
-                        tint = color,
+                {
+                    icon = "__fruit__/graphics/pie.png",
+                    icon_size = 512,
+                    scale = 0.08,
+                    tint = color,
 
-                        draw_background = true
-                    },
-                    {
-                        icon = fruit_item.icon,
-                        icon_size = fruit_item.icon_size,
-                        scale = 0.04,
-                    },
+                    draw_background = true
                 },
-                subgroup = "fruit_pie",
-                order = "a[jam]-a[" .. name .. "]", -- 排序，方便在物品栏中查找
-                stack_size = 50, -- 堆叠数量
+                {
+                    icon = fruit_item.icon,
+                    icon_size = fruit_item.icon_size,
+                    scale = 0.04,
+                },
             },
-            {
-                type = "recipe",
-                name = name .. "-pie", -- 果酱配方名称
-                enabled = true,
-                energy_required = 30, -- 榨汁所需能量
-                category = "pie",
-                crafting_machine_tint = { primary = color },
-                ingredients = {
-                    { type = "item", name = name, amount = 3 },
-                    { type = "item", name = "pie-crust", amount = 1 },
-                    { type = "item", name = "egg", amount = 1 },
-                },
-                results = { { type = "item", name = name .. "-pie", amount = 1 } },
-                --crafting_machine = {"fruit-preserver"} -- 使用水果蜜饯机制作
-            }
+            subgroup = "fruit_pie",
+            order = "a[jam]-a[" .. name .. "]", -- 排序，方便在物品栏中查找
+            stack_size = 50, -- 堆叠数量
         }
+        RECIPE {
+            type = "recipe",
+            name = name .. "-pie", -- 果酱配方名称
+            enabled = false,
+            energy_required = 30, -- 榨汁所需能量
+            category = "pie",
+            crafting_machine_tint = { primary = color },
+            ingredients = {
+                { type = "item", name = name, amount = 3 },
+                { type = "item", name = "pie-crust", amount = 1 },
+                { type = "item", name = "egg", amount = 1 },
+            },
+            results = { { type = "item", name = name .. "-pie", amount = 1 } },
+            --crafting_machine = {"fruit-preserver"} -- 使用水果蜜饯机制作
+        }:add_unlock("pie-baking")
+
         -- ice部分
-        data:extend {
-            {
-                type = "item",
-                name = name .. "-icecream", -- 果酱物品名称
-                localised_name = { "", { "item-name." .. name }, { "item-name.icecream" }, },
-                icons = {
+        ITEM {
+            type = "item",
+            name = name .. "-icecream", -- 果酱物品名称
+            localised_name = { "", { "item-name." .. name }, { "item-name.icecream" }, },
+            icons = {
 
-                    {
-                        icon = "__fruit__/graphics/icon/icecream.png",
-                        icon_size = 512,
-                        scale = 0.08,
-                        draw_background = true
-                    },
-                    {
-                        icon = "__fruit__/graphics/icon/icecream-top.png",
-                        icon_size = 512,
-                        scale = 0.08,
-                        tint = color,
-                        draw_background = true
-                    },
+                {
+                    icon = "__fruit__/graphics/icon/icecream.png",
+                    icon_size = 512,
+                    scale = 0.08,
+                    draw_background = true
                 },
-                subgroup = "fruit_icecream",
-                order = "a[jam]-a[" .. name .. "]", -- 排序，方便在物品栏中查找
-                stack_size = 50, -- 堆叠数量
+                {
+                    icon = "__fruit__/graphics/icon/icecream-top.png",
+                    icon_size = 512,
+                    scale = 0.08,
+                    tint = color,
+                    draw_background = true
+                },
             },
-            {
-                type = "recipe",
-                name = name .. "-icecream", -- 果酱配方名称
-                enabled = true,
-                energy_required = 2, -- 榨汁所需能量
-                category = "icecream",
-                crafting_machine_tint = { primary = color },
-                ingredients = {
-                    { type = "item", name = name .. "-juice", amount = 1 },
-                    { type = "item", name = name .. "-jam", amount = 1 },
-                    { type = "item", name = "icecream", amount = 1 },
-                },
-                results = { { type = "item", name = name .. "-icecream", amount = 1 } },
-                --crafting_machine = {"fruit-preserver"} -- 使用水果蜜饯机制作
-                category = "icecream",
-            }
+            subgroup = "fruit_icecream",
+            order = "a[jam]-a[" .. name .. "]", -- 排序，方便在物品栏中查找
+            stack_size = 50, -- 堆叠数量
         }
+
+        RECIPE {
+            type = "recipe",
+            name = name .. "-icecream", -- 果酱配方名称
+            enabled = false,
+            energy_required = 2, -- 榨汁所需能量
+            category = "icecream",
+            crafting_machine_tint = { primary = color },
+            ingredients = {
+                { type = "item", name = name .. "-juice", amount = 1 },
+                { type = "item", name = name .. "-jam", amount = 1 },
+                { type = "item", name = "icecream", amount = 1 },
+            },
+            results = { { type = "item", name = name .. "-icecream", amount = 1 } },
+            --crafting_machine = {"fruit-preserver"} -- 使用水果蜜饯机制作
+            category = "icecream",
+        }:add_unlock("ice-cream-making")
+
     end
 end

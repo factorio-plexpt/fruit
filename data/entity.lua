@@ -220,19 +220,21 @@ if mods["space-age"] then
                       order = tower.name,
                       stack_size = 20
                   },
-                  {
-                      type = "recipe",
-                      name = tower.name,
-                      enabled = true,
-                      energy_required = 1,
-                      ingredients = {
-                          { type = "item", name = "assembling-machine-1", amount = 2 },
-                          { type = "item", name = "iron-plate", amount = 100 },
-                          { type = "item", name = "steel-plate", amount = 100 },
-                          { type = "item", name = "electronic-circuit", amount = 20 },
-                      },
-                      results = { { type = "item", name = tower.name, amount = 1 } },
-                  }, }
+    }
+
+    RECIPE {
+        type = "recipe",
+        name = tower.name,
+        enabled = false,
+        energy_required = 1,
+        ingredients = {
+            { type = "item", name = "assembling-machine-1", amount = 2 },
+            { type = "item", name = "iron-plate", amount = 100 },
+            { type = "item", name = "steel-plate", amount = 100 },
+            { type = "item", name = "electronic-circuit", amount = 20 },
+        },
+        results = { { type = "item", name = tower.name, amount = 1 } },
+    }:add_unlock("food-processing")
 end
 
 local base = {
@@ -920,6 +922,7 @@ local pot = {
     },
     result_inventory_size = 0,
     source_inventory_size = 0,
+    squeak_behaviour = false,
     se_allow_in_space = true
 }
 pot.fluid_boxes = create_boxes_normal(3, 2, 2)
@@ -940,31 +943,30 @@ local machines = {
 }
 
 for k, machine in pairs(machines) do
-    data:extend {
-        {
-            type = "item",
-            subgroup = "fruit_machine",
-            name = machine.name,
-            icon = machine.icon,
-            icon_size = machine.icon_size,
-            place_result = machine.name,
-            order = machine.name,
-            stack_size = 20
-        },
-        {
-            type = "recipe",
-            name = machine.name,
-            enabled = true,
-            energy_required = 1,
-            ingredients = {
-                { type = "item", name = "assembling-machine-1", amount = 2 },
-                { type = "item", name = "iron-plate", amount = 100 },
-                { type = "item", name = "steel-plate", amount = 100 },
-                { type = "item", name = "electronic-circuit", amount = 20 },
-            },
-            results = { { type = "item", name = machine.name, amount = 1 } },
-        },
+    ITEM {
+        type = "item",
+        subgroup = "fruit_machine",
+        name = machine.name,
+        icon = machine.icon,
+        icon_size = machine.icon_size,
+        place_result = machine.name,
+        order = machine.name,
+        stack_size = 20
     }
+
+    RECIPE {
+        type = "recipe",
+        name = machine.name,
+        enabled = false,
+        energy_required = 2,
+        ingredients = {
+            { type = "item", name = "assembling-machine-1", amount = 2 },
+            { type = "item", name = "iron-plate", amount = 100 },
+            { type = "item", name = "steel-plate", amount = 100 },
+            { type = "item", name = "electronic-circuit", amount = 20 },
+        },
+        results = { { type = "item", name = machine.name, amount = 1, probability = 0.7 } },
+    }:add_unlock("food-processing")
 
 end
 

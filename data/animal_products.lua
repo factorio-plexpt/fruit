@@ -1,7 +1,5 @@
 local enable_recipe = settings.startup["fruit-recipe-enable"].value
 
-
-
 local animal_products = {
     milk = { r = 0.98, g = 0.98, b = 0.94, a = 1 }, -- Grey 50
     egg = { r = 0.98, g = 0.96, b = 0.9, a = 1 }, -- Grey 100
@@ -20,7 +18,7 @@ local animal_products = {
     quail_egg = { r = 0.9, g = 0.88, b = 0.8, a = 1 }, -- Grey 200
     lamb_meat = { r = 0.75, g = 0.5, b = 0.4, a = 1 }, -- Brown 400
     duck_meat = { r = 0.7, g = 0.5, b = 0.3, a = 1 }, -- Brown 600
-    turkey_feather = { r = 0.8, g = 0.7, b = 0.6, a = 1}, -- Brown 200
+    turkey_feather = { r = 0.8, g = 0.7, b = 0.6, a = 1 }, -- Brown 200
 }
 
 for name, color in pairs(animal_products) do
@@ -47,21 +45,20 @@ for name, color in pairs(animal_products) do
     })
 
     if not data.raw.recipe[name] then
-        data:extend {
-            {
-                type = "recipe",
-                name = name,
-                enabled = enable_recipe,
-                category = "farming",
-                crafting_machine_tint = { primary = color },
-                energy_required = 3600,
-                ingredients = {
-                    { type = "item", name = name, amount = 1 },
-                    { type = "fluid", name = "water", amount = 200 },
-                },
-                results = { { type = "item", name = name, amount = 2 } },
-            }
-        }
+
+        RECIPE {
+            type = "recipe",
+            name = name,
+            enabled = false,
+            category = "farming",
+            crafting_machine_tint = { primary = color },
+            energy_required = 3600,
+            ingredients = {
+                { type = "item", name = name, amount = 1 },
+                { type = "fluid", name = "water", amount = 200 },
+            },
+            results = { { type = "item", name = name, amount = 2 } },
+        }:add_unlock("animal-husbandry")
     end
 
 end

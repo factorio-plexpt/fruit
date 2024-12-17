@@ -36,8 +36,6 @@ local items = {
     soybeans = { r = 0.7, g = 0.6, b = 0.4, a = 1 }, -- Brown 400
 }
 
-
-
 for name, color in pairs(items) do
 
     if data.raw.item[name] then
@@ -48,34 +46,32 @@ for name, color in pairs(items) do
         data.raw.capsule[name] = nil
     end
 
-    data:extend({
-        {
-            type = "item",
-            name = name,
-            icon = "__fruit__/graphics/vegetable/" .. name .. ".png",
-            icon_size = 512,
-            subgroup = "vegetable",
-            order = "a[" .. name .. "]",
-            spoil_ticks = feature_flags["spoiling"] and 10 * minute or nil,
-            stack_size = 100,
-        },
-    })
+    ITEM {
+        type = "item",
+        name = name,
+        icon = "__fruit__/graphics/vegetable/" .. name .. ".png",
+        icon_size = 512,
+        subgroup = "vegetable",
+        order = "a[" .. name .. "]",
+        spoil_ticks = feature_flags["spoiling"] and 10 * minute or nil,
+        stack_size = 100,
+    }
+
     if not data.raw.recipe[name] then
-        data:extend {
-            {
-                type = "recipe",
-                name = name,
-                enabled = enable_recipe,
-                category = "fruit_plant",
-                crafting_machine_tint = { primary = color },
-                energy_required = 3600,
-                ingredients = {
-                    { type = "item", name = name, amount = 1 },
-                    { type = "fluid", name = "water", amount = 200 },
-                },
-                results = { { type = "item", name = name, amount = 2 } },
-            }
-        }
+        RECIPE {
+            type = "recipe",
+            name = name,
+            enabled = false,
+            category = "fruit_plant",
+            crafting_machine_tint = { primary = color },
+            energy_required = 3600,
+            ingredients = {
+                { type = "item", name = name, amount = 1 },
+                { type = "fluid", name = "water", amount = 200 },
+            },
+            results = { { type = "item", name = name, amount = 2 } },
+        }:add_unlock("vegetable-cultivation")
+
     end
 
 end

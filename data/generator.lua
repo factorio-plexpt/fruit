@@ -42,6 +42,7 @@ local fruit_fuel_generator_entity = {
         }
     },
     max_power_output = "1MW",
+    squeak_behaviour = false,
     animation = {
         north = {
             filename = "__fruit__/graphics/entity/fruit-fuel-generator.png",
@@ -56,7 +57,7 @@ local fruit_fuel_generator_entity = {
 }
 
 -- 定义水果燃料发电机配方
-local fruit_fuel_generator_recipe = {
+RECIPE {
     type = "recipe",
     name = "fruit-fuel-generator",
     ingredients = {
@@ -71,8 +72,10 @@ local fruit_fuel_generator_recipe = {
     category = "crafting"
 }
 
+
+
 -- 定义水果燃料发电机科技
-local fruit_fuel_generator_technology = {
+TECHNOLOGY {
     type = "technology",
     name = "fruit-fuel-generator",
     icon = "__fruit__/graphics/entity/fruit-fuel-generator.png",
@@ -97,20 +100,16 @@ local fruit_fuel_generator_technology = {
 -- 添加实体、配方和科技到游戏中
 data:extend({
     fruit_fuel_generator_entity,
-    fruit_fuel_generator_recipe,
-    fruit_fuel_generator_technology
 })
 
 -- 创建新物品
-data:extend({
-    {
-        type = "item",
-        name = "fruit-fuel-generator",
-        icon = "__fruit__/graphics/entity/fruit-fuel-generator.png",
-        icon_size = 1024,
-        subgroup = "fruit_machine",
-        order = "a[fruit-fuel-generator]",
-        stack_size = 10,
-        place_result = fruit_fuel_generator_entity.name
-    }
-})
+ITEM {
+    type = "item",
+    name = "fruit-fuel-generator",
+    icon = "__fruit__/graphics/entity/fruit-fuel-generator.png",
+    icon_size = 1024,
+    subgroup = "fruit_machine",
+    order = "a[fruit-fuel-generator]",
+    stack_size = 10,
+    place_result = fruit_fuel_generator_entity.name
+}

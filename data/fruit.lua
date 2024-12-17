@@ -60,35 +60,31 @@ for name, color in pairs(fruit) do
         data.raw.capsule[name] = nil
     end
 
-    data:extend({
-        {
-            type = "item",
-            name = name,
-            icon = "__fruit__/graphics/fruit/" .. name .. ".png",
-            icon_size = 512,
-            subgroup = "fruit",
-            order = "a[" .. name .. "]",
-            spoil_ticks = feature_flags["spoiling"] and 10 * minute or nil,
+    ITEM {
+        type = "item",
+        name = name,
+        icon = "__fruit__/graphics/fruit/" .. name .. ".png",
+        icon_size = 512,
+        subgroup = "fruit",
+        order = "a[" .. name .. "]",
+        spoil_ticks = feature_flags["spoiling"] and 10 * minute or nil,
 
-            stack_size = 100,
-        },
-    })
+        stack_size = 100,
+    }
     if not data.raw.recipe[name] then
-        data:extend {
-            {
-                type = "recipe",
-                name = name,
-                enabled = enable_recipe,
-                category = "fruit_plant",
-                crafting_machine_tint = { primary = color },
-                energy_required = 3600,
-                ingredients = {
-                    { type = "item", name = name, amount = 1 },
-                    { type = "fluid", name = "water", amount = 200 },
-                },
-                results = { { type = "item", name = name, amount = 2 } },
-            }
-        }
+        RECIPE {
+            type = "recipe",
+            name = name,
+            enabled = false,
+            category = "fruit_plant",
+            crafting_machine_tint = { primary = color },
+            energy_required = 3600,
+            ingredients = {
+                { type = "item", name = name, amount = 1 },
+                { type = "fluid", name = "water", amount = 200 },
+            },
+            results = { { type = "item", name = name, amount = 2 } },
+        }:add_unlock("fruit-cultivation")
     end
 
 end

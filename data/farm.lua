@@ -40,6 +40,7 @@ local advanced_farm_entity = {
     heating_energy = feature_flags["freezing"] and "100kW" or nil,
     open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
     close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
+    squeak_behaviour = false,
     graphics_set = {
         animation = {
             filename = "__fruit__/graphics/entity/advanced-farm.png",

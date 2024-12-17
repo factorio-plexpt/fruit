@@ -1,3 +1,4 @@
+require('__kry_stdlib__/stdlib/data/data').Util.create_data_globals()
 
 has_dlc = feature_flags["spoiling"] and true or false
 

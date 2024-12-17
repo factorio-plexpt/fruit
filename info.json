@@ -1,6 +1,6 @@
 {
     "name": "fruit",
-    "version": "1.5.14",
+    "version": "1.6.0",
     "title": "Fruit and Vegetable",
     "author": "plexpt",
     "contact": "q",
@@ -9,6 +9,7 @@
     "factorio_version": "2.0",
     "dependencies": [
         "enable-all-feature-flags",
+        "kry_stdlib",
         "(?) space-age",
         "? Fridge",
         "(?) baketorio"
