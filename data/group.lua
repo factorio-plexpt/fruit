@@ -14,9 +14,11 @@ data:extend {
 }
 
 local subgroups = {
+    "fruit_order",
     "fruit_machine",
     "fruit_tree",
     "fruit",
+    "food-core-card",
     "vegetable",
     "animal_products",
     "fruit_plant",
@@ -44,6 +46,9 @@ local RecipeCategory = {
     "fermentation",
     "fruit_plant",
     "plant",
+    "fruit_order",
+    "fruit_order_restaurant",
+    "food-core-card",
     "farming",
     "juice",
     "jam",

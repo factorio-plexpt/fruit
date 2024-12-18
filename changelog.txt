@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.0
+Date: 2024-12-18
+  Changes:
+    - Introducing the Card Enhancement Machine! Enhance and upgrade cards, but beware: higher levels increase failure risk, resulting in card destruction. Think carefully before enhancing.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.6.2
 Date: 2024-12-17
   Changes:

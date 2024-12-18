@@ -56,24 +56,6 @@ local fruit_fuel_generator_entity = {
     },
 }
 
--- 定义水果燃料发电机配方
-RECIPE {
-    type = "recipe",
-    name = "fruit-fuel-generator",
-    ingredients = {
-        { type = "item", name = "electronic-circuit", amount = 5 },
-        { type = "item", name = "iron-gear-wheel", amount = 10 },
-        { type = "item", name = "iron-plate", amount = 100 },
-    },
-    results = {
-        { type = "item", name = "fruit-fuel-generator", amount = 1 },
-    },
-    enabled = false,
-    energy_required = 2,
-    category = "crafting"
-}
-
-
 
 -- 定义水果燃料发电机科技
 TECHNOLOGY {
@@ -97,6 +79,24 @@ TECHNOLOGY {
         time = 30
     },
 }
+-- 定义水果燃料发电机配方
+RECIPE {
+    type = "recipe",
+    name = "fruit-fuel-generator",
+    ingredients = {
+        { type = "item", name = "electronic-circuit", amount = 5 },
+        { type = "item", name = "iron-gear-wheel", amount = 10 },
+        { type = "item", name = "iron-plate", amount = 100 },
+    },
+    results = {
+        { type = "item", name = "fruit-fuel-generator", amount = 1 },
+    },
+    enabled = false,
+    energy_required = 2,
+    category = "crafting"
+}
+
+
 
 -- 添加实体、配方和科技到游戏中
 data:extend({

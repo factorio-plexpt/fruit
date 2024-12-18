@@ -1,14 +1,14 @@
 local entity_util = require("lib.entity_util")
 
-local name = "advanced-farm"
+local name = "core-card-upgrader"
 
-local icon = "__fruit__/graphics/entity/advanced-farm.png"
+local icon = "__fruit__/graphics/entity/core-card-upgrader.png"
 local icon_size = 1024
-local crafting_categories = { "fruit_plant", "plant" }
+local crafting_categories = { "food-core-card" }
 
 -- 定义实体
 data:extend { {
-                  type = "assembling-machine",
+                  type = "furnace",
                   name = name,
                   icon = icon,
                   icon_size = icon_size,
@@ -18,23 +18,31 @@ data:extend { {
                   corpse = "big-remnants",
                   dying_explosion = "big-explosion",
                   resistances = { { type = "fire", percent = 70 } },
-                  collision_box = entity_util.shrinkBox(entity_util.box7),
-                  selection_box = entity_util.box7,
-                  fluid_boxes = entity_util.create_boxes_normal(7, 3, 2),
+                  collision_box = entity_util.shrinkBox(entity_util.box6),
+                  selection_box = entity_util.box6,
+                  --fluid_boxes = entity_util.create_boxes_normal(7, 3, 2),
                   fast_replaceable_group = name,
-                  module_slots = 4,
+                  module_slots = 2,
+                  source_inventory_size = 1,
+                  result_inventory_size = 1,
+                  cant_insert_at_source_message_key = "fruit.core-card-upgrader-warning",
                   crafting_categories = crafting_categories,
                   energy_source = {
-                      type = "electric",
-                      usage_priority = "secondary-input",
-                      emissions_per_minute = { pollution = 1 }, -- 根据需要调整排放值
+                      type = "burner",
+                      fuel_categories = { "fruit" },
+                      effectivity = 1,
+                      fuel_inventory_size = 4,
+                      emissions_per_minute = { pollution = 100 }, -- 根据需要调整排放值
+                      light_flicker = {
+                          color = { 0, 0, 0 },
+                          minimum_intensity = 0.6,
+                          maximum_intensity = 0.95
+                      }
                   },
-                  energy_usage = "800kW",
+                  energy_usage = "5MW",
                   fluid_boxes_off_when_no_fluid_recipe = true,
                   crafting_speed = 1,
-                  circuit_connector = circuit_connector_definitions["assembling-machine"],
-                  circuit_wire_max_distance = 20,
-                  allowed_effects = { "consumption", "speed", "pollution", "quality" },
+                  allowed_effects = { "consumption", "speed", "pollution" },
                   heating_energy = feature_flags["freezing"] and "100kW" or nil,
                   open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
                   close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
@@ -69,7 +77,7 @@ TECHNOLOGY {
             recipe = name
         }
     },
-    prerequisites = { "food-processing" },
+    prerequisites = { "food-command-center" },
     unit = {
         count = 1000,
         ingredients = {

@@ -1,10 +1,10 @@
 local entity_util = require("lib.entity_util")
 
-local name = "advanced-farm"
+local name = "restaurant"
 
-local icon = "__fruit__/graphics/entity/advanced-farm.png"
-local icon_size = 1024
-local crafting_categories = { "fruit_plant", "plant" }
+local icon = "__fruit__/graphics/entity/restaurant.png"
+local icon_size = 512
+local crafting_categories = { "fruit_order_restaurant" }
 
 -- 定义实体
 data:extend { {
@@ -18,9 +18,8 @@ data:extend { {
                   corpse = "big-remnants",
                   dying_explosion = "big-explosion",
                   resistances = { { type = "fire", percent = 70 } },
-                  collision_box = entity_util.shrinkBox(entity_util.box7),
-                  selection_box = entity_util.box7,
-                  fluid_boxes = entity_util.create_boxes_normal(7, 3, 2),
+                  collision_box = entity_util.shrinkBox(entity_util.box5),
+                  selection_box = entity_util.box5,
                   fast_replaceable_group = name,
                   module_slots = 4,
                   crafting_categories = crafting_categories,
@@ -48,8 +47,8 @@ data:extend { {
                           line_length = 1,
                           repeat_count = 1,
                           animation_speed = 1,
-                          scale = 0.28,
-                          shift = { 0, -0.5 },
+                          scale = 0.37,
+                          shift = { 0, -0.2 },
                       },
                   }
               }
@@ -69,7 +68,7 @@ TECHNOLOGY {
             recipe = name
         }
     },
-    prerequisites = { "food-processing" },
+    prerequisites = { "food-command-center" },
     unit = {
         count = 1000,
         ingredients = {
