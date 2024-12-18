@@ -26,7 +26,8 @@ local subgroups = {
     "fruit_jam",
     "fruit_icecream",
     "fruit_pie",
-    "fruit_product"
+    "fruit_product",
+    "fruit_pack_rubbish"
 }
 
 for index, subgroup_name in ipairs(subgroups) do

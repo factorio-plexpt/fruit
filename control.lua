@@ -3,6 +3,7 @@ MyEvent = require("lib.EventDispatcher")
 
 
 require("scripts.corehub")
+require("scripts.restaurant")
 
 
 

@@ -13,6 +13,7 @@ local function add_command_center_view(entity, frame, player)
     local des = overview.add { type = "label", caption = { "fruit.hub-description" } }
     des.style.rich_text_setting = defines.rich_text_setting.highlight
     des.style.maximal_width = 320
+    des.style.single_line = false
 
     overview.add { type = "line" }
 

@@ -28,8 +28,41 @@ local function add_order_recipe(ingredients, results, category, index)
 
 end
 
-for i = 1, 1000 do
-    local ingredients = { { type = "item", name = "cheese", amount = 10 * i, ignored_by_stats = 1 } }
-    local results = { { type = "item", name = "cheese", amount = 1, probability = 0.5, ignored_by_stats = 1 } }
-    add_order_recipe(ingredients, results, "fruit_order_restaurant", i)
-end
+--for i = 1, 1000 do
+--    local ingredients = { { type = "item", name = "cheese", amount = 10 * i, ignored_by_stats = 1 } }
+--    local results = { { type = "item", name = "cheese", amount = 1, probability = 0.5, ignored_by_stats = 1 } }
+--    add_order_recipe(ingredients, results, "fruit_order_restaurant", i)
+--end
+
+local name = "food-pack"
+
+local trigger = {
+    items_per_trigger = 1,
+    trigger = {
+        type = "direct",
+        action_delivery = {
+            type = "instant",
+            source_effects = {
+                {
+                    type = "script",
+                    effect_id = "order_finish",
+                }
+            }
+        }
+    }
+}
+
+data:extend {
+    {
+        type = "item",
+        name = name,
+        icon = "__fruit__/graphics/icon/order64.png",
+        icon_size = 64,
+        subgroup = "fruit_pack_rubbish",
+        stack_size = 1,
+        hidden = true,
+        hidden_in_factoriopedia = true,
+        spoil_ticks = 0.5 * hour,
+        spoil_to_trigger_result = trigger
+    }
+}
