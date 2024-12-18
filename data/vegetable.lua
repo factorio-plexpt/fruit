@@ -74,5 +74,7 @@ for name, color in pairs(items) do
 
     end
 
+    table.insert(orders_recipe.restaurant, name)
+
 end
 

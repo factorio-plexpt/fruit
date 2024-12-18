@@ -60,6 +60,7 @@ for name, color in pairs(animal_products) do
             results = { { type = "item", name = name, amount = 2 } },
         }:add_unlock("animal-husbandry")
     end
+    table.insert(orders_recipe.restaurant, name)
 
 end
 

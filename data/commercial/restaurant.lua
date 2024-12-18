@@ -23,6 +23,7 @@ data:extend { {
                   fast_replaceable_group = name,
                   module_slots = 4,
                   crafting_categories = crafting_categories,
+                  show_recipe_icon = false,
                   energy_source = {
                       type = "electric",
                       usage_priority = "secondary-input",
@@ -33,7 +34,7 @@ data:extend { {
                   crafting_speed = 1,
                   circuit_connector = circuit_connector_definitions["assembling-machine"],
                   circuit_wire_max_distance = 20,
-                  allowed_effects = { "consumption", "speed", "pollution", "quality" },
+                  allowed_effects = { "consumption", "speed", "pollution" },
                   heating_energy = feature_flags["freezing"] and "100kW" or nil,
                   open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
                   close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },

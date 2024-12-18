@@ -102,6 +102,9 @@ local function add_item(name, subgroup)
             stack_size = 100
         }
     }
+
+    table.insert(orders_recipe.restaurant, name)
+
 end
 for k, name in pairs(items) do
     add_item(name, subgroups[name])

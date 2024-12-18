@@ -87,6 +87,8 @@ for name, color in pairs(fruit) do
         }:add_unlock("fruit-cultivation")
     end
 
+    table.insert(orders_recipe.restaurant, name)
+
 end
 
 
