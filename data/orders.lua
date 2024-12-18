@@ -14,6 +14,7 @@ local function add_order_recipe(ingredients, results, category, index)
             subgroup = "fruit_order",
             category = category,
             energy_required = 3,
+            overload_multiplier = 1,
             hidden = true,
             enabled = true,
             -- 是否启用此配方解锁其物品产品以显示在选择列表（物品过滤器、物流请求等）中。
@@ -21,6 +22,9 @@ local function add_order_recipe(ingredients, results, category, index)
             allow_productivity = false,
             auto_recycle = false,
             allow_decomposition = false,
+            --preserve_products_in_machine_output = true,
+            allow_inserter_overload  = false,
+            --result_is_always_fresh = true,
             ingredients = ingredients,
             results = results,
         }
@@ -62,8 +66,9 @@ data:extend {
         stack_size = 1,
         hidden = true,
         hidden_in_factoriopedia = true,
-        spoil_ticks = 66,
-        spoil_to_trigger_result = trigger
+        spoil_ticks = 250,
+        spoil_to_trigger_result = trigger,
+        spoil_result = "raw-fish"
     },
     {
         type = "tool",
@@ -142,7 +147,7 @@ for k, od in pairs(orders) do
     for name, amount in pairs(od) do
         table.insert(ingredients, { type = "item", name = name, amount = amount, ignored_by_stats = 1 })
     end
-    local results = { { type = "item", name = packnamerubbish, amount = 1, ignored_by_stats = 1 } }
+    local results = { { type = "item", name = packname, amount = 1 } }
     add_order_recipe(ingredients, results, "fruit_order_restaurant", index)
     index = index + 1
 end

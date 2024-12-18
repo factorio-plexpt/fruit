@@ -13,13 +13,41 @@ end
 
 local function on_built(event)
     local entity = event.entity
-    if not entity then
+    if not entity or not entity.valid then
         return
     end
 
 
     -- 检查实体类型
     if entity.name == entity_name then
+        local surface = entity.surface
+        local force = entity.force
+
+        local player = event.player_index and game.get_player(event.player_index)
+
+        local restaurant_count = surface.count_entities_filtered({
+            name = entity_name,
+            force = force
+        })
+
+        if restaurant_count > 1 then
+            -- 将物品返还给玩家
+
+            if player and player.get_main_inventory() and player.get_main_inventory().can_insert({ name = entity_name, count = 1 }) then
+                player.insert({ name = entity_name, count = 1 })
+                player. create_local_flying_text { position = entity.position, text = { "fruit.restaurant_limit_reached" } }
+
+            else
+                surface.spill_item_stack(entity.position, { name = "restaurant", count = 1 })
+                for k, v in pairs(game.players) do
+                    v.create_local_flying_text { position = entity.position, text = { "", { "fruit.restaurant_limit_reached" }, { "fruit.restaurant_drop" } } }
+                end
+            end
+
+            -- 阻止建造并给予提示
+            entity.destroy()
+            return
+        end
 
         entity.recipe_locked = true
 
@@ -27,6 +55,7 @@ local function on_built(event)
         local random_number = math.random(1, 1000)
 
         entity.set_recipe("fruit-order-" .. random_number)
+        --entity.set_recipe("fruit-order-3")
 
         -- 获取实体位置
         --local pos = entity.position.x .. " " .. entity.position.y
