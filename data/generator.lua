@@ -6,7 +6,7 @@ local fruit_fuel_generator_entity = {
     name = "fruit-fuel-generator",
     icon = "__fruit__/graphics/entity/fruit-fuel-generator.png",
     icon_size = 1024,
-    flags = { "placeable-neutral", "player-creation" },
+    flags = { "placeable-neutral", "player-creation", "get-by-unit-number" },
     minable = { mining_time = 0.5, result = "fruit-fuel-generator" },
     max_health = 400,
     corpse = "big-remnants",
@@ -76,7 +76,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 30
+        time = 5
     },
 }
 -- 定义水果燃料发电机配方

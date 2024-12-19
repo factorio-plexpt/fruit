@@ -11,7 +11,7 @@ TECHNOLOGY {
         ingredients = {
             { "automation-science-pack", 1 },
         },
-        time = 30
+        time = 3
     },
 }
 
@@ -24,7 +24,7 @@ TECHNOLOGY {
     prerequisites = { "food-processing" },
     unit = {
         count = 1500,
-        time = 45,
+        time = 3,
         ingredients = {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
@@ -40,7 +40,7 @@ TECHNOLOGY {
     prerequisites = { "food-processing" },
     unit = {
         count = 1500,
-        time = 45,
+        time = 3,
         ingredients = {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
@@ -57,7 +57,7 @@ TECHNOLOGY {
     prerequisites = { "food-processing" },
     unit = {
         count = 1500,
-        time = 45,
+        time = 3,
         ingredients = {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
@@ -73,7 +73,7 @@ TECHNOLOGY {
     prerequisites = { "food-processing" },
     unit = {
         count = 1500,
-        time = 45,
+        time = 3,
         ingredients = {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
@@ -95,7 +95,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
         },
-        time = 30
+        time = 3
     },
 }
 
@@ -108,7 +108,7 @@ TECHNOLOGY {
     prerequisites = { "advanced-farm" },
     unit = {
         count = 1500,
-        time = 45,
+        time = 3,
         ingredients = {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
@@ -130,7 +130,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
         },
-        time = 30
+        time = 3
     },
 }
 
@@ -153,7 +153,7 @@ TECHNOLOGY {
             { "logistic-science-pack", 1 }
         },
         -- 10-60
-        time = 30,
+        time = 3,
     },
     order = "b-f-b"
 }
@@ -178,7 +178,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 30
+        time = 3
     },
 }
 
@@ -196,7 +196,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 30
+        time = 3
     },
 }
 TECHNOLOGY {
@@ -213,7 +213,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 30
+        time = 3
     },
 }
 TECHNOLOGY {
@@ -230,7 +230,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 30
+        time = 3
     },
 }
 
@@ -247,7 +247,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 30
+        time = 3
     },
 }
 
@@ -264,7 +264,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 30
+        time = 3
     },
 }
 
@@ -284,7 +284,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
         },
-        time = 30,
+        time = 3,
     },
 }
 
@@ -308,7 +308,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 30
+        time = 3
     },
 }
 TECHNOLOGY {
@@ -331,7 +331,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 30
+        time = 3
     },
 }
 TECHNOLOGY {
@@ -377,7 +377,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 30
+        time = 3
     },
 }
 TECHNOLOGY {
@@ -396,7 +396,7 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
         },
-        time = 30,
+        time = 3,
     },
 }
 
@@ -417,6 +417,6 @@ TECHNOLOGY {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 }
         },
-        time = 20
+        time = 5
     },
 }

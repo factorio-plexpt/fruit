@@ -12,7 +12,7 @@ data:extend { {
                   name = name,
                   icon = icon,
                   icon_size = icon_size,
-                  flags = { "placeable-neutral", "player-creation" },
+                  flags = { "placeable-neutral", "player-creation", "get-by-unit-number" },
                   minable = { mining_time = 0.5, result = name },
                   max_health = 500,
                   corpse = "big-remnants",
@@ -77,7 +77,7 @@ TECHNOLOGY {
             recipe = name
         }
     },
-    prerequisites = { "food-command-center" },
+    prerequisites = { "food-core-card" },
     unit = {
         count = 1000,
         ingredients = {
@@ -85,7 +85,7 @@ TECHNOLOGY {
             { "logistic-science-pack", 1 },
             { "chemical-science-pack", 1 }
         },
-        time = 60
+        time = 5
     },
     order = "a"
 }

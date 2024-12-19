@@ -74,7 +74,7 @@ TECHNOLOGY {
             recipe = name
         }
     },
-    prerequisites = { "food-command-center" },
+    prerequisites = { "food-core-card"},
     unit = {
         count = 1000,
         ingredients = {
@@ -82,7 +82,7 @@ TECHNOLOGY {
             { "logistic-science-pack", 1 },
             { "chemical-science-pack", 1 }
         },
-        time = 60
+        time = 5
     },
     order = "a"
 }

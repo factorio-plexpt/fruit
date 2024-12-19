@@ -1,6 +1,6 @@
 {
     "name": "fruit",
-    "version": "1.7.3",
+    "version": "1.7.9",
     "title": "Fruit and Vegetable",
     "author": "plexpt",
     "contact": "q",
@@ -10,6 +10,7 @@
     "dependencies": [
         "enable-all-feature-flags",
         "kry_stdlib",
+        "cowcow",
         "(?) space-age",
         "? Fridge",
         "(?) baketorio"

@@ -81,7 +81,7 @@ TECHNOLOGY {
             { "logistic-science-pack", 1 },
             { "chemical-science-pack", 1 }
         },
-        time = 60
+        time = 5
     },
     order = "a-b-c"
 }

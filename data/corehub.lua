@@ -14,7 +14,7 @@ data:extend {
         quality_affects_inventory_size = false,
         circuit_wire_max_distance = 100,
         rotatable = false,
-        flags = { "not-rotatable" },
+        flags = { "placeable-neutral", "player-creation", "not-rotatable", "get-by-unit-number" },
         corpse = "big-remnants",
         minable = { mining_time = 1, result = name },
         vehicle_impact_sound = { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
@@ -51,8 +51,21 @@ TECHNOLOGY {
             { "logistic-science-pack", 1 },
             { "chemical-science-pack", 1 }
         },
-        time = 60
+        time = 5
     },
+}
+
+TECHNOLOGY {
+    type = "technology",
+    name = "food-core-card",
+    icon = "__fruit__/graphics/icon/core-card-tech.png",
+    icon_size = 512,
+    effects = { },
+    prerequisites = { name },
+    research_trigger = {
+        type = "build-entity",
+        entity = name
+    }
 }
 
 RECIPE {
@@ -195,7 +208,7 @@ local function add_card(level, color)
         name = card_name,
         localised_name = { "", { "item-name.food-core-card" }, { "fruit.card-upgrade" }, level .. "" },
         localised_description = { "item-description.food-core-card" },
-        enabled = false,
+        enabled = level > 1,
         hidden = level > 1,
         allow_productivity = false,
         auto_recycle = false,
@@ -206,7 +219,7 @@ local function add_card(level, color)
         },
         energy_required = 4,
         category = "food-core-card"
-    }:add_unlock(name)
+    }:add_unlock("food-core-card")
 
 end
 for i, color in ipairs(colors) do
