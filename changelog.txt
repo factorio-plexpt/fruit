@@ -1,5 +1,10 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.7.9
+Version: 1.8.2
+Date: 2024-12-20
+  Changes:
+    - Add Coconut Milk,Vanilla Milkshake,Almond Milk,Brandy,Vodka,Whiskey,Beer,Dark Rum,White Rum,Sake,Tequila,Wine,White Wine,Maotai,Champagne,Cream Puff,Brownie,Caramel Pudding,Donut,Tiramisu,Kung Pao Chicken,Tangyuan,Dumpling,Fried Chicken,Braised Pork,Cucumber Salad,Mapo Tofu,Carrot Juice,Cola,Pudding,Chocolate Milkshake
+---------------------------------------------------------------------------------------------------
+Version: 1.8.1
 Date: 2024-12-19
   Changes:
     - Fix issues and optimize multiple details.
@@ -14,11 +19,6 @@ Date: 2024-12-18
   Changes:
     - Introducing the Card Enhancement Machine! Enhance and upgrade cards, but beware: higher levels increase failure risk, resulting in card destruction. Think carefully before enhancing.
 
----------------------------------------------------------------------------------------------------
-Version: 1.6.2
-Date: 2024-12-17
-  Changes:
-    - Fix issues and optimize multiple details.
 ---------------------------------------------------------------------------------------------------
 Version: 1.6.1
 Date: 2024-12-17

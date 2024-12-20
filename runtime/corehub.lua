@@ -7,24 +7,6 @@ local function debug_log(str)
 
 end
 
-local function get_count_can_build(unit_number)
-    local entity = game.get_entity_by_unit_number(unit_number)
-    if entity and entity.valid then
-        -- 确保实体依然有效
-        local contents = entity.get_inventory(defines.inventory.chest).get_contents()
-
-        if contents and table_size(contents) > 0 then
-            local card = contents[1].name
-            local number = string.match(card, "^food%-core%-card%-(%d+)$")
-            if number then
-                return tonumber(number) + 1
-            end
-        end
-    end
-
-    return 1
-end
-
 
 -- 存储所有 corehub 实体的表，按 force 和 surface 分类
 -- 当玩家放置实体时触发的事件
@@ -35,7 +17,6 @@ local function on_built_corehub (entity)
 
     -- 初始化 force 和 surface 的存储表
     storage.fruit.corehubs[force_name] = storage.fruit.corehubs[force_name] or {}
-    storage.fruit.corehubs[force_name][surface_name] = storage.fruit.corehubs[force_name][surface_name] or {}
 
     -- 记录实体的 ID 和实体本身
     storage.fruit.corehubs[force_name][surface_name] = entity.unit_number

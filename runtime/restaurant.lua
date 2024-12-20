@@ -2,6 +2,30 @@ local entity_name = "restaurant"
 
 -- 餐厅
 
+local function get_count_can_build(force_name, surface_name)
+
+    -- 初始化 force 和 surface 的存储表
+    storage.fruit.corehubs[force_name] = storage.fruit.corehubs[force_name] or {}
+    local unit_number = storage.fruit.corehubs[force_name][surface_name]
+    if unit_number then
+
+        local entity = game.get_entity_by_unit_number(unit_number)
+        if entity and entity.valid then
+            -- 确保实体依然有效
+            local contents = entity.get_inventory(defines.inventory.chest).get_contents()
+
+            if contents and table_size(contents) > 0 then
+                local card = contents[1].name
+                local number = string.match(card, "^food%-core%-card%-(%d+)$")
+                if number then
+                    return tonumber(number) + 1
+                end
+            end
+        end
+    end
+
+    return 1
+end
 
 local function on_built(event)
     local entity = event.entity
@@ -22,7 +46,8 @@ local function on_built(event)
             force = force
         })
 
-        if restaurant_count > 1 then
+
+        if restaurant_count > get_count_can_build(force.name, surface.name) then
             -- 将物品返还给玩家
 
             if player and player.get_main_inventory() and player.get_main_inventory().can_insert({ name = entity_name, count = 1 }) then
