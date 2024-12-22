@@ -65,6 +65,8 @@ for name, color in pairs(fruit) do
         name = name,
         icon = "__fruit__/graphics/fruit/" .. name .. ".png",
         icon_size = 512,
+        fuel_value = "500kJ",
+        fuel_category = "fruit",
         subgroup = "fruit",
         order = "a[" .. name .. "]",
         spoil_ticks = feature_flags["spoiling"] and 10 * minute or nil,

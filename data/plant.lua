@@ -13,8 +13,8 @@ local function make_tree(name, count, size)
         variations[#variations + 1] = {
             trunk = {
                 filename = "__fruit__/graphics/tree/" .. name .. i .. ".png",
-                height = 512,
-                width = 512,
+                height = size,
+                width = size,
                 scale = 0.5,
                 shift = { 0, -1 },
                 frame_count = 1,
@@ -22,8 +22,8 @@ local function make_tree(name, count, size)
             },
             leaves = {
                 filename = "__fruit__/graphics/tree/" .. name .. i .. ".png",
-                height = 512,
-                width = 512,
+                height = size,
+                width = size,
                 scale = 0.5,
                 shift = { 0, -1 },
                 frame_count = 1,
@@ -42,8 +42,8 @@ local function make_tree(name, count, size)
             --type = has_dlc and "plant" or "tree",
             name = name,
             icon = "__fruit__/graphics/tree/" .. name .. ".png",
-            icon_size = 512,
-            flags = { "placeable-neutral", "placeable-off-grid", "breaths-air" },
+            icon_size = size,
+            flags = { "placeable-neutral", "breaths-air" },
             minable = {
                 results = { { type = "item", name = name, amount = 50 } },
                 mining_particle = "wooden-particle",
@@ -51,7 +51,7 @@ local function make_tree(name, count, size)
                 mining_trigger = mining_trigger
             },
             mined_sound = tree01.mined_sound,
-            growth_ticks =  5 * minute,  -- has_dlc and 5 * minute or nil,
+            growth_ticks = 5 * minute, -- has_dlc and 5 * minute or nil,
             harvest_emissions = mods["space-age"] and { spores = 15 } or nil,
             emissions_per_second = { pollution = -0.001 },
             max_health = 50,
@@ -80,8 +80,13 @@ local function make_tree(name, count, size)
             -- tile_buildability_rules = { {area = {{-0.55, -0.55}, {0.55, 0.55}}, required_tiles = {"natural-yumako-soil", "artificial-yumako-soil"}, remove_on_collision = true} },
             map_color = { r = 0.15686, g = 0.58824, b = 0.34510 },
             variations = variations,
-            autoplace = {
-                probability_expression = "clamp(random_penalty_at(4, 1), 0, 1)",
+            --autoplace = {
+            --    probability_expression = "random(1000, 0) < 1",
+            --    force = "neutral",
+            --    tile_restriction = { "grass-1", "grass-2", "grass-3", "grass-4", "dirt-1", "sand-1" },
+            --},
+            autoplace ={
+                --probability_expression = "clamp(random_penalty_at(4, 1), 0, 1)",
                 control = "trees",
                 order = "a[tree]-b[forest]-a",
                 probability_expression = "tree_0" .. ((fruit_index - 1) % 9 + 1),
@@ -90,7 +95,7 @@ local function make_tree(name, count, size)
 
     }
 
-    log("add plant_result for " .. name)
+    --log("add plant_result for " .. name)
     data.raw.item[name].plant_result = name
     data.raw.item[name].place_result = name
 
@@ -149,8 +154,28 @@ local fruits = {
     sweet_potato = 1,
     tomato = 1,
     zucchini = 1,
+    wheat = 1,
+}
+
+local size1024 = {
+    --["rice-grain"] = true,
+
 }
 
 for name, count in pairs(fruits) do
-    make_tree(name, count)
+    local size = 512
+    if size1024[name] then
+        size = 1024
+    end
+
+    make_tree(name, count, size)
+
+    for k, planet in pairs(data.raw["planet"]) do
+        if  planet.map_gen_settings and  planet.map_gen_settings.autoplace_settings then
+
+            planet.map_gen_settings.autoplace_settings.entity.settings[name] = {}
+        end
+
+    end
+
 end

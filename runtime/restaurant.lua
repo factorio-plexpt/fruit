@@ -85,7 +85,7 @@ end
 
 local function on_entity_died(event)
     local entity = event.entity
-    if not entity or not entity.valid then
+    if not entity or not entity.valid or entity.name ~= ENTITY_NAME then
         return
     end
 
@@ -94,7 +94,6 @@ local function on_entity_died(event)
     -- 清理无效的 unit_number
     for i = #storage.fruit.restaurant, 1, -1 do
         local unit_number = storage.fruit.restaurant[i]
-        local entity = entity.unit_number
         if unit_number == entity.unit_number then
             table.remove(storage.fruit.restaurant, i)
         end

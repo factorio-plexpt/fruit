@@ -72,7 +72,7 @@ for name, color in pairs(fruit) do
             subgroup = "fruit_juice",
             order = "a[fruit]-a[" .. name .. "]", -- 排序，方便在物品栏中查找
             stack_size = 50, -- 堆叠数量
-            fuel_value = "50kJ",
+            fuel_value = "1MJ",
             fuel_category = "fruit",
             default_request_amount = 100,
         }
@@ -111,7 +111,7 @@ for name, color in pairs(fruit) do
             subgroup = "fruit_jam",
             order = "a[jam]-a[" .. name .. "]", -- 排序，方便在物品栏中查找
             stack_size = 50, -- 堆叠数量
-            fuel_value = "50kJ",
+            fuel_value = "1MJ",
             fuel_category = "fruit",
             default_request_amount = 100,
         }

@@ -137,7 +137,7 @@ TECHNOLOGY {
 TECHNOLOGY {
     type = "technology",
     name = "sugar-processing",
-    icon = "__fruit__/graphics/juice.png",
+    icon = "__fruit__/graphics/icon/sugar.png",
     icon_size = 512,
     effects = {
         {
@@ -409,6 +409,8 @@ TECHNOLOGY {
         { type = "unlock-recipe", recipe = "coffee-seed-fermentation" },
         { type = "unlock-recipe", recipe = "coffee-seed-roasting" },
         { type = "unlock-recipe", recipe = "coffee-powder-grinding" },
+        { type = "unlock-recipe", recipe = "coffee-powder-grinding" },
+        { type = "unlock-recipe", recipe = "coffee" },
     },
     prerequisites = { "fermentation" },
     unit = {

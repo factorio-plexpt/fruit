@@ -45,7 +45,7 @@ TECHNOLOGY {
     effects = {    },
     prerequisites = { "food-processing" },
     unit = {
-        count = 5000,
+        count = 2000,
         ingredients = {
             { "automation-science-pack", 1 },
             { "logistic-science-pack", 1 },
@@ -192,9 +192,9 @@ local function add_card(level, color)
     }
 
     local ingredients = {
-        { type = "item", name = "electronic-circuit", amount = 10 },
-        { type = "item", name = "iron-gear-wheel", amount = 20 },
-        { type = "item", name = "iron-plate", amount = 20 },
+        { type = "item", name = "electronic-circuit", amount = 31 },
+        { type = "item", name = "advanced-circuit", amount = 19 },
+        { type = "item", name = "processing-unit", amount = 7 },
     }
 
     if level > 1 then
@@ -218,7 +218,7 @@ local function add_card(level, color)
             { type = "item", name = card_name, amount = 1, probability = calculate_probability(level) },
         },
         energy_required = 4,
-        category = "food-core-card"
+        category = level > 1 and "food-core-card" or "crafting"
     }:add_unlock("food-core-card")
 
 end
