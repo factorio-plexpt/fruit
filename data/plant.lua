@@ -172,10 +172,8 @@ for name, count in pairs(fruits) do
 
     for k, planet in pairs(data.raw["planet"]) do
         if  planet.map_gen_settings and  planet.map_gen_settings.autoplace_settings then
-
             planet.map_gen_settings.autoplace_settings.entity.settings[name] = {}
         end
-
     end
 
 end

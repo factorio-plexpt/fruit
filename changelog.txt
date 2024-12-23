@@ -1,8 +1,8 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.8.14
-Date: 2024-12-21
+Version: 1.9.0
+Date: 2024-12-23
   Changes:
-    - Fix issues and optimize multiple details.
+    - Overhauled animal loot system: Cows now drop raw beef, leather, and milk buckets; chickens drop raw chicken, eggs, and feathers; sheep drop raw mutton, wool, and leather. Drop rates and quantities have been carefully balanced.
 ---------------------------------------------------------------------------------------------------
 Version: 1.8.11
 Date: 2024-12-21
