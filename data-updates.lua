@@ -6,7 +6,7 @@ for _, lab in pairs(data.raw["lab"]) do
 end
 
 local animals_loot = {
-    cowcow = {
+    cow = {
         {
             item = "beef", -- 生牛肉
             count_min = 1,
@@ -70,5 +70,7 @@ local animals_loot = {
 
 for name, loot in pairs(animals_loot) do
     local animal = data.raw["unit"][name]
-    animal.loot = loot
+    if animal then
+        animal.loot = loot
+    end
 end

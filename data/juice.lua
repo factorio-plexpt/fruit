@@ -27,6 +27,7 @@ local fruit = {
     carambola = { r = 1, g = 0.9, b = 0.2, a = 0.6 }, -- Yellow
     coconut = { r = 0.8, g = 0.7, b = 0.5, a = 0.6 }, -- Brown/White (using brownish here)
     rambutan = { r = 1, g = 0.2, b = 0.2, a = 0.6 }, -- Red
+    tomato = { r = 1, g = 0.2, b = 0.2, a = 0.6 }, -- Red
     durian = { r = 0.9, g = 0.8, b = 0.2, a = 0.6 }, -- Yellow-Green
     longan = { r = 0.7, g = 0.5, b = 0.3, a = 0.6 }, -- Brown
     fig = { r = 0.5, g = 0.1, b = 0.3, a = 0.6 }, -- Purple/Brownish

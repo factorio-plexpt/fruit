@@ -17,6 +17,40 @@ TECHNOLOGY {
 
 TECHNOLOGY {
     type = "technology",
+    name = "wine",
+    icon = "__fruit__/graphics/icon/wine.png",
+    icon_size = 512,
+    effects = {},
+    prerequisites = { "food-processing" },
+    unit = {
+        count = 1500,
+        time = 3,
+        ingredients = {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+        },
+    },
+}
+
+TECHNOLOGY {
+    type = "technology",
+    name = "cooking",
+    icon = "__fruit__/graphics/icon/mapo-tofu.png",
+    icon_size = 512,
+    effects = {},
+    prerequisites = { "food-processing" },
+    unit = {
+        count = 1500,
+        time = 3,
+        ingredients = {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 },
+        },
+    },
+}
+
+TECHNOLOGY {
+    type = "technology",
     name = "fruit-juicing",
     icon = "__fruit__/graphics/juice.png",
     icon_size = 512,
