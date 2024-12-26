@@ -1,13 +1,39 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.9.4
-Date: 2024-12-23
+Version: 1.10.1
+Date: 2024-12-27
   Changes:
-    - Fix issues and optimize multiple details.
+    - add Oak Barrel.
+    - add brewing.
+
 ---------------------------------------------------------------------------------------------------
-Version: 1.9.3
+Version: 1.10.0
+Date: 2024-12-26
+  Changes:
+    - add more plant.
+    - artichoke
+    - asparagus
+    - corn
+    - beetroot
+    - brussels_sprout
+    - cauliflower
+    - celery
+    - chayote
+    - parsnip
+    - daikon
+    - jicama
+    - kale
+    - leek
+    - turnip
+    - spinach
+    - okra
+
+---------------------------------------------------------------------------------------------------
+Version: 1.9.5
 Date: 2024-12-23
   Changes:
-    - Fix issues and optimize multiple details.
+    - I'm organizing the tech tree.
+    - I added a lot of recipes, including the basic brewing method.
+
 ---------------------------------------------------------------------------------------------------
 Version: 1.9.2
 Date: 2024-12-23

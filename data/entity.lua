@@ -243,7 +243,7 @@ local base = {
     icon = "__fruit__/graphics/entity/juicer-machine.png",
     icon_size = 1024,
     flags = { "placeable-neutral", "placeable-player", "player-creation", "get-by-unit-number" },
-    minable = {  mining_time = 1, result = "juice-extractor" },
+    minable = { mining_time = 1, result = "juice-extractor" },
     max_health = 500,
     inventory_size = 4,
     corpse = "big-remnants",
@@ -682,6 +682,35 @@ grinder.graphics_set = {
         },
     },
 }
+--oak
+local oak = table.deepcopy(base)
+oak.name = "oak"
+oak.icon = "__fruit__/graphics/entity/oak.png"
+oak.icon_size = 512
+oak.minable.result = "oak"
+oak.crafting_categories = { "oak", }
+oak.collision_box = shrinkBox(box4)
+oak.selection_box = box4
+oak.fluid_boxes = create_boxes_normal(4, 2, 2)
+
+oak.graphics_set = {
+    animation = {
+        layers = {
+            {
+                filename = "__fruit__/graphics/entity/oak.png",
+                priority = "extra-high",
+                width = 512,
+                height = 512,
+                frame_count = 1,
+                line_length = 1,
+                repeat_count = 2,
+                animation_speed = 0.3,
+                shift = { 0, -0.3 },
+                scale = 0.4,
+            },
+        },
+    },
+}
 --dough-press
 local press = table.deepcopy(base)
 press.name = "dough-press"
@@ -935,6 +964,7 @@ local machines = {
     icecream,
     agitator,
     grinder,
+    oak,
     press,
     bbq,
     washer,

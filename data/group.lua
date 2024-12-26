@@ -5,6 +5,7 @@ data:extend {
         name = "fruit",
         icon = "__fruit__/graphics/group.png",
         icon_size = 512,
+        order = "fruit"
     },
 
     {
@@ -20,6 +21,7 @@ local subgroups = {
     "fruit",
     "food-core-card",
     "vegetable",
+    "oak",
     "animal_products",
     "fruit_plant",
     "fruit_juice",
@@ -56,6 +58,7 @@ local RecipeCategory = {
     "bbq",
     "pie",
     "pot",
+    "oak",
     "icecream",
     "oven",
     "agitator",

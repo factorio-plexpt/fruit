@@ -169,7 +169,7 @@ RECIPE {
         { type = "item", name = "wine", amount = 3 },
     },
     results = { { type = "item", amount = 1, name = "brandy" } },
-    category = "fermentation", -- 蒸馏过程可能也放在发酵室
+    category = "oak", -- 蒸馏过程可能也放在发酵室
 }:add_unlock("wine")
 
 -- 伏特加
@@ -182,7 +182,7 @@ RECIPE {
         { type = "item", name = "potato", amount = 5 }, -- 假设mod中有土豆
     },
     results = { { type = "item", amount = 1, name = "vodka" } },
-    category = "fermentation",
+    category = "oak",
 }:add_unlock("wine")
 
 -- 威士忌
@@ -195,7 +195,7 @@ RECIPE {
         { type = "item", name = "dried-wheat", amount = 5 },
     },
     results = { { type = "item", amount = 1, name = "whiskey" } },
-    category = "fermentation",
+    category = "oak",
 }:add_unlock("wine")
 
 -- 啤酒
@@ -210,7 +210,7 @@ RECIPE {
         { type = "fluid", name = "water", amount = 2 },
     },
     results = { { type = "item", amount = 1, name = "beer" } },
-    category = "fermentation",
+    category = "oak",
 }:add_unlock("wine")
 
 -- 黑朗姆酒
@@ -223,7 +223,7 @@ RECIPE {
         { type = "item", name = "syrup", amount = 4 },
     },
     results = { { type = "item", amount = 1, name = "dark-rum" } },
-    category = "fermentation",
+    category = "oak",
 }:add_unlock("wine")
 
 -- 白朗姆酒
@@ -236,7 +236,7 @@ RECIPE {
         { type = "item", name = "syrup", amount = 3 },
     },
     results = { { type = "item", amount = 1, name = "white-rum" } },
-    category = "fermentation",
+    category = "oak",
 }:add_unlock("wine")
 
 -- 清酒
@@ -251,21 +251,22 @@ RECIPE {
         { type = "item", name = "yeast", amount = 1 },
     },
     results = { { type = "item", amount = 1, name = "sake" } },
-    category = "fermentation",
+    category = "oak",
 }:add_unlock("wine")
 
 -- 龙舌兰酒
---RECIPE {
---    type = "recipe",
---    name = "tequila",
---    enabled = false,
---    energy_required = 75,
---    ingredients = {
---        { type = "item", name = "agave", amount = 5 }, -- 假设mod中有龙舌兰
---    },
---    results = { { type = "item", amount = 1, name = "tequila" } },
---    category = "fermentation",
---}:add_unlock("wine")
+RECIPE {
+    type = "recipe",
+    name = "tequila",
+    enabled = false,
+    energy_required = 75,
+    ingredients = {
+        { type = "item", name = "agave", amount = 5 }, -- 假设mod中有龙舌兰
+        { type = "fluid", name = "water", amount = 2 },
+    },
+    results = { { type = "item", amount = 1, name = "tequila" } },
+    category = "oak",
+}:add_unlock("wine")
 
 -- 葡萄酒
 RECIPE {
@@ -278,7 +279,7 @@ RECIPE {
         { type = "item", name = "yeast", amount = 1 },
     },
     results = { { type = "item", amount = 1, name = "wine" } },
-    category = "fermentation",
+    category = "oak",
 }:add_unlock("wine")
 
 -- 白葡萄酒
@@ -292,7 +293,7 @@ RECIPE {
         { type = "item", name = "yeast", amount = 1 },
     },
     results = { { type = "item", amount = 1, name = "white-wine" } },
-    category = "fermentation",
+    category = "oak",
 }:add_unlock("wine")
 
 -- 茅台酒
@@ -307,8 +308,8 @@ RECIPE {
         { type = "item", name = "yeast", amount = 2 },
     },
     results = { { type = "item", amount = 1, name = "maotai" } },
-    category = "fermentation",
-}:add_unlock("wine")
+    category = "oak",
+}:add_unlock("brewing")
 
 -- 香槟
 RECIPE {
@@ -321,7 +322,7 @@ RECIPE {
         { type = "item", name = "sugar", amount = 1 },
     },
     results = { { type = "item", amount = 1, name = "champagne" } },
-    category = "fermentation", -- 二次发酵
+    category = "oak", -- 二次发酵
 }:add_unlock("wine")
 
 -- 泡芙
@@ -448,7 +449,7 @@ RECIPE {
         { type = "item", name = "dough", amount = 2 },
         { type = "item", name = "pork", amount = 1 }, -- 假设mod中有猪肉
         { type = "item", name = "cabbage", amount = 1 }, -- 假设mod中有白菜
-        --{ type = "item", name = "ginger", amount = 1 }, -- 假设mod中有姜
+        { type = "item", name = "ginger", amount = 1 }, -- 假设mod中有姜
     },
     results = { { type = "item", amount = 4, name = "dumpling" } },
     category = "pot",
@@ -481,7 +482,7 @@ RECIPE {
         { type = "item", name = "pork", amount = 3 },
         { type = "item", name = "soy_sauce", amount = 2 },
         { type = "item", name = "sugar", amount = 1 },
-        --{ type = "item", name = "ginger", amount = 1 },
+        { type = "item", name = "ginger", amount = 1 },
     },
     results = { { type = "item", amount = 1, name = "braised-pork" } },
     category = "pot",
@@ -601,59 +602,6 @@ RECIPE {
 -- 羊毛可以直接从羊身上获得，不需要额外配方
 
 -- 干羊毛
---RECIPE {
---    type = "recipe",
---    name = "dried-wool",
---    enabled = false,
---    energy_required = 30,
---    ingredients = {
---        { type = "item", name = "wool", amount = 1 },
---    },
---    results = { { type = "item", amount = 1, name = "dried-wool" } },
---    category = "washer", -- 可以用清洗机来烘干
---}:add_unlock("textile-processing")
---
----- 干米
---RECIPE {
---    type = "recipe",
---    name = "dried-rice",
---    enabled = false,
---    energy_required = 30,
---    ingredients = {
---        { type = "item", name = "rice", amount = 1 }, -- 假设mod中有稻米
---    },
---    results = { { type = "item", amount = 1, name = "dried-rice" } },
---    category = "washer", -- 也可以用清洗机来烘干
---}:add_unlock("agriculture")
---
----- 可可豆荚
----- 可可豆荚可以直接作为作物收获，不需要额外配方
---
----- 干可可豆
---RECIPE {
---    type = "recipe",
---    name = "dried-cocoa-bean",
---    enabled = false,
---    energy_required = 40,
---    ingredients = {
---        { type = "item", name = "cocoa-pod", amount = 1 },
---    },
---    results = { { type = "item", amount = 1, name = "dried-cocoa-bean" } },
---    category = "washer", -- 烘干
---}:add_unlock("chocolate-making")
---
----- 干小麦
---RECIPE {
---    type = "recipe",
---    name = "dried-wheat",
---    enabled = false,
---    energy_required = 30,
---    ingredients = {
---        { type = "item", name = "wheat", amount = 1 }, -- 假设mod中有小麦
---    },
---    results = { { type = "item", amount = 1, name = "dried-wheat" } },
---    category = "washer", -- 烘干
---}:add_unlock("agriculture")
 
 -- 咖啡籽
 -- 咖啡籽可以直接作为作物收获，不需要额外配方

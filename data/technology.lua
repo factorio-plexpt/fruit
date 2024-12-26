@@ -287,6 +287,25 @@ TECHNOLOGY {
 
 TECHNOLOGY {
     type = "technology",
+    name = "brewing",
+    icon = "__fruit__/graphics/entity/oak.png",
+    icon_size = 512,
+    effects = {},
+    prerequisites = { "wine" },
+    unit = {
+        count = 1200,
+        ingredients = {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 }
+        },
+        time = 3
+    },
+}
+
+
+
+TECHNOLOGY {
+    type = "technology",
     name = "frying",
     icon = "__fruit__/graphics/icon/hamburger.png",
     icon_size = 512,

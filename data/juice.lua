@@ -22,7 +22,7 @@ local fruit = {
     cantaloupe = { r = 1, g = 0.7, b = 0.4, a = 0.6 }, -- Light Orange
     passion_fruit = { r = 0.6, g = 0.2, b = 0, a = 0.6 }, -- Dark Purple/Brownish
     cherry = { r = 0.8, g = 0, b = 0, a = 0.6 }, -- Red
-    tangerine = { r = 1, g = 0.6, b = 0, a = 0.6 }, -- Orange
+    --tangerine = { r = 1, g = 0.6, b = 0, a = 0.6 }, -- Orange
     guava = { r = 0.7, g = 0.9, b = 0.5, a = 0.6 }, -- Light Green
     carambola = { r = 1, g = 0.9, b = 0.2, a = 0.6 }, -- Yellow
     coconut = { r = 0.8, g = 0.7, b = 0.5, a = 0.6 }, -- Brown/White (using brownish here)

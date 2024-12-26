@@ -80,6 +80,8 @@ local items = {
     "coffee-bean",
     "coffee-powder",
     "coffee",
+    "ginger",
+    "agave",
 }
 local subgroups = {
     ["rice-grain"] = "vegetable",
