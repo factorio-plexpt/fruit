@@ -1,7 +1,7 @@
 TECHNOLOGY {
     type = "technology",
     name = "food-processing",
-    icon = "__fruit__/graphics/icon/food-processing.png",
+    icon = "__fruit__/graphics/icon/place.png",
     icon_size = 512,
     effects = {
     },

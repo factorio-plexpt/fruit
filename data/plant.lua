@@ -4,6 +4,34 @@ local mining_trigger = tree01.minable.mining_trigger
 second = 60
 minute = 60 * second
 hour = 60 * minute
+
+local function get_tile(name, count, names)
+    local names = names or {}
+    for i = 1, count do
+        table.insert(names, name .. i)
+    end
+    return names
+end
+
+local function get_alien(names)
+    local names = names
+    if mods["alien-biomes"] then
+        names = get_tile("mineral-aubergine-dirt-", 6, names)
+        names = get_tile("mineral-beige-dirt-", 6, names)
+        names = get_tile("mineral-black-dirt-", 6, names)
+        names = get_tile("mineral-brown-dirt-", 6, names)
+        names = get_tile("mineral-cream-dirt-", 6, names)
+        names = get_tile("mineral-dustyrose-dirt-", 6, names)
+        names = get_tile("mineral-grey-dirt-", 6, names)
+        names = get_tile("mineral-purple-dirt-", 6, names)
+        names = get_tile("mineral-red-dirt-", 6, names)
+        names = get_tile("mineral-tan-dirt-", 6, names)
+        names = get_tile("mineral-white-dirt-", 6, names)
+        names = get_tile("vegetation-green-grass-", 4, names)
+    end
+    return names
+end
+
 local fruit_index = 1
 local function make_tree(name, count, size)
     local variations = {}
@@ -36,6 +64,12 @@ local function make_tree(name, count, size)
     variations[1].trunk.filename = "__fruit__/graphics/tree/" .. name .. ".png"
     variations[1].leaves.filename = "__fruit__/graphics/tree/" .. name .. ".png"
 
+    local names = get_alien({ "grass-1", "grass-2", "grass-3", "grass-4",
+                              "dirt-1", "dirt-2", "dirt-3", "dirt-4", "dirt-5", "dirt-6", "dirt-7",
+                              "dry-dirt", "sand-1", "sand-2", "sand-3", })
+
+    local volume = 5000 * (1 / settings.startup["fruit-tree-multiplier"].value)
+
     local plant = {
         type = "plant",
         --type = has_dlc and "plant" or "tree",
@@ -44,7 +78,9 @@ local function make_tree(name, count, size)
         icon_size = size,
         flags = { "placeable-neutral", "breaths-air" },
         minable = {
-            results = { { type = "item", name = name, amount = 50 } },
+            results = { { type = "item", name = name, amount = 50 },
+                        { type = "item", name = "wood", amount_min = 2, amount_max = 10, probability = 0.5 }
+            },
             mining_particle = "wooden-particle",
             mining_time = 0.5,
             mining_trigger = mining_trigger
@@ -80,11 +116,9 @@ local function make_tree(name, count, size)
         map_color = { r = 0.15686, g = 0.58824, b = 0.34510 },
         variations = variations,
         autoplace = {
-            probability_expression = "random(5000, " .. math.random(1, 100000) .. ") < 1",
+            probability_expression = "random(" .. volume .. ", " .. math.random(1, 100000) .. ") < 1",
             order = "fruit-tree-" .. name,
-            tile_restriction = { "grass-1", "grass-2", "grass-3", "grass-4",
-                                 "dirt-1", "dirt-2", "dirt-3", "dirt-4", "dirt-5", "dirt-6", "dirt-7",
-                                 "dry-dirt", "sand-1", "sand-2", "sand-3", },
+            tile_restriction = names,
         },
 
         --autoplace = {

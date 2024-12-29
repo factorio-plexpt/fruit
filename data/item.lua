@@ -50,6 +50,7 @@ local items = {
     "yogurt",
     "waffle",
     "chili",
+    "gingerbread",
 
     "wool",
     "cleaned-wool",

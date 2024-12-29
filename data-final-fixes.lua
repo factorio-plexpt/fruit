@@ -30,7 +30,6 @@ local science_packs_all = {
     "restaurant-science-pack"
 }
 local science_packs = {
-    ["military-science-pack"] = true,
     ["production-science-pack"] = true,
     ["utility-science-pack"] = true,
     ["space-science-pack"] = true,
@@ -40,16 +39,31 @@ local science_packs = {
     ["cryogenic-science-pack"] = true,
     ["promethium-science-pack"] = true,
 }
+local excludes = {
+    ["cerys-science-pack"] = true,
+    ["military-science-pack"] = true,
+}
 
 for _, tech in pairs(data.raw.technology) do
     if tech.unit and tech.unit.ingredients then
         -- 检查是否包含 "space-science-pack"
+
+        local add_to_tech = false
         for _, ingredient in pairs(tech.unit.ingredients) do
             if science_packs[ingredient[1]] then
                 -- 如果包含 "space-science-pack"，添加 "agriculture-science-pack"
-                add_science_pack(tech, "restaurant-science-pack")
-                break -- 找到后不需要继续检查其他 ingredients
+                add_to_tech = true
             end
+
+            if excludes[ingredient[1]] then
+                -- 如果包含 "space-science-pack"，添加 "agriculture-science-pack"
+                add_to_tech = false
+                break
+            end
+        end
+
+        if add_to_tech then
+            add_science_pack(tech, "restaurant-science-pack")
         end
     end
 end

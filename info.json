@@ -1,20 +1,23 @@
 {
     "name": "fruit",
-    "version": "1.10.1",
-    "title": "Fruit and Vegetable",
+    "version": "1.11.4",
+    "title": "Fruits Vegetables Valley",
     "author": "plexpt",
     "contact": "q",
     "homepage": "https://github.com/",
-    "description": "🍎🍊🍇 Introducing the Fruit for Factorio, adding delightful fruits to your game. We welcome all mod developers to freely modify, extend, or integrate this mod. Imagine new fruit processing machines, agricultural expansions, trade systems, decorative items, energy sources, technology branches, creatures, and events.  ",
+    "description": "🍎🍊🍇 add new delightful fruits, new fruit processing machines, agricultural expansions, trade systems, decorative items, energy sources, technology branches, creatures, and events. ",
     "factorio_version": "2.0",
     "spoiling_required": true,
     "dependencies": [
         "kry_stdlib",
         "cowcow",
         "chicken",
+        "psyduck",
         "sheep",
         "? Fridge",
         "(?) space-age",
-        "(?) baketorio"
+        "(?) baketorio",
+        "(?) alien-biomes",
+        "(?) Cerys-Moon-of-Fulgora"
     ]
 }

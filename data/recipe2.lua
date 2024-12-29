@@ -418,6 +418,7 @@ RECIPE {
         { type = "item", name = "soy_sauce", amount = 1 },
         { type = "item", name = "vinegar", amount = 1 },
         { type = "item", name = "sugar", amount = 1 },
+        { type = "item", name = "ginger", amount = 1 }, -- 假设mod中有姜
     },
     results = { { type = "item", amount = 1, name = "kung-pao-chicken" } },
     category = "pot",
@@ -515,6 +516,7 @@ RECIPE {
         { type = "item", name = "chicken_meat", amount = 1 }, -- 假设mod中有肉末
         { type = "item", name = "soy_sauce", amount = 1 },
         { type = "item", name = "chili", amount = 1 },
+        { type = "item", name = "ginger", amount = 1 }, -- 假设mod中有姜
         --{ type = "item", name = "fermented_black_beans", amount = 1 }, -- 假设mod中有豆豉
     },
     results = { { type = "item", amount = 1, name = "mapo-tofu" } },
@@ -587,6 +589,7 @@ RECIPE {
     energy_required = 40,
     ingredients = {
         { type = "fluid", name = "water", amount = 3 },
+        { type = "item", name = "ginger", amount = 1 }, -- 假设mod中有姜
         --{ type = "item", name = "vegetable", amount = 2 }, -- 假设mod中有通用蔬菜
         --{ type = "item", name = "meat", amount = 1 }, -- 假设mod中有通用肉类
         { type = "item", name = "salt", amount = 1 },

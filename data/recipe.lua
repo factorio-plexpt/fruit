@@ -722,3 +722,18 @@ RECIPE {
     category = "oven",
 }:add_unlock("baking")
 
+
+RECIPE {
+    type = "recipe",
+    name = "gingerbread",
+    enabled = false,
+    energy_required = 10,
+    ingredients = {
+        { type = "item", name = "dough", amount = 20 },
+        { type = "item", name = "sugar", amount = 1 },  -- 糖
+        { type = "item", name = "ginger", amount = 1 },  -- 姜
+        { type = "fluid", name = "water", amount = 1 }  -- 水
+    },
+    results = { { type = "item", amount = 2, name = "gingerbread" } },
+    category = "oven",
+}:add_unlock("baking")
