@@ -740,6 +740,37 @@ press.graphics_set = {
         },
     },
 }
+
+--cutting-board
+local board = table.deepcopy(base)
+board.name = "cutting-board"
+board.icon = "__fruit__/graphics/entity/cutting-board.png"
+board.icon_size = 512
+board.minable.result = "cutting-board"
+board.crafting_categories = { "cutting", }
+board.collision_box = shrinkBox(box4)
+board.selection_box = box4
+board.fluid_boxes = create_boxes_normal(4, 2, 2)
+
+board.graphics_set = {
+    animation = {
+        layers = {
+            {
+                filename = "__fruit__/graphics/entity/cutting-board.png",
+                priority = "extra-high",
+                width = 512,
+                height = 512,
+                frame_count = 1,
+                line_length = 1,
+                repeat_count = 2,
+                animation_speed = 0.3,
+                shift = { 0, 0 },
+                scale = 0.4,
+            },
+        },
+    },
+}
+
 --washer
 local washer = table.deepcopy(base)
 washer.name = "washer"
@@ -966,6 +997,7 @@ local machines = {
     grinder,
     oak,
     press,
+    board,
     bbq,
     washer,
     husker,

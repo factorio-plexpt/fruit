@@ -59,6 +59,7 @@ require("data.processing.rice")
 require("data.processing.wheat")
 require("data.processing.yarn")
 require("data.processing.coffee")
+require("data.processing.potato")
 
 require("data.processing.drying")
 require("data.recipe2")

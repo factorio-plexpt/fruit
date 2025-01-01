@@ -1,11 +1,11 @@
 {
     "name": "fruit",
-    "version": "1.11.4",
+    "version": "1.12.0",
     "title": "Fruits Vegetables Valley",
     "author": "plexpt",
     "contact": "q",
     "homepage": "https://github.com/",
-    "description": "🍎🍊🍇 add new delightful fruits, new fruit processing machines, agricultural expansions, trade systems, decorative items, energy sources, technology branches, creatures, and events. ",
+    "description": "🍎🍊🍇 Add new delightful fruits, new fruit processing machines, vegetables, animal products, baking, wine making, restaurants, agricultural expansions, trade systems, decorative items, energy sources, technology branches, creatures, and events.",
     "factorio_version": "2.0",
     "spoiling_required": true,
     "dependencies": [

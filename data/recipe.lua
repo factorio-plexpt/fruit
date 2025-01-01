@@ -412,17 +412,17 @@ RECIPE {
     category = "oven",
 }:add_unlock("baking")
 
-RECIPE {
-    type = "recipe",
-    name = "baked-potato",
-    enabled = false,
-    energy_required = 30,
-    ingredients = {
-        { type = "item", name = "potato", amount = 1 },
-    },
-    results = { { type = "item", amount = 1, name = "baked-potato" } },
-    category = "bbq",
-}:add_unlock("barbecuing")
+--RECIPE {
+--    type = "recipe",
+--    name = "baked-potato",
+--    enabled = false,
+--    energy_required = 30,
+--    ingredients = {
+--        { type = "item", name = "potato", amount = 1 },
+--    },
+--    results = { { type = "item", amount = 1, name = "baked-potato" } },
+--    category = "bbq",
+--}:add_unlock("barbecuing")
 
 RECIPE {
     type = "recipe",
@@ -440,22 +440,22 @@ RECIPE {
     category = "oven",
 }:add_unlock("baking")
 
-RECIPE {
-    type = "recipe",
-    name = "french-fries",
-    enabled = false,
-    energy_required = 15,
-    ingredients = {
-        { type = "item", name = "potato", amount = 1 },
-        { type = "item", name = "olive_oil", amount = 50 },
-    },
-    results = {
-        { type = "item", name = "olive_oil", amount = 48 },
-        { type = "item", amount = 1, name = "french-fries" }
-    },
-    main_product = "french-fries",
-    category = "pot",
-}:add_unlock("frying")
+--RECIPE {
+--    type = "recipe",
+--    name = "french-fries",
+--    enabled = false,
+--    energy_required = 15,
+--    ingredients = {
+--        { type = "item", name = "potato", amount = 1 },
+--        { type = "item", name = "olive_oil", amount = 50 },
+--    },
+--    results = {
+--        { type = "item", name = "olive_oil", amount = 48 },
+--        { type = "item", amount = 1, name = "french-fries" }
+--    },
+--    main_product = "french-fries",
+--    category = "pot",
+--}:add_unlock("frying")
 
 RECIPE {
     type = "recipe",
@@ -589,19 +589,19 @@ RECIPE {
     category = "pot",
 }:add_unlock("frying")
 
-RECIPE {
-    type = "recipe",
-    name = "mashed-potatoes",
-    enabled = false,
-    energy_required = 20,
-    ingredients = {
-        { type = "item", name = "potato", amount = 3 },
-        { type = "item", name = "milk", amount = 50 },
-        { type = "item", name = "butter", amount = 20 },
-    },
-    results = { { type = "item", amount = 1, name = "mashed-potatoes" } },
-    category = "pot",
-}:add_unlock("frying")
+--RECIPE {
+--    type = "recipe",
+--    name = "mashed-potatoes",
+--    enabled = false,
+--    energy_required = 20,
+--    ingredients = {
+--        { type = "item", name = "potato", amount = 3 },
+--        { type = "item", name = "milk", amount = 50 },
+--        { type = "item", name = "butter", amount = 20 },
+--    },
+--    results = { { type = "item", amount = 1, name = "mashed-potatoes" } },
+--    category = "pot",
+--}:add_unlock("frying")
 
 RECIPE {
     type = "recipe",

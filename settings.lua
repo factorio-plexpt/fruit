@@ -6,7 +6,7 @@ data:extend({
         default_value = true
     },
     {
-        type = "int-setting",
+        type = "double-setting",
         name = "fruit-tree-multiplier",
         setting_type = "startup",
         default_value = 1,

@@ -302,8 +302,6 @@ TECHNOLOGY {
     },
 }
 
-
-
 TECHNOLOGY {
     type = "technology",
     name = "frying",
@@ -466,6 +464,33 @@ TECHNOLOGY {
         { type = "unlock-recipe", recipe = "coffee" },
     },
     prerequisites = { "fermentation" },
+    unit = {
+        count = 300,
+        ingredients = {
+            { "automation-science-pack", 1 },
+            { "logistic-science-pack", 1 }
+        },
+        time = 5
+    },
+}
+
+TECHNOLOGY {
+    type = "technology",
+    name = "potato-processing",
+    icon = "__fruit__/graphics/icon/potato.png",
+    icon_size = 512,
+    effects = {
+        { type = "unlock-recipe", recipe = "potato-peeling" },
+        { type = "unlock-recipe", recipe = "potato-washing" },
+        { type = "unlock-recipe", recipe = "potato-slicing" },
+        { type = "unlock-recipe", recipe = "potato-shredding" },
+        { type = "unlock-recipe", recipe = "potato-dicing" },
+        { type = "unlock-recipe", recipe = "potato-frying-slices" },
+        { type = "unlock-recipe", recipe =  "potato-frying-shreds" },
+        { type = "unlock-recipe", recipe = "mashed-potato-making" },
+        { type = "unlock-recipe", recipe =  "baked-potato-making"},
+    },
+    prerequisites = { "food-processing" },
     unit = {
         count = 300,
         ingredients = {

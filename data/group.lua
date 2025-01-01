@@ -64,6 +64,7 @@ local RecipeCategory = {
     "agitator",
     "grinder",
     "press",
+    "cutting",
     "husker",
     "washer",
 }
