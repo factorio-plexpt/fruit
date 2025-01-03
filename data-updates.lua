@@ -21,6 +21,11 @@ local animals_loot = {
             item = "milk", -- 牛奶桶（假设有这个物品）
             count_min = 1,
             count_max = 10,
+        },
+        {
+            item = "cow-egg", --
+            count_min = 2,
+            count_max = 8,
         }
     },
     chicken = {
@@ -55,6 +60,11 @@ local animals_loot = {
             item = "leather", -- 皮革
             count_min = 1,
             count_max = 10,
+        },
+        {
+            item = "sheep-egg", --
+            count_min = 2,
+            count_max = 8,
         }
     },
     psyduck = {

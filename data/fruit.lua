@@ -70,7 +70,7 @@ for name, color in pairs(fruit) do
         subgroup = "fruit",
         order = "a[" .. name .. "]",
         spoil_ticks = feature_flags["spoiling"] and 10 * minute or nil,
-
+        spoil_result = mods["space-age"] and "spoilage" or nil,
         stack_size = 100,
     }
     if not data.raw.recipe[name] then
@@ -89,7 +89,7 @@ for name, color in pairs(fruit) do
         }:add_unlock("fruit-cultivation")
     end
 
-    table.insert(orders_recipe.restaurant, name)
+    --table.insert(orders_recipe.restaurant, name)
 
 end
 

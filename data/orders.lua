@@ -24,7 +24,7 @@ local function add_order_recipe(ingredients, results, category, index)
             allow_decomposition = false,
             --preserve_products_in_machine_output = true,
             allow_inserter_overload  = false,
-            --result_is_always_fresh = true,
+            result_is_always_fresh = true,
             ingredients = ingredients,
             results = results,
         }
@@ -55,6 +55,9 @@ local trigger = {
     }
 }
 
+
+
+
 data:extend {
     {
         type = "item",
@@ -68,7 +71,7 @@ data:extend {
         hidden_in_factoriopedia = true,
         spoil_ticks = 250,
         spoil_to_trigger_result = trigger,
-        spoil_result = "raw-fish"
+        spoil_result = mods["space-age"] and "spoilage" or nil,
     },
     {
         type = "tool",
@@ -82,6 +85,7 @@ data:extend {
         weight = 1 * kg,
         durability = 1,
         spoil_ticks = 1 * hour,
+        spoil_result = mods["space-age"] and "spoilage" or nil,
         --color_hint = { text = "G" },
         --default_import_location = "gleba",
         --durability_description_key = "description.science-pack-remaining-amount-key",

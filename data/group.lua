@@ -28,6 +28,7 @@ local subgroups = {
     "fruit_jam",
     "fruit_icecream",
     "fruit_pie",
+    "egg",
     "fruit_product",
     "fruit_pack_rubbish"
 }
@@ -64,6 +65,7 @@ local RecipeCategory = {
     "agitator",
     "grinder",
     "press",
+    "incubator",
     "cutting",
     "husker",
     "washer",

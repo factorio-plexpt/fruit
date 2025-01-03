@@ -711,6 +711,39 @@ oak.graphics_set = {
         },
     },
 }
+--incubator
+local incubator = table.deepcopy(base)
+incubator.name = "incubator"
+incubator.type = "furnace"
+incubator.vector_to_place_result = { 0, 2.5 }
+incubator.source_inventory_size = 1
+incubator.result_inventory_size = 1
+incubator.icon = "__fruit__/graphics/entity/incubator.png"
+incubator.icon_size = 512
+incubator.minable.result = "incubator"
+incubator.crafting_categories = { "incubator", }
+incubator.collision_box = shrinkBox(box4)
+incubator.selection_box = box4
+incubator.fluid_boxes = nil
+
+incubator.graphics_set = {
+    animation = {
+        layers = {
+            {
+                filename = "__fruit__/graphics/entity/incubator.png",
+                priority = "extra-high",
+                width = 512,
+                height = 512,
+                frame_count = 1,
+                line_length = 1,
+                repeat_count = 2,
+                animation_speed = 0.3,
+                shift = { 0, -0.3 },
+                scale = 0.4,
+            },
+        },
+    },
+}
 --dough-press
 local press = table.deepcopy(base)
 press.name = "dough-press"
@@ -996,6 +1029,7 @@ local machines = {
     agitator,
     grinder,
     oak,
+    incubator,
     press,
     board,
     bbq,

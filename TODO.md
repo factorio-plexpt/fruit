@@ -1,5 +1,9 @@
 冰箱
-削皮 土豆片 土豆丝 土豆丁
+
+[//]: # (削皮 土豆片 土豆丝 土豆丁)
+
+甜品、蛋糕
+孵蛋
 
 披萨
 蛋糕
@@ -123,3 +127,4 @@ Pasta Palace（意面宫）
 Grill & BBQ（烧烤店）
 
 
+Isometric Projection top down view of A circular base whimsical and functional egg incubator inspired by the Factorio game, depicted in a Factorio style. The incubator's primary structure is a massive, egg-shaped body, slightly cracked at the top to reveal glowing internal machinery. The surface of the egg is smooth, with subtle industrial accents like glowing seams, vents, and small control panels embedded into the shell. Around the base, mechanical legs or supports keep it stable, with tiny conveyor belts feeding smaller eggs into the incubator. Set against a pure black background, the design emphasizes the glowing interior and the unique fusion of organic and industrial aesthetics. Suitable for a Factorio-themed mod.

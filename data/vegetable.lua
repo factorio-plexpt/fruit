@@ -54,6 +54,7 @@ for name, color in pairs(items) do
         subgroup = "vegetable",
         order = "a[" .. name .. "]",
         spoil_ticks = feature_flags["spoiling"] and 10 * minute or nil,
+        spoil_result = mods["space-age"] and "spoilage" or nil,
         stack_size = 100,
     }
 
