@@ -4,6 +4,7 @@ MyEvent = require("lib.EventDispatcher")
 
 require("runtime.corehub")
 require("runtime.restaurant")
+require("runtime.egg")
 
 
 ---- INIT ----

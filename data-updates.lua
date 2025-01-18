@@ -1,10 +1,15 @@
-for _, lab in pairs(data.raw["lab"]) do
-    if lab.inputs then
-        local packname = "restaurant-science-pack"
-        table.insert(lab.inputs, packname)
+if not mods["planet-woodoria"] then
+
+    for _, lab in pairs(data.raw["lab"]) do
+        if lab.inputs then
+            local packname = "restaurant-science-pack"
+            table.insert(lab.inputs, packname)
+        end
     end
+
 end
 
+------------------------------------
 local animals_loot = {
     cow = {
         {
@@ -90,5 +95,6 @@ for name, loot in pairs(animals_loot) do
     local animal = data.raw["unit"][name]
     if animal then
         animal.loot = loot
+        animal.corpse = nil
     end
 end

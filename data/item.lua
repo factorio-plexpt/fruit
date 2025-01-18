@@ -91,6 +91,9 @@ local items = {
     "coffee", -- 咖啡
     "ginger", -- 姜
     "agave", -- 龙舌兰
+    "ash", -- 龙舌兰
+    "poop", --
+    "organic-fertilizer",
 }
 
 --特殊 subgroup 重定向

@@ -224,6 +224,8 @@ local size1024 = {
 
 }
 
+fruit_plant_woodoria = fruit_plant_woodoria or {}
+
 for name, count in pairs(fruits) do
     local size = 512
     if size1024[name] then
@@ -231,10 +233,13 @@ for name, count in pairs(fruits) do
     end
 
     make_tree(name, count, size)
-
-    for k, planet in pairs(data.raw["planet"]) do
-        if planet.map_gen_settings and planet.map_gen_settings.autoplace_settings then
-            planet.map_gen_settings.autoplace_settings.entity.settings[name] = {}
+    if mods["planet-woodoria"] then
+        table.insert(fruit_plant_woodoria, name)
+    else
+        for k, planet in pairs(data.raw["planet"]) do
+            if planet.map_gen_settings and planet.map_gen_settings.autoplace_settings then
+                planet.map_gen_settings.autoplace_settings.entity.settings[name] = {}
+            end
         end
     end
 

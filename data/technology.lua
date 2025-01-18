@@ -1,3 +1,8 @@
+local prerequisites = {}
+if mods["planet-woodoria"] then
+    prerequisites = { "planet-discovery-woodoria" }
+end
+
 TECHNOLOGY {
     type = "technology",
     name = "food-processing",
@@ -5,7 +10,7 @@ TECHNOLOGY {
     icon_size = 512,
     effects = {
     },
-    prerequisites = {},
+    prerequisites = prerequisites,
     unit = {
         count = 1000,
         ingredients = {
@@ -486,9 +491,9 @@ TECHNOLOGY {
         { type = "unlock-recipe", recipe = "potato-shredding" },
         { type = "unlock-recipe", recipe = "potato-dicing" },
         { type = "unlock-recipe", recipe = "potato-frying-slices" },
-        { type = "unlock-recipe", recipe =  "potato-frying-shreds" },
+        { type = "unlock-recipe", recipe = "potato-frying-shreds" },
         { type = "unlock-recipe", recipe = "mashed-potato-making" },
-        { type = "unlock-recipe", recipe =  "baked-potato-making"},
+        { type = "unlock-recipe", recipe = "baked-potato-making" },
     },
     prerequisites = { "food-processing" },
     unit = {

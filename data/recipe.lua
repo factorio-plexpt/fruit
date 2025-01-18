@@ -722,7 +722,6 @@ RECIPE {
     category = "oven",
 }:add_unlock("baking")
 
-
 RECIPE {
     type = "recipe",
     name = "gingerbread",
@@ -730,10 +729,24 @@ RECIPE {
     energy_required = 10,
     ingredients = {
         { type = "item", name = "dough", amount = 20 },
-        { type = "item", name = "sugar", amount = 1 },  -- 糖
-        { type = "item", name = "ginger", amount = 1 },  -- 姜
+        { type = "item", name = "sugar", amount = 1 }, -- 糖
+        { type = "item", name = "ginger", amount = 1 }, -- 姜
         { type = "fluid", name = "water", amount = 1 }  -- 水
     },
     results = { { type = "item", amount = 2, name = "gingerbread" } },
     category = "oven",
 }:add_unlock("baking")
+
+RECIPE {
+    type = "recipe",
+    name = "organic-fertilizer",
+    enabled = false,
+    energy_required = 10,
+    ingredients = {
+        { type = "item", name = "poop", amount = 3 },
+        { type = "item", name = "ash", amount = 7 }, --
+        { type = "fluid", name = "water", amount = 2 }  -- 水
+    },
+    results = { { type = "item", amount = 1, name = "organic-fertilizer", } },
+    category = "fermentation",
+}:add_unlock("fermentation")
