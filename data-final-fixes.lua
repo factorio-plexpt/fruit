@@ -8,9 +8,10 @@ local function add_science_pack(tech, pack)
                 return -- 如果已经存在，直接返回
             end
         end
-
-        -- 插入农业科研包
-        table.insert(tech.unit.ingredients, { pack, 1 })
+        if not mods["planet-woodoria"] then
+            -- 插入农业科研包
+            table.insert(tech.unit.ingredients, { pack, 1 })
+        end
     end
 end
 
@@ -41,6 +42,7 @@ local science_packs = {
 }
 local excludes = {
     ["cerys-science-pack"] = true,
+    ["cerysian-science-pack"] = true,
     ["military-science-pack"] = true,
 }
 

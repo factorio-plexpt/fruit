@@ -67,6 +67,9 @@ local function make_tree(name, count, size)
     local names = get_alien({ "grass-1", "grass-2", "grass-3", "grass-4",
                               "dirt-1", "dirt-2", "dirt-3", "dirt-4", "dirt-5", "dirt-6", "dirt-7",
                               "dry-dirt", "sand-1", "sand-2", "sand-3", })
+    if mods["planet-woodoria"] then
+        table.insert(names, "woodoria-wood-1")
+    end
 
     local volume = 5000 * (1 / settings.startup["fruit-tree-multiplier"].value)
 
@@ -198,6 +201,8 @@ local fruits = {
     longan = 1,
     loquat = 1,
     mulberry = 1,
+    carambola = 1,
+    jackfruit = 1,
 
     soybeans = 1,
     artichoke = 1,

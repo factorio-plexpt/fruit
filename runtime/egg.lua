@@ -35,4 +35,4 @@ local function egg_laying ()
     end
 end
 
-script.on_nth_tick(603, egg_laying)
+script.on_nth_tick(6003, egg_laying)

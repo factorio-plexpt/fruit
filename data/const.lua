@@ -36,7 +36,7 @@ fruit_const.fruit = {
     cranberry = { r = 0.7, g = 0, b = 0.1, a = 0.6 }, -- Deep Red
     persimmon = { r = 1, g = 0.5, b = 0, a = 0.6 }, -- Orange
     elderberry = { r = 0.2, g = 0, b = 0.4, a = 0.6 }, -- Dark Purple
-    currant = { r = 0.6, g = 0, b = 0, a = 0.6 }, -- Red
+    --currant = { r = 0.6, g = 0, b = 0, a = 0.6 }, -- Red
     loquat = { r = 1, g = 0.8, b = 0.4, a = 0.6 }, -- Orange-Yellow
     mulberry = { r = 0.3, g = 0, b = 0.3, a = 0.6 }, -- Dark Purple
     lemon = { r = 1, g = 1, b = 0, a = 0.6 }, -- Yellow
