@@ -66,6 +66,7 @@ for name, color in pairs(items) do
             category = "fruit_plant",
             crafting_machine_tint = { primary = color },
             energy_required = 3600,
+            result_is_always_fresh = true,
             ingredients = {
                 { type = "item", name = name, amount = 1 },
                 { type = "fluid", name = "water", amount = 200 },
