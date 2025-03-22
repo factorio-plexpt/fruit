@@ -310,8 +310,11 @@ RECIPE {
         { type = "item", name = "flour", amount = 10 },
         { type = "fluid", name = "water", amount = 10 },
     },
-    results = { { type = "item", amount = 10, name = "yeast", probability = 0.8 } },
-    results = { { type = "item", amount = 2, name = "yeast", probability = 0.1 } },
+    results = { 
+        { type = "item", amount = 10, name = "yeast", probability = 0.8 }, 
+        { type = "item", amount = 2, name = "yeast", probability = 0.1 } 
+    },
+    main_product = "yeast",
     category = "fermentation",
 }:add_unlock("fermentation")
 
