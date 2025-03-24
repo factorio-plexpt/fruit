@@ -15,7 +15,7 @@ local function egg_laying ()
         else
             -- Find units
             --local units = surface.find_units({ area = { { -2000, -2000 }, { 2000, 2000 } }, force = "neutral", condition = "all" })
-            local units = surface.find_entities_filtered({ type = "unit", force = "neutral", })
+            local units = surface.find_entities_filtered({ type = "unit", force = { "neutral", "player" } })
 
             for k, unit in pairs(units) do
 
