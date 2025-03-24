@@ -19,7 +19,7 @@ local function egg_laying ()
 
             for k, unit in pairs(units) do
 
-                if unit.name and animals[unit.name] then
+                if unit.name == animals[unit.name] then
 
                     -- 随机生成一个 1 或 2 的数字
                     local choice = math.random(1, 3)

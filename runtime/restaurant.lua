@@ -130,7 +130,14 @@ script.on_nth_tick(600, function()
 
             -- 生成 1 到 1000 的随机整数
             local random_number = math.random(1, 1000)
-
+            local input = entity.get_inventory(defines.inventory.assembling_machine_input)
+            local trash = entity.get_inventory(defines.inventory.assembling_machine_trash)
+            for i = 1, #input do
+                if input[i].valid_for_read then
+                    trash.insert(input[i])
+                end
+            end
+            input.clear()
             entity.set_recipe("fruit-order-" .. random_number)
 
         end
