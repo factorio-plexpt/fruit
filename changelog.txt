@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.50.0
+Date: 2025-03-18
+  Changes:
+    - Player force animals should also lay eggs. @haxxolotl
+    - Fix yeast cultivation recipe @haxxolotl
+    - Fix farm recipes doesn't' refresh spoilage @haxxolotl
+    - Fix restaurant recipe change voiding input items @haxxolotl
+
+---------------------------------------------------------------------------------------------------
 Version: 1.40.0
 Date: 2025-03-04
   Changes:
