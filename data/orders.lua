@@ -55,9 +55,6 @@ local trigger = {
     }
 }
 
-
-
-
 data:extend {
     {
         type = "item",
@@ -151,7 +148,7 @@ for k, od in pairs(orders) do
     for name, amount in pairs(od) do
         table.insert(ingredients, { type = "item", name = name, amount = amount, ignored_by_stats = 1 })
     end
-    local results = { { type = "item", name = packname, amount = 1 } }
+    local results = { { type = "item", name = packname, amount = 5 } }
     add_order_recipe(ingredients, results, "fruit_order_restaurant", index)
     index = index + 1
 end
