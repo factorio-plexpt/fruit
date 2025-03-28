@@ -81,7 +81,7 @@ for name, color in pairs(fruit) do
             enabled = false,
             category = "fruit_plant",
             crafting_machine_tint = { primary = color },
-            energy_required = 3600,
+            energy_required = 600,
             ingredients = {
                 { type = "item", name = name, amount = 1 },
                 { type = "fluid", name = "water", amount = 200 },
