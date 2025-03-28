@@ -9,7 +9,7 @@ local function egg_laying ()
 
     for k, surface in pairs(game.surfaces) do
 
-        if surface.name and string.find(surface.name, "^platform-") and string.find(surface.name, "^minime-") then
+        if surface.name and (string.find(surface.name, "^platform-") or string.find(surface.name, "^minime")) then
 
             --    skip
         else
