@@ -34,6 +34,18 @@ local items = {
     corn = { r = 1, g = 0.92, b = 0.31, a = 1 }, -- Amber 200
     wheat = { r = 0.9, g = 0.8, b = 0.5, a = 1 }, -- Amber 300
     soybeans = { r = 0.7, g = 0.6, b = 0.4, a = 1 }, -- Brown 400
+    chili = { r = 0.95, g = 0.23, b = 0.23, a = 1 }, -- Red 700
+    ["cocoa-pod"] = { r = 0.65, g = 0.45, b = 0.29, a = 1 }, -- Brown 600
+    ["coffee-seed"] = { r = 0.47, g = 0.33, b = 0.28, a = 1 }, -- Brown 800
+    ["rice-grain"] = { r = 0.95, g = 0.94, b = 0.85, a = 1 }, -- Grey 100
+    ginger = { r = 0.93, g = 0.8, b = 0.6, a = 1 }, -- Orange 100
+    agave = { r = 0.2, g = 0.6, b = 0.5, a = 1 }, -- Teal 700
+}
+
+local excludes = {
+    wheat = true,
+    ["coffee-seed"] = true,
+    ["rice-grain"] = true,
 }
 
 for name, color in pairs(items) do
@@ -65,7 +77,7 @@ for name, color in pairs(items) do
             enabled = false,
             category = "fruit_plant",
             crafting_machine_tint = { primary = color },
-            energy_required = 3600,
+            energy_required = 600,
             result_is_always_fresh = true,
             ingredients = {
                 { type = "item", name = name, amount = 1 },
@@ -73,10 +85,10 @@ for name, color in pairs(items) do
             },
             results = { { type = "item", name = name, amount = 2 } },
         }:add_unlock("vegetable-cultivation")
-
     end
 
-    table.insert(orders_recipe.restaurant, name)
+    if not excludes[name] then
+        table.insert(orders_recipe.restaurant, name)
+    end
 
 end
-
