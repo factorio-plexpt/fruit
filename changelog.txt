@@ -1,4 +1,24 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.51.0
+Date: 2025-03-27
+  Changes:
+    - Exclude some items that don't make sense from being created as order @haxxolotl
+    - Rebalance farm crafting time from 3600 to 600 @haxxolotl
+    - Rebalance restaurant science pack craft amount from 1 to 5 @haxxolotl
+    - Fix some recipes missing from farm (chili, cocoa-pod, coffee-seed, rice-grain, ginger, agave) @haxxolotl
+    - Remove recipe-less almond milk @haxxolotl
+    - Make player-force animals (ones spawning from playing made hatching) also lay eggs @haxxolotl
+
+---------------------------------------------------------------------------------------------------
+Version: 1.50.0
+Date: 2025-03-18
+  Changes:
+    - Player force animals should also lay eggs. @haxxolotl
+    - Fix yeast cultivation recipe @haxxolotl
+    - Fix farm recipes doesn't' refresh spoilage @haxxolotl
+    - Fix restaurant recipe change voiding input items @haxxolotl
+
+---------------------------------------------------------------------------------------------------
 Version: 1.40.0
 Date: 2025-03-04
   Changes:
