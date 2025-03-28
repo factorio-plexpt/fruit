@@ -224,18 +224,10 @@ local fruits = {
     agave = 1,
 }
 
-local size1024 = {
-    --["rice-grain"] = true,
-
-}
-
 fruit_plant_woodoria = fruit_plant_woodoria or {}
 
 for name, count in pairs(fruits) do
     local size = 512
-    if size1024[name] then
-        size = 1024
-    end
 
     make_tree(name, count, size)
     if mods["planet-woodoria"] then
