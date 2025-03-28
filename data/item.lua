@@ -96,6 +96,41 @@ local items = {
     "organic-fertilizer",
 }
 
+local excludes = {
+    "pie-crust",
+    "yeast",
+    "washed-potato",
+    "peeled-potato",
+
+    "wool",
+    "cleaned-wool",
+    "dried-wool",
+    "yarn",
+
+    "rice-grain",
+    "dried-rice",
+    "rice-flour",
+
+    "cocoa-pod",
+    "cocoa-bean",
+    "fermented-cocoa-bean",
+    "dried-cocoa-bean",
+    "cocoa-powder",
+
+    "wheat",
+    "dried-wheat",
+    "peeled-wheat",
+
+    "coffee-seed",
+    "fermented-coffee-seed",
+    "dried-coffee-seed",
+    "coffee-bean",
+    "coffee-powder",
+    "ash",
+    "poop",
+    "organic-fertilizer",
+}
+
 --特殊 subgroup 重定向
 local subgroups = {
     ["rice-grain"] = "vegetable",
@@ -119,7 +154,9 @@ local function add_item(name, subgroup)
         }
     }
 
-    table.insert(orders_recipe.restaurant, name)
+    if not excludes[name] then
+        table.insert(orders_recipe.restaurant, name)
+    end
 
 end
 

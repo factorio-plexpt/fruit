@@ -23,6 +23,16 @@ local animal_products = {
     turkey_feather = { r = 0.8, g = 0.7, b = 0.6, a = 1 }, -- Brown 200
 }
 
+local excludes = {
+    ["cow-egg"] = true,
+    ["sheep-egg"] = true,
+    feather = true,
+    leather = true,
+    rabbit_pelt = true,
+    goose_feather = true,
+    turkey_feather = true,
+}
+
 for name, color in pairs(animal_products) do
 
     if data.raw.item[name] then
@@ -53,23 +63,9 @@ for name, color in pairs(animal_products) do
         },
     })
 
-    if not data.raw.recipe[name] then
-
-        RECIPE {
-            type = "recipe",
-            name = name,
-            enabled = false,
-            category = "farming",
-            crafting_machine_tint = { primary = color },
-            energy_required = 3600,
-            ingredients = {
-                { type = "item", name = name, amount = 1 },
-                { type = "fluid", name = "water", amount = 200 },
-            },
-            results = { { type = "item", name = name, amount = 2 } },
-        }:add_unlock("animal-husbandry")
+    if not excludes[name] then
+        table.insert(orders_recipe.restaurant, name)
     end
-    table.insert(orders_recipe.restaurant, name)
 
 end
 
