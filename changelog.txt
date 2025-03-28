@@ -8,6 +8,7 @@ Date: 2025-03-27
     - Fix some recipes missing from farm (chili, cocoa-pod, coffee-seed, rice-grain, ginger, agave) @haxxolotl
     - Remove recipe-less almond milk @haxxolotl
     - Make player-force animals (ones spawning from playing made hatching) also lay eggs @haxxolotl
+    - Fix an game freeze edge case where Minime dungeon surface with active animal can't find tile to spill egg spawn @haxxolotl
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.50.0
